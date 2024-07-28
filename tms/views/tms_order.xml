@@ -24,14 +24,14 @@
                     type="object"
                     string="Start"
                     class="btn btn-primary text-uppercase"
-                    attrs="{'invisible': [('start_trip', '=', True), ('end_trip', '=', True)]}"
+                    attrs="{'invisible': ['|', ('start_trip', '=', True), ('end_trip', '=', True)]}"
                 />
                 <button
                     name="button_end_order"
                     type="object"
                     string="End"
                     class="btn btn-primary text-uppercase"
-                    attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', True)]}"
+                    attrs="{'invisible': ['|', ('start_trip', '=', False), ('end_trip', '=', True)]}"
                 />
             </tree>
         </field>
@@ -61,21 +61,21 @@
                         type="object"
                         string="Start"
                         class="btn btn-primary text-uppercase"
-                        attrs="{'invisible': [('start_trip', '!=', False), ('end_trip', '!=', False)]}"
+                        attrs="{'invisible': ['|', ('start_trip', '=', True), ('end_trip', '=', True)]}"
                     />
                     <button
                         name="button_refresh_duration"
                         type="object"
                         string="Refresh"
                         class="btn btn-secondary text-uppercase"
-                        attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', False)]}"
+                        attrs="{'invisible': ['|', ('start_trip', '=', False), ('end_trip', '=', True)]}"
                     />
                     <button
                         name="button_end_order"
                         type="object"
                         string="End"
                         class="btn btn-primary text-uppercase"
-                        attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', False)]}"
+                        attrs="{'invisible': ['|', ('start_trip', '=', False), ('end_trip', '=', True)]}"
                     />
                     <field
                         name="stage_id"
