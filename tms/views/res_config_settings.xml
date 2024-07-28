@@ -23,11 +23,19 @@
                                 <field name="group_tms_uom" string="Units of Measure" />
                             </div>
                             <div class="o_setting_right_pane">
-                                <label for="group_tms_uom" string="Units of Measure" />
+                                <label for="group_tms_uom" string="Unit Categories" />
                                 <div class="text-muted">
                                     <button
                                         name="%(uom.product_uom_categ_form_action)d"
-                                        icon="oi-arrow-right"
+                                        icon="fa-arrow-right"
+                                        type="action"
+                                        string="Units Categories"
+                                        class="btn-link"
+                                        attrs="{'invisible': [('group_tms_uom', '=', False)]}"
+                                    />
+                                    <button
+                                        name="%(uom.product_uom_form_action)d"
+                                        icon="fa-arrow-right"
                                         type="action"
                                         string="Units Of Measure"
                                         class="btn-link"
@@ -40,84 +48,73 @@
                             class="col-xs-12 col-md-6 o_setting_box"
                             attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="tms_length_uom"
-                                    string="Default Length UoM"
-                                    placeholder="e.g. m"
-                                />
-                            </div>
+                            <div class="o_setting_left_pane" />
                             <div class="o_setting_right_pane">
-                                <label
-                                    for="tms_length_uom"
-                                    string="Default Length UoM"
-                                />
+                                <span class="o_form_label">Default Length UoM</span>
+                                <div class="text-muted">
+                                    <field name="tms_length_uom" placeholder="e.g. m" />
+                                </div>
                             </div>
                         </div>
                         <div
                             class="col-xs-12 col-md-6 o_setting_box"
                             attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="tms_distance_uom"
-                                    string="Default Distance UoM"
-                                    placeholder="e.g. km"
-                                />
-                            </div>
+                            <div class="o_setting_left_pane" />
                             <div class="o_setting_right_pane">
-                                <label
-                                    for="tms_distance_uom"
-                                    string="Default Distance UoM"
-                                />
+                                <span class="o_form_label">Default Distance UoM</span>
+                                <div class="text-muted">
+                                    <field
+                                        name="tms_distance_uom"
+                                        placeholder="e.g. km"
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div
                             class="col-xs-12 col-md-6 o_setting_box"
                             attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="tms_weight_uom"
-                                    string="Default Weight UoM"
-                                    placeholder="e.g. kg"
-                                />
-                            </div>
+                            <div class="o_setting_left_pane" />
                             <div class="o_setting_right_pane">
-                                <label
-                                    for="tms_weight_uom"
-                                    string="Default Weight UoM"
-                                />
+                                <span class="o_form_label">Default Weight UoM</span>
+                                <div class="text-muted">
+                                    <field
+                                        name="tms_weight_uom"
+                                        placeholder="e.g. kg"
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div
                             class="col-xs-12 col-md-6 o_setting_box"
                             attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="tms_speed_uom"
-                                    string="Default Speed UoM"
-                                    placeholder="e.g. km/h"
-                                />
-                            </div>
+                            <div class="o_setting_left_pane" />
                             <div class="o_setting_right_pane">
-                                <label for="tms_speed_uom" string="Default Speed UoM" />
+                                <span class="o_form_label">Default Speed UoM</span>
+                                <div class="text-muted">
+                                    <field
+                                        name="tms_speed_uom"
+                                        placeholder="e.g. km/h"
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div
                             class="col-xs-12 col-md-6 o_setting_box"
                             attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <div class="o_setting_left_pane">
-                                <field
-                                    name="tms_time_uom"
-                                    string="Default Time UoM"
-                                    placeholder="e.g. Hours"
-                                />
-                            </div>
+
+                            <div class="o_setting_left_pane" />
                             <div class="o_setting_right_pane">
-                                <label for="tms_time_uom" string="Default Time UoM" />
+                                <span class="o_form_label">Default Time UoM</span>
+                                <div class="text-muted">
+                                    <field
+                                        name="tms_time_uom"
+                                        placeholder="e.g. Hours"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

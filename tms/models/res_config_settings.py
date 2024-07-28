@@ -52,35 +52,35 @@ class ResConfigSettings(models.TransientModel):
 
     tms_length_uom = fields.Many2one(
         "uom.uom",
-        domain="[('category_id', '=', 'Length / Distance')]",
+        # domain="[('category_id', '=', 'Length / Distance')]",
         default_model="res.config.settings",
         config_parameter="tms.default_length_uom",
     )
 
     tms_distance_uom = fields.Many2one(
         "uom.uom",
-        domain="[('category_id', '=', 'Length / Distance')]",
+        # domain="[('category_id', '=', 'Length / Distance')]",
         default_model="res.config.settings",
         config_parameter="tms.default_distance_uom",
     )
 
     tms_weight_uom = fields.Many2one(
         "uom.uom",
-        domain="[('category_id', '=', 'Weight')]",
+        # domain="[('category_id', '=', 'Weight')]",
         default_model="res.config.settings",
         config_parameter="tms.default_weight_uom",
     )
 
     tms_speed_uom = fields.Many2one(
         "uom.uom",
-        domain="[('category_id', '=', 'Speed')]",
+        # domain="[('category_id', '=', 'Speed')]",
         default_model="res.config.settings",
         config_parameter="tms.default_speed_uom",
     )
 
     tms_time_uom = fields.Many2one(
         "uom.uom",
-        domain="[('category_id', '=', 'Working Time')]",
+        # domain="[('category_id', '=', 'Working Time')]",
         default_model="res.config.settings",
         config_parameter="tms.default_time_uom",
     )
