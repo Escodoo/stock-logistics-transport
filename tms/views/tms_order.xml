@@ -24,14 +24,14 @@
                     type="object"
                     string="Start"
                     class="btn btn-primary text-uppercase"
-                    attrs="{'invisible': [('start_trip', '!=', False), ('end_trip', '!=', False)]}"
+                    attrs="{'invisible': [('start_trip', '=', True), ('end_trip', '=', True)]}"
                 />
                 <button
                     name="button_end_order"
                     type="object"
                     string="End"
                     class="btn btn-primary text-uppercase"
-                    attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', False)]}"
+                    attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', True)]}"
                 />
             </tree>
         </field>
@@ -138,7 +138,7 @@
                             <field name="route" />
                             <field
                                 name="route_id"
-                                attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', True)] }"
+                                attrs="{'invisible': [('route', '=', False)], 'required': [('route', '=', True)] }"
                             />
                             <field
                                 name="origin_id"
@@ -148,10 +148,6 @@
                                 name="destination_id"
                                 attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }"
                             />
-                        </group>
-                        <group groups="!tms.group_tms_route">
-                            <field name="origin_id" required="True" />
-                            <field name="destination_id" required="True" />
                         </group>
                     </group>
                     <group string="Description" name="description_grp">
