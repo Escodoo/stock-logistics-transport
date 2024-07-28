@@ -172,6 +172,7 @@
         <field name="model">tms.team</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name" />
                 <filter
                     name="is_active"
                     string="Archived"

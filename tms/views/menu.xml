@@ -174,13 +174,13 @@
         id="menu_config_fleet_models_models"
         sequence="20"
     />
-    <menuitem
+    <!-- <menuitem
         name="Categories"
         action="fleet.fleet_vehicle_model_category_action"
         parent="menu_config_fleet_models"
         id="menu_config_fleet_models_categories"
         sequence="30"
-    />
+    /> -->
 
     <menuitem
         id="menu_config_fleet_services"

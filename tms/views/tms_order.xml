@@ -7,9 +7,9 @@
         <field name="model">tms.order</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="stage" column_invisible="1" />
-                <field name="start_trip" column_invisible="1" />
-                <field name="end_trip" column_invisible="1" />
+                <field name="stage" attrs="{'column_invisible': True}" />
+                <field name="start_trip" attrs="{'column_invisible': True}" />
+                <field name="end_trip" attrs="{'column_invisible': True}" />
                 <field name="name" />
                 <field name="driver_id" />
                 <field name="route_id" />
@@ -24,14 +24,14 @@
                     type="object"
                     string="Start"
                     class="btn btn-primary text-uppercase"
-                    invisible="start_trip or end_trip"
+                    attrs="{'invisible': [('start_trip', '!=', False), ('end_trip', '!=', False)]}"
                 />
                 <button
                     name="button_end_order"
                     type="object"
                     string="End"
                     class="btn btn-primary text-uppercase"
-                    invisible="not start_trip or end_trip"
+                    attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', False)]}"
                 />
             </tree>
         </field>
@@ -61,21 +61,21 @@
                         type="object"
                         string="Start"
                         class="btn btn-primary text-uppercase"
-                        invisible="start_trip or end_trip"
+                        attrs="{'invisible': [('start_trip', '!=', False), ('end_trip', '!=', False)]}"
                     />
                     <button
                         name="button_refresh_duration"
                         type="object"
                         string="Refresh"
                         class="btn btn-secondary text-uppercase"
-                        invisible="not start_trip or end_trip"
+                        attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', False)]}"
                     />
                     <button
                         name="button_end_order"
                         type="object"
                         string="End"
                         class="btn btn-primary text-uppercase"
-                        invisible="not start_trip or end_trip"
+                        attrs="{'invisible': [('start_trip', '=', False), ('end_trip', '=', False)]}"
                     />
                     <field
                         name="stage_id"
@@ -96,12 +96,12 @@
                     <widget
                         name="web_ribbon"
                         title="Completed"
-                        invisible="stage != 'Completed'"
+                        attrs="{'invisible': [('stage', '!=', 'Completed')]}"
                     />
                     <widget
                         name="web_ribbon"
                         title="Cancelled"
-                        invisible="stage != 'Cancelled'"
+                        attrs="{'invisible': [('stage', '!=', 'Cancelled')]}"
                         bg_color="bg-danger"
                     />
 
@@ -124,13 +124,13 @@
                             <field
                                 name="driver_id"
                                 domain="[('id', 'in', driver_ids_domain)]"
-                                required="not crew_active"
+                                attrs="{'required': [('crew_active', '=', False)]}"
                             />
 
                             <field
                                 name="vehicle_id"
                                 domain="[('id', 'in', vehicle_ids_domain)]"
-                                required="not crew_active"
+                                attrs="{'required': [('crew_active', '=', False)]}"
                             />
 
                         </group>
@@ -138,18 +138,15 @@
                             <field name="route" />
                             <field
                                 name="route_id"
-                                invisible="not route"
-                                required="route"
+                                attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', True)] }"
                             />
                             <field
                                 name="origin_id"
-                                invisible="route"
-                                required="not route"
+                                attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }"
                             />
                             <field
                                 name="destination_id"
-                                invisible="route"
-                                required="not route"
+                                attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }"
                             />
                         </group>
                         <group groups="!tms.group_tms_route">
@@ -206,8 +203,8 @@
             <kanban
                 class="o_kanban_dashboard o_emphasize_colors"
                 default_group_by="stage_id"
-                group_create="False"
-                group_edit="False"
+                group_create="false"
+                group_edit="false"
             >
                 <field name="name" />
                 <field name="vehicle_id" />
@@ -362,10 +359,7 @@
                                     </div>
                                 </div>
                                 <div class="oe_kanban_bottom_right">
-                                    <field
-                                        name="driver_id"
-                                        widget="many2one_avatar_user"
-                                    />
+                                    <field name="driver_id" widget="many2one_avatar" />
                                 </div>
                             </div>
                         </div>

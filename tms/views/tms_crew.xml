@@ -80,6 +80,7 @@
         <field name="model">tms.crew</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name" />
                 <filter
                     name="is_active"
                     string="Archived"

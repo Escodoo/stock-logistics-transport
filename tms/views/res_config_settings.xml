@@ -5,135 +5,242 @@
         <field name="priority" eval="40" />
         <field name="inherit_id" ref="base.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//form" position="inside">
-                <app
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div
+                    class="app_settings_block"
                     data-string="Transport Management System"
                     string="Transport Management System"
-                    name="tms"
+                    data-key="tms"
                     groups="tms.group_tms_admin"
                 >
-                    <block title="Units" name="general_settings_container">
-                        <setting id="tms_uom">
-                            <field name="group_tms_uom" string="Units of Measure" />
-                            <div class="content-group">
-                                <div class="mt8" invisible="not group_tms_uom">
+                    <h2>Units</h2>
+                    <div
+                        class="row mt16 o_settings_container"
+                        id="general_settings_container"
+                    >
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_tms_uom" string="Units of Measure" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_tms_uom" string="Units of Measure" />
+                                <div class="text-muted">
                                     <button
                                         name="%(uom.product_uom_categ_form_action)d"
                                         icon="oi-arrow-right"
                                         type="action"
                                         string="Units Of Measure"
                                         class="btn-link"
+                                        attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                                     />
                                 </div>
                             </div>
-                        </setting>
-                        <setting />
-                        <setting id="tms_length_uom" invisible="not group_tms_uom">
-                            <field
-                                name="tms_length_uom"
-                                string="Default Length UoM"
-                                placeholder="e.g. m"
-                            />
-                        </setting>
-                        <setting id="tms_distance_uom" invisible="not group_tms_uom">
-                            <field
-                                name="tms_distance_uom"
-                                string="Default Distance UoM"
-                                placeholder="e.g. km"
-                            />
-                        </setting>
-                        <setting id="tms_weight_uom" invisible="not group_tms_uom">
-                            <field
-                                name="tms_weight_uom"
-                                string="Default Weight UoM"
-                                placeholder="e.g. kg"
-                            />
-                        </setting>
-                        <setting id="tms_speed_uom" invisible="not group_tms_uom">
-                            <field
-                                name="tms_speed_uom"
-                                string="Default Speed UoM"
-                                placeholder="e.g. km/h"
-                            />
-                        </setting>
-                        <setting id="tms_time_uom" invisible="not group_tms_uom">
-                            <field
-                                name="tms_time_uom"
-                                string="Default Time UoM"
-                                placeholder="e.g. Hours"
-                            />
-                        </setting>
-                    </block>
-                    <block title="Vehicles" name="vehicles_settings_container">
-                        <setting
-                            string="Manage Vehicle Insurance Expiration"
-                            help="Manage Vehicle Insurance Expiration Date Before A Trip"
+                        </div>
+                        <div
+                            class="col-xs-12 col-md-6 o_setting_box"
+                            attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <field name="group_tms_vehicle_insurance" />
-                            <span />
-                            <field
-                                name="vehicle_insurance_security_days"
-                                placeholder="Days before expiration"
-                                invisible="not group_tms_vehicle_insurance"
-                            />
-                            <div
-                                class="text-muted"
-                                invisible="not group_tms_vehicle_insurance"
-                            >
-                                Set the number of days before the expiration date of the vehicle insurance to show a
-                                warning.
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="tms_length_uom"
+                                    string="Default Length UoM"
+                                    placeholder="e.g. m"
+                                />
                             </div>
-                        </setting>
-                    </block>
-                    <block title="Drivers" name="drivers_settings_container">
-                        <setting
-                            string="Manage Teams"
-                            help="Manage teams that share the same process/stages"
-                        >
-                            <field name="group_tms_team" />
-                        </setting>
-                        <setting
-                            string="Manage Crews"
-                            help="Manage crews that share the same vehicle"
-                        >
-                            <field name="group_tms_crew" />
-                        </setting>
-                        <setting
-                            string="Manage Driver License Expiration"
-                            help="Manage Driver License Expiration Date Before A Trip"
-                        >
-                            <field name="group_tms_driver_license" />
-                            <span />
-                            <field
-                                name="driver_license_security_days"
-                                placeholder="Days before expiration"
-                                invisible="not group_tms_driver_license"
-                            />
-                            <div
-                                class="text-muted"
-                                invisible="not group_tms_driver_license"
-                            >
-                                Set the number of days before the expiration date of the driver license to show a
-                                warning.
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="tms_length_uom"
+                                    string="Default Length UoM"
+                                />
                             </div>
-                        </setting>
-                    </block>
-                    <block title="Trips" name="trips_settings_container">
-                        <setting
-                            string="Routes"
-                            help="Allow the use of predefined routes in trips"
+                        </div>
+                        <div
+                            class="col-xs-12 col-md-6 o_setting_box"
+                            attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <field name="group_tms_route" />
-                        </setting>
-                        <setting
-                            string="Stops"
-                            help="Enable the creation of stops in a route"
-                            invisible="not group_tms_route"
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="tms_distance_uom"
+                                    string="Default Distance UoM"
+                                    placeholder="e.g. km"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="tms_distance_uom"
+                                    string="Default Distance UoM"
+                                />
+                            </div>
+                        </div>
+                        <div
+                            class="col-xs-12 col-md-6 o_setting_box"
+                            attrs="{'invisible': [('group_tms_uom', '=', False)]}"
                         >
-                            <field name="group_tms_route_stop" />
-                        </setting>
-                    </block>
-                </app>
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="tms_weight_uom"
+                                    string="Default Weight UoM"
+                                    placeholder="e.g. kg"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="tms_weight_uom"
+                                    string="Default Weight UoM"
+                                />
+                            </div>
+                        </div>
+                        <div
+                            class="col-xs-12 col-md-6 o_setting_box"
+                            attrs="{'invisible': [('group_tms_uom', '=', False)]}"
+                        >
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="tms_speed_uom"
+                                    string="Default Speed UoM"
+                                    placeholder="e.g. km/h"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="tms_speed_uom" string="Default Speed UoM" />
+                            </div>
+                        </div>
+                        <div
+                            class="col-xs-12 col-md-6 o_setting_box"
+                            attrs="{'invisible': [('group_tms_uom', '=', False)]}"
+                        >
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="tms_time_uom"
+                                    string="Default Time UoM"
+                                    placeholder="e.g. Hours"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="tms_time_uom" string="Default Time UoM" />
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Vehicles</h2>
+                    <div
+                        class="row mt16 o_settings_container"
+                        id="vehicles_settings_container"
+                    >
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="group_tms_vehicle_insurance"
+                                    string="Manage Vehicle Insurance Expiration"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="group_tms_vehicle_insurance"
+                                    string="Manage Vehicle Insurance Expiration"
+                                />
+                                <div class="text-muted">
+                                    <field
+                                        name="vehicle_insurance_security_days"
+                                        placeholder="Days before expiration"
+                                        attrs="{'invisible': [('group_tms_vehicle_insurance', '=', False)]}"
+                                    />
+                                    <div
+                                        class="text-muted"
+                                        attrs="{'invisible': [('group_tms_vehicle_insurance', '=', False)]}"
+                                    >
+                                        Set the number of days before the expiration date of the vehicle insurance to show a warning.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Drivers</h2>
+                    <div
+                        class="row mt16 o_settings_container"
+                        id="drivers_settings_container"
+                    >
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_tms_team" string="Manage Teams" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_tms_team" string="Manage Teams" />
+                                <div class="text-muted">
+                                    Manage teams that share the same process/stages
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_tms_crew" string="Manage Crews" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_tms_crew" string="Manage Crews" />
+                                <div class="text-muted">
+                                    Manage crews that share the same vehicle
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="group_tms_driver_license"
+                                    string="Manage Driver License Expiration"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="group_tms_driver_license"
+                                    string="Manage Driver License Expiration"
+                                />
+                                <div class="text-muted">
+                                    <field
+                                        name="driver_license_security_days"
+                                        placeholder="Days before expiration"
+                                        attrs="{'invisible': [('group_tms_driver_license', '=', False)]}"
+                                    />
+                                    <div
+                                        class="text-muted"
+                                        attrs="{'invisible': [('group_tms_driver_license', '=', False)]}"
+                                    >
+                                        Set the number of days before the expiration date of the driver license to show a warning.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Trips</h2>
+                    <div
+                        class="row mt16 o_settings_container"
+                        id="trips_settings_container"
+                    >
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_tms_route" string="Routes" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_tms_route" string="Routes" />
+                                <div class="text-muted">
+                                    Allow the use of predefined routes in trips
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-xs-12 col-md-6 o_setting_box"
+                            attrs="{'invisible': [('group_tms_route', '=', False)]}"
+                        >
+                            <div class="o_setting_left_pane">
+                                <field name="group_tms_route_stop" string="Stops" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_tms_route_stop" string="Stops" />
+                                <div class="text-muted">
+                                    Enable the creation of stops in a route
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </xpath>
         </field>
     </record>
@@ -146,6 +253,4 @@
         <field name="target">inline</field>
         <field name="context">{'module': 'tms'}</field>
     </record>
-
-
 </odoo>

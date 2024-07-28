@@ -104,17 +104,27 @@ class TMSTeam(models.Model):
             team.order_ids = self.env["tms.order"].search(
                 [("team_id", "=", team.id), ("stage_id.name", "!=", "Completed")]
             )
-            data = self.env["tms.order"]._read_group(
+            data = self.env["tms.order"].read_group(
                 [("team_id", "=", team.id), ("stage_id.name", "!=", "Completed")],
                 ["stage_id"],
-                ["__count"],
+                ["stage_id"],
             )
-            team.trips_todo_count = sum(count for (_, count) in data)
+            team.trips_todo_count = sum(
+                count for item in data if len(item) == 2 for _, count in [item]
+            )
             team.trips_todo_count_draft = sum(
-                count for (stage_id, count) in data if stage_id.name == "Draft"
+                count
+                for item in data
+                if len(item) == 2
+                for stage_id, count in [item]
+                if stage_id.name == "Draft"
             )
             team.trips_todo_count_confirmed = sum(
-                count for (stage_id, count) in data if stage_id.name == "Confirmed"
+                count
+                for item in data
+                if len(item) == 2
+                for stage_id, count in [item]
+                if stage_id.name == "Confirmed"
             )
 
     _sql_constraints = [("name_uniq", "unique (name)", "Team name already exists!")]

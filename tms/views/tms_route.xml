@@ -84,7 +84,7 @@
                         </page>
                         <page
                             string="Stop Locations"
-                            invisible="not stop_locations"
+                            attrs="{'invisible': [('stop_locations', '=', False)]}"
                             groups="tms.group_tms_route_stop"
                         >
                             <field
@@ -114,6 +114,7 @@
         <field name="model">tms.route</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name" />
                 <filter
                     name="is_active"
                     string="Archived"

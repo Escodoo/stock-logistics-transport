@@ -21,7 +21,7 @@
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="stage" column_invisible="1" />
+                <field name="stage" attrs="{'column_invisible': True}" />
                 <field name="display_name" string="Name" />
                 <field name="age" />
                 <field name="gender" />
@@ -79,31 +79,31 @@
                         <field name="driver_type" />
                         <field
                             name="driver_license_number"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
                             name="driver_license_type"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
                             name="driver_license_expiration_date"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
                             name="driver_license_file"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
                             name="distance_traveled"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
                             name="distance_traveled_uom"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
                             name="driving_experience_years"
-                            invisible="not driver_type == 'terrestrial'"
+                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
                         />
                     </group>
                 </group>
@@ -120,14 +120,14 @@
             <kanban
                 class="o_kanban_dashboard o_emphasize_colors"
                 default_group_by="stage_id"
-                group_create="False"
-                group_edit="False"
+                group_create="false"
+                group_edit="false"
             >
                 <field name="display_name" />
                 <field name="team_id" />
                 <field name="crew_ids" />
                 <field name="mobile" />
-                <field name="avatar_128" />
+                <field name="image_128" />
                 <templates>
                     <t t-name="kanban-box">
                         <div
@@ -139,8 +139,8 @@
                                 <div class="o_kanban_card_content mw-100">
                                     <div class="o_kanban_image o_kanban_image_top_left">
                                         <img
-                                            t-attf-src="#{kanban_image('res.partner', 'avatar_128', record.id.raw_value)}"
-                                            t-att-alt="record.id.value"
+                                            t-attf-src="#{kanban_image('res.partner', 'image_128', record.raw_value)}"
+                                            t-att-alt="record.value"
                                             class="img-fluid rounded-circle"
                                         />
                                     </div>
