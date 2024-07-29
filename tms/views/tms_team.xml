@@ -83,7 +83,7 @@
                                         <a
                                             name="%(tms.action_tms_operation_trip)d"
                                             type="action"
-                                            context="{'search_default_team_id': id, 'search_default_stage': 'Draft'}"
+                                            context="{'search_default_team_id': active_id, 'search_default_stage': 'Draft'}"
                                         >
                                             <t
                                                 t-esc="record.trips_todo_count_draft.value"
@@ -97,7 +97,7 @@
                                         <a
                                             name="%(tms.action_tms_operation_trip)d"
                                             type="action"
-                                            context="{'search_default_team_id': id, 'search_default_stage': 'Confirmed'}"
+                                            context="{'search_default_team_id': active_id, 'search_default_stage': 'Confirmed'}"
                                         >
                                             <t
                                                 t-esc="record.trips_todo_count_confirmed.value"

@@ -42,21 +42,19 @@
                     <group>
                         <group string="Route Details">
                             <label for="distance">Distance</label>
-                            <div class="d-flex w-25">
+                            <div class="d-flex w-100">
                                 <field name="distance" class="w-25" />
                                 <field
                                     name="distance_uom"
-                                    placeholder="UoM"
                                     groups="tms.group_tms_uom"
                                     class="w-75"
                                 />
                             </div>
                             <label for="estimated_time">Estimated Time</label>
-                            <div class="d-flex w-25">
+                            <div class="d-flex w-100">
                                 <field name="estimated_time" class="w-25" />
                                 <field
                                     name="estimated_time_uom"
-                                    placeholder="UoM"
                                     groups="tms.group_tms_uom"
                                     class="w-75"
                                 />
