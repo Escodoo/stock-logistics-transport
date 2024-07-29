@@ -109,22 +109,16 @@ class TMSTeam(models.Model):
                 ["stage_id"],
                 ["stage_id"],
             )
-            team.trips_todo_count = sum(
-                count for item in data if len(item) == 2 for _, count in [item]
-            )
+            team.trips_todo_count = sum(item["stage_id_count"] for item in data)
             team.trips_todo_count_draft = sum(
-                count
+                item["stage_id_count"]
                 for item in data
-                if len(item) == 2
-                for stage_id, count in [item]
-                if stage_id.name == "Draft"
+                if item["stage_id"][1]._value == "Draft"
             )
             team.trips_todo_count_confirmed = sum(
-                count
+                item["stage_id_count"]
                 for item in data
-                if len(item) == 2
-                for stage_id, count in [item]
-                if stage_id.name == "Confirmed"
+                if item["stage_id"][1]._value == "Confirmed"
             )
 
     _sql_constraints = [("name_uniq", "unique (name)", "Team name already exists!")]
