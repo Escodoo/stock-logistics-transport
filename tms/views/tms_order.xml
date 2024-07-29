@@ -124,13 +124,11 @@
                             <field
                                 name="driver_id"
                                 domain="[('id', 'in', driver_ids_domain)]"
-                                attrs="{'required': [('crew_active', '=', False)]}"
                             />
 
                             <field
                                 name="vehicle_id"
                                 domain="[('id', 'in', vehicle_ids_domain)]"
-                                attrs="{'required': [('crew_active', '=', False)]}"
                             />
 
                         </group>
@@ -405,7 +403,7 @@
     <record id="action_tms_report_order" model="ir.actions.act_window">
         <field name="name">Trips</field>
         <field name="res_model">tms.order</field>
-        <field name="view_mode">graph</field>
+        <field name="view_mode">graph,tree</field>
         <field name="help" type="html">
             <p>
                 Trips Reports.
