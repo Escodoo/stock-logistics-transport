@@ -24,7 +24,7 @@
                         <group>
                             <field name="is_default" invisible="1" />
                             <field name="active" invisible="1" />
-                            <field name="name" readonly="1" />
+                            <field name="name" />
                             <field name="sequence" />
                             <field name="stage_type" />
                         </group>
