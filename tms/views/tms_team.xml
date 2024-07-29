@@ -67,7 +67,7 @@
                                 <div class="oe_kanban_bottom_left">
                                     <button
                                         class="btn btn-primary"
-                                        name="%(tms.action_tms_dash_order_view_kanban)d"
+                                        name="%(tms.action_tms_order_kanban)d"
                                         type="action"
                                     >
                                         <t t-esc="record.trips_todo_count.value" />
