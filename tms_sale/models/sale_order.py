@@ -160,9 +160,9 @@ class SaleOrder(models.Model):
         self.ensure_one()
         msg_tms_links = ""
         for tms_order in tms_orders:
-            tms_order.message_mail_with_source(
+            tms_order.message_post_with_view(
                 "mail.message_origin_link",
-                render_values={"self": tms_order, "origin": self},
+                values={"self": tms_order, "origin": self},
                 subtype_id=self.env.ref("mail.mt_note").id,
                 author_id=self.env.user.partner_id.id,
             )
