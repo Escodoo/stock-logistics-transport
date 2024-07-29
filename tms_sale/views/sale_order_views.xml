@@ -10,7 +10,7 @@
                     name="action_view_tms_order"
                     class="oe_stat_button"
                     icon="fa-car"
-                    invisible="tms_order_count == 0"
+                    attrs="{'invisible': [('tms_order_count', '=', 0)]}"
                     groups="tms.group_tms_user"
                 >
                     <field
@@ -22,7 +22,11 @@
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <field name="has_tms_product" invisible="1" />
-                <page name="tms_sale_page" string="TMS" invisible="not has_tms_product">
+                <page
+                    name="tms_sale_page"
+                    string="TMS"
+                    attrs="{'invisible': [('has_tms_product', '=', False)]}"
+                >
                     <group>
                         <group
                             name="tms_route_group"
@@ -32,18 +36,15 @@
                             <field name="tms_route_flag" />
                             <field
                                 name="tms_route_id"
-                                invisible="not tms_route_flag"
-                                required="tms_route_flag"
+                                attrs="{'invisible': [('tms_route_flag', '=', False)], 'required': [('tms_route_flag', '=', True)]}"
                             />
                             <field
                                 name="tms_origin_id"
-                                invisible="tms_route_flag"
-                                required="not tms_route_flag"
+                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': [('tms_route_flag', '=', False)]}"
                             />
                             <field
                                 name="tms_destination_id"
-                                invisible="tms_route_flag"
-                                required="not tms_route_flag"
+                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': [('tms_route_flag', '=', False)]}"
                             />
                         </group>
                         <group
@@ -51,17 +52,23 @@
                             string="Route"
                             groups="!tms.group_tms_route"
                         >
-                            <field name="tms_origin_id" required="True" />
-                            <field name="tms_destination_id" required="True" />
+                            <field
+                                name="tms_origin_id"
+                                attrs="{'required': [('tms_route_flag', '=', False)]}"
+                            />
+                            <field
+                                name="tms_destination_id"
+                                attrs="{'required': [('tms_route_flag', '=', False)]}"
+                            />
                         </group>
                         <group name="tms_schedule" string="Schedule">
                             <field
                                 name="tms_scheduled_date_start"
-                                required="has_tms_product"
+                                attrs="{'required': [('tms_route_flag', '=', True)]}"
                             />
                             <field
                                 name="tms_scheduled_date_end"
-                                required="has_tms_product"
+                                attrs="{'required': [('tms_route_flag', '=', True)]}"
                             />
                         </group>
                     </group>
