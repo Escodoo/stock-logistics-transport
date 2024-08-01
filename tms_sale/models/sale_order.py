@@ -1,5 +1,8 @@
 # Copyright (C) 2019 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+from datetime import datetime, timedelta
+
 from odoo import _, api, fields, models
 
 
@@ -26,8 +29,48 @@ class SaleOrder(models.Model):
         "res.partner", string="Destination", domain="[('tms_type', '=', 'location')]"
     )
 
-    tms_scheduled_date_start = fields.Datetime(string="Scheduled Start")
+    tms_scheduled_date_start = fields.Datetime(
+        string="Scheduled Start", default=datetime.now()
+    )
     tms_scheduled_date_end = fields.Datetime(string="Scheduled End")
+    tms_scheduled_duration = fields.Float(string="Scheduled Duration")
+
+    @api.onchange("tms_route_flag")
+    def _onchange_tms_route_flag(self):
+        if self.tms_route_flag:
+            self.tms_origin_id = None
+            self.tms_destination_id = None
+        else:
+            self.tms_route_id = None
+
+    @api.onchange("tms_route_id")
+    def _onchange_tms_route_id(self):
+        if self.tms_route_flag:
+            if self.tms_route_id.estimated_time_uom.name == "Days":
+                self.tms_scheduled_duration = self.tms_route_id.estimated_time * 24
+            else:
+                self.tms_scheduled_duration = self.tms_route_id.estimated_time
+        else:
+            self.tms_scheduled_duration = 0.0
+
+    @api.onchange("tms_scheduled_duration")
+    def _onchange_tms_scheduled_duration(self):
+        self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
+            hours=self.tms_scheduled_duration
+        )
+
+    @api.onchange("tms_scheduled_date_end")
+    def _onchange_tms_scheduled_date_end(self):
+        if self.tms_scheduled_date_end and self.tms_scheduled_date_start:
+            difference = self.tms_scheduled_date_end - self.tms_scheduled_date_start
+            self.tms_scheduled_duration = difference.total_seconds() / 3600
+
+    @api.onchange("tms_scheduled_date_start")
+    def _onchange_tms_scheduled_date_start(self):
+        if self.tms_scheduled_date_start:
+            self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
+                hours=self.tms_scheduled_duration
+            )
 
     @api.depends("order_line")
     def _compute_has_tms_product(self):
@@ -150,6 +193,9 @@ class SaleOrder(models.Model):
                 created_tms_orders |= new_tms_orders
                 # If FSM Orders were created, post a message to the Sale Order
                 sale._post_tms_message(new_tms_orders)
+
+        for tms_order in created_tms_orders:
+            tms_order._onchange_scheduled_date_end()
 
         return created_tms_orders
 

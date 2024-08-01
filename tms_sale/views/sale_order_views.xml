@@ -67,6 +67,10 @@
                                 attrs="{'required': [('tms_route_flag', '=', True)]}"
                             />
                             <field
+                                name="tms_scheduled_duration"
+                                attrs="{'required': [('tms_route_flag', '=', True)]}"
+                            />
+                            <field
                                 name="tms_scheduled_date_end"
                                 attrs="{'required': [('tms_route_flag', '=', True)]}"
                             />
