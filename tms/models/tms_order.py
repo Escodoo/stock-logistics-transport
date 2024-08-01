@@ -35,25 +35,37 @@ class TMSOrder(models.Model):
     sequence = fields.Integer(default=10)
 
     route = fields.Boolean(string="Use predefined route")
-    route_id = fields.Many2one("tms.route")
-    route_origin = fields.Char(related="route_id.origin_location_id.display_name")
-    route_destination = fields.Char(
-        related="route_id.destination_location_id.display_name"
-    )
+    route_id = fields.Many2one("tms.route", string="Route")
 
     origin_id = fields.Many2one(
         "res.partner",
         domain="[('tms_type', '=', 'location')]",
         context={"default_tms_type": "location"},
+        string="Origin Location",
     )
     destination_id = fields.Many2one(
         "res.partner",
         domain="[('tms_type', '=', 'location')]",
         context={"default_tms_type": "location"},
+        string="Destination Location",
     )
 
-    origin_location = fields.Char(string="Origin")
-    destination_location = fields.Char(string="Destination")
+    origin_location_id = fields.Many2one(
+        "res.partner", compute="_compute_locations", store=True, string="Origin"
+    )
+    destination_location_id = fields.Many2one(
+        "res.partner", compute="_compute_locations", store=True, string="Destination"
+    )
+
+    @api.depends("route", "route_id", "origin_id", "destination_id")
+    def _compute_locations(self):
+        for record in self:
+            if record.route and record.route_id:
+                record.origin_location_id = record.route_id.origin_location_id
+                record.destination_location_id = record.route_id.destination_location_id
+            else:
+                record.origin_location_id = record.origin_id
+                record.destination_location_id = record.destination_id
 
     driver_id = fields.Many2one(
         "res.partner",
@@ -98,7 +110,17 @@ class TMSOrder(models.Model):
         "uom.uom",
         domain="[('category_id', '=', 'Working Time')]",
         default=lambda self: self._default_time_uom_id(),
-        readonly="True",
+    )
+
+    is_closed = fields.Boolean(
+        "Is closed",
+        related="stage_id.is_closed",
+    )
+
+    priority = fields.Selection(
+        [("0", "Normal"), ("1", "Low"), ("2", "High"), ("3", "Very High")],
+        string="Priority",
+        help="Gives the sequence order when displaying a list of TMS orders.",
     )
 
     def _default_time_uom_id(self):
