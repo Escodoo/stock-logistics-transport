@@ -1,0 +1,29 @@
+<odoo>
+
+    <!-- Dashboard Menu -->
+    <menuitem
+        id="menu_tms_shipment_dash"
+        name="Shipments"
+        action="action_tms_shipment_dash"
+        parent="tms.dashboard"
+        sequence="10"
+    />
+
+    <!-- Operations Menu -->
+    <menuitem
+        id="menu_tms_shipment_operation"
+        name="All Shipments"
+        action="action_tms_shipment_operation"
+        parent="tms.operations"
+        sequence="10"
+    />
+
+    <!-- Reporting Menu -->
+    <menuitem
+        id="menu_tms_shipment_report"
+        name="Shipments"
+        action="action_tms_shipment_report"
+        parent="tms.reporting"
+        sequence="10"
+    />
+</odoo>

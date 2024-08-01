@@ -1,0 +1,116 @@
+<odoo>
+    <template id="report_tms_shipment_document">
+        <t t-call="web.external_layout">
+            <!-- <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" /> -->
+            <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" />
+            <div class="page">
+                <div class="oe_structure" />
+
+                <h2 class="mt16">Shipment Report</h2>
+                <table class="table table-sm">
+                    <tr>
+                        <th>Name</th>
+                        <td><t t-esc="doc.display_name" /></td>
+                    </tr>
+                    <tr t-if="doc.route">
+                        <th>Route</th>
+                        <td><t t-esc="doc.route_id.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Origin</th>
+                        <td><t t-esc="doc.origin_location_id.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                        <td><t t-esc="doc.destination_location_id.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Driver</th>
+                        <td><t t-esc="doc.driver_id.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Vehicle</th>
+                        <td><t t-esc="doc.vehicle_id.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled Start</th>
+                        <td><t t-esc="doc.scheduled_date_start" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled End</th>
+                        <td><t t-esc="doc.scheduled_date_end" /></td>
+                    </tr>
+
+                </table>
+
+                <t t-if="doc.route_id and doc.route_id.stop_locations">
+                    <h3>Route Stops</h3>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Stop</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.route_id.stop_location_ids" t-as="stop">
+                                <tr>
+                                    <td><t t-esc="stop.display_name" /></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+
+                <h3>Orders</h3>
+                <table name="tms_orders" class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Sequence</th>
+                            <th>Order</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Schedule Date End</th>
+                        </tr>
+                    </thead>
+                    <tbody name="tms_orders">
+                        <t t-foreach="doc.tms_sorted_order_ids" t-as="order">
+                            <tr>
+                                <td><t t-esc="order.shipment_sequence" /></td>
+                                <td><t t-esc="order.display_name" /></td>
+                                <td><t
+                                        t-esc="order.origin_location_id.display_name"
+                                    /></td>
+                                <td><t
+                                        t-esc="order.destination_location_id.display_name"
+                                    /></td>
+                                <td><t t-esc="order.scheduled_date_end" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_tms_shipment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="tms_shipment.report_tms_shipment_document" />
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_tms_shipment" model="ir.actions.report">
+        <field name="name">Shipment</field>
+        <field name="model">tms.shipment</field>
+        <field name="report_name">tms_shipment.report_tms_shipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_file">tms_shipment.report_tms_shipment</field>
+        <field name="binding_model_id" ref="model_tms_shipment" />
+        <field name="binding_type">report</field>
+        <field
+            name="print_report_name"
+        >'Shipment-%s%s' % (object.name, "-" + object.stage_id.name)</field>
+    </record>
+
+</odoo>

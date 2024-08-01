@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_shipment_form_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="tms_shipment.tms_shipment_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='tms_order_ids']/tree/field[@name='stage_id']"
+                position="before"
+            >
+                <field name="is_pickup_order" optional="show" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

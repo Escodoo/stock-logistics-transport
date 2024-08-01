@@ -1,0 +1,14 @@
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="tms_shipment_comp_rule" model="ir.rule">
+        <field name="name">TMS Shipments Entry</field>
+        <field name="model_id" ref="model_tms_shipment" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>
