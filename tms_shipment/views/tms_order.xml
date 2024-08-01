@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_order_form_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_form" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="shipment_id" />
+            </field>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="tms_order_tree_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_tree" />
+        <field name="arch" type="xml">
+            <field name="stage_id" position="after">
+                <field name="shipment_id" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tms_order_search_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_search" />
+        <field name="arch" type="xml">
+            <filter name="is_active" position="after">
+                <separator />
+                <filter
+                    name="has_shipment"
+                    string="Has Shipment"
+                    domain="[('shipment_id', '!=', False)]"
+                />
+                <filter
+                    name="no_has_shipment"
+                    string="No Has Shipment"
+                    domain="[('shipment_id', '=', False)]"
+                />
+            </filter>
+            <group position="inside">
+                <filter
+                    name="shipment"
+                    string="Shipment"
+                    domain="[]"
+                    context="{'group_by':'shipment_id'}"
+                />
+            </group>
+        </field>
+    </record>
+
+    <!--
+    <record model="ir.ui.view" id="tms_order_tree_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="TODO othermodule.tree_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record> -->
+
+</odoo>

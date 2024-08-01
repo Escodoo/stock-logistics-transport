@@ -1,0 +1,738 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_shipment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-01 16:43+0000\n"
+"PO-Revision-Date: 2024-08-01 14:39-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4.3\n"
+
+#. module: tms_shipment
+#: model:ir.actions.report,print_report_name:tms_shipment.action_report_tms_shipment
+msgid "'Shipment-%s%s' % (object.name, \"-\" + object.stage_id.name)"
+msgstr "'Remessa-%s%s' % (object.name, \"-\" + object.stage_id.name)"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid ""
+"<i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow icon"
+"\" title=\"Arrow\"/>"
+msgstr ""
+"<i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow icon"
+"\" title=\"Arrow\"/>"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid ""
+"<span class=\"fa fa-car me-2\" aria-label=\"Vehicle\" title=\"Vehicle\"/>"
+msgstr ""
+"<span class=\"fa fa-car me-2\" aria-label=\"Vehicle\" title=\"Vehicle\"/>"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid ""
+"<span class=\"fa fa-map-o me-2\" title=\"Route\" groups=\"tms.group_tms_route"
+"\"/>"
+msgstr ""
+"<span class=\"fa fa-map-o me-2\" title=\"Route\" groups=\"tms.group_tms_route"
+"\"/>"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "<span class=\"w-75\">Hours</span>"
+msgstr "<span class=\"w-75\">Horas</span>"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid "<span>Reporting</span>"
+msgstr "<span>Relatórios</span>"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid "<span>View</span>"
+msgstr "<span>Visualizar</span>"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_needaction
+msgid "Action Needed"
+msgstr "Ação Necessária"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_ids
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoração de Atividade Excepcional"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_state
+msgid "Activity State"
+msgstr "Estado da Atividade"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone do Tipo de Atividade"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Add a description for the order..."
+msgstr "Adicione uma descrição para o pedido..."
+
+#. module: tms_shipment
+#: model:ir.ui.menu,name:tms_shipment.menu_tms_shipment_operation
+msgid "All Shipments"
+msgstr "Todas as Remessas"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_search
+msgid "Archived"
+msgstr "Arquivado"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Anexos"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_create_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__company_id
+msgid "Company related to this shipment"
+msgstr "Empresa relacionada a esta remessa"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Completed"
+msgstr "Concluído"
+
+#. module: tms_shipment
+#: model:ir.actions.act_window,name:tms_shipment.action_shipment_wizard
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_create_form
+msgid "Create Shipment"
+msgstr "Criar Remessa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__create_uid
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__create_date
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__crew_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__crew_id
+msgid "Crew"
+msgstr "Tripulação"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__crew_active
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__crew_active
+msgid "Crew Active"
+msgstr "Tripulação Ativa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__crew_ids_domain
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__crew_ids_domain
+msgid "Crew Ids Domain"
+msgstr "Ids da Equipe Domínio"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__date_end
+msgid "Date End"
+msgstr "Data Final"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__date_start
+msgid "Date Start"
+msgstr "Data Inicial"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__description
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Description"
+msgstr "Descrição"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__destination_location_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__destination_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Destination"
+msgstr "Destino"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__destination_id
+msgid "Destination Location"
+msgstr "Localização do Destino"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_order__display_name
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__display_name
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_stage__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__driver_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__driver_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Driver"
+msgstr "Motorista"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__driver_ids_domain
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__driver_ids_domain
+msgid "Driver Ids Domain"
+msgstr "Driver Ids Domínio"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Duration"
+msgstr "Duração"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_tree
+msgid "End"
+msgstr "Fim"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__end_trip
+msgid "End Trip"
+msgstr "Viagem Final"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canais)"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Parceiros)"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ícone do Font awesome ex. fa-tasks"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_create_form
+msgid "General Info"
+msgstr "Informações Gerais"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_order_search_view
+msgid "Has Shipment"
+msgstr "Tem Remessa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_order__id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_stage__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícone para indicar uma exceção na atividade."
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__message_needaction
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Se estiver marcado, novas mensagens que requerem a sua atenção."
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se marcada, algumas mensagens têm um erro de entrega."
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_is_follower
+msgid "Is Follower"
+msgstr "É Seguidor"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__is_closed
+msgid "Is closed"
+msgstr "Está fechado"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_order____last_update
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create____last_update
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_stage____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__write_uid
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__write_uid
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__write_date
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__write_date
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Anexo Principal"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro de Entrega de Mensagem"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo das Minha Atividade"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__name
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__stage
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Name"
+msgstr "Nome"
+
+#. module: tms_shipment
+#: code:addons/tms_shipment/models/tms_shipment.py:0
+#, python-format
+msgid "New"
+msgstr "Novo"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Prazo da Próxima Atividade"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumo da Próxima Atividade"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo da Atividade Seguinte"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_order_search_view
+msgid "No Has Shipment"
+msgstr "Não tem Remessa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Ações"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensagens que requer uma ação"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero de mensagens com um erro de entrega"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Quantidade de mensagens não lidas"
+
+#. module: tms_shipment
+#: code:addons/tms_shipment/wizards/tms_shipment_create.py:0
+#, python-format
+msgid "One or more orders already have a shipment"
+msgstr "Um ou mais pedidos já têm uma remessa"
+
+#. module: tms_shipment
+#: code:addons/tms_shipment/wizards/tms_shipment_create.py:0
+#, python-format
+msgid "One or more orders are in a closed stage"
+msgstr "Um ou mais pedidos estão em um estágio fechado"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Order"
+msgstr "Pedido"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Orders"
+msgstr "Pedidos"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__origin_location_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__origin_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Origin"
+msgstr "Origem"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__origin_id
+msgid "Origin Location"
+msgstr "Localização da Origem"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__overwrite_route_data
+msgid "Overwrite Order Route"
+msgstr "Substituir Rota da Pedido"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__overwrite_scheduled_date
+msgid "Overwrite Order Scheduled Date"
+msgstr "Substituir a Data Programada do Pedido"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_create_form
+msgid "Parameters"
+msgstr "Parâmetros"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Planning"
+msgstr "Planejamento"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Refresh"
+msgstr "Atualizar"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__activity_user_id
+msgid "Responsible User"
+msgstr "Utilizador Responsável"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__route_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__route_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid "Route"
+msgstr "Rota"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_create_form
+msgid "Route Info"
+msgstr "Informações Sobre a Rota"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Route Stops"
+msgstr "Gerenciar Paradas de Rota"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Schedule Date End"
+msgstr "Data da Programação Fim"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_create_form
+msgid "Schedule Info"
+msgstr "Informações do Cronograma"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__scheduled_duration
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__scheduled_duration
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Scheduled Duration"
+msgstr "Duração Programada"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__diff_duration
+msgid "Scheduled Duration - Actual Duration"
+msgstr "Duração Programada - Duração real"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__scheduled_date_end
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__scheduled_date_end
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Scheduled End"
+msgstr "Final Programado"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__scheduled_date_start
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__scheduled_date_start
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Scheduled Start"
+msgstr "Início Programado"
+
+#. module: tms_shipment
+#: model:ir.model.constraint,message:tms_shipment.constraint_tms_shipment_duration_ge_zero
+msgid "Scheduled duration must be greater than or equal to zero!"
+msgstr "A duração programada deve ser maior ou igual a zero!"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__scheduled_duration
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment_create__scheduled_duration
+msgid "Scheduled duration of the work in hours"
+msgstr "Duração programada do trabalho em horas"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__sequence
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__is_closed
+msgid "Services in this stage are considered as closed."
+msgstr "Os serviços neste estágio são considerados fechados."
+
+#. module: tms_shipment
+#: model:ir.actions.report,name:tms_shipment.action_report_tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_order__shipment_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_order_search_view
+msgid "Shipment"
+msgstr "Remessa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__duration
+msgid "Shipment Duration"
+msgstr "Duração da Remessa"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Shipment Report"
+msgstr "Relatório de Remessa"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_order__shipment_sequence
+msgid "Shipment Sequence"
+msgstr "Sequência de Remessa"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Shipment Tracking"
+msgstr "Rastreamento da Remessa"
+
+#. module: tms_shipment
+#: model:ir.model,name:tms_shipment.model_tms_shipment_create
+msgid "Shipment Wizard Create"
+msgstr "Assistente de Criação de Remessa"
+
+#. module: tms_shipment
+#: model:ir.model.constraint,message:tms_shipment.constraint_tms_shipment_name_uniq
+msgid "Shipment name already exists!"
+msgstr "O nome da remessa já existe!"
+
+#. module: tms_shipment
+#: model:ir.actions.act_window,name:tms_shipment.action_tms_shipment_dash
+#: model:ir.actions.act_window,name:tms_shipment.action_tms_shipment_operation
+#: model:ir.actions.act_window,name:tms_shipment.action_tms_shipment_report
+#: model:ir.ui.menu,name:tms_shipment.menu_tms_shipment_dash
+#: model:ir.ui.menu,name:tms_shipment.menu_tms_shipment_report
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_graph
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_pivot
+msgid "Shipments"
+msgstr "Remessas"
+
+#. module: tms_shipment
+#: model:ir.actions.act_window,name:tms_shipment.action_tms_shipment_kanban
+msgid "Shipments Kanban"
+msgstr "Kanban de Remessas "
+
+#. module: tms_shipment
+#: model_terms:ir.actions.act_window,help:tms_shipment.action_tms_shipment_report
+msgid "Shipments Reports."
+msgstr "Relatórios de Remessas."
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__stage_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_search
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: tms_shipment
+#: model:ir.actions.act_window,name:tms_shipment.action_tms_shipment_config_stage
+msgid "Stages"
+msgstr "Estágios"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_tree
+msgid "Start"
+msgstr "Iniciar"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__start_trip
+msgid "Start Trip"
+msgstr "Iniciar Viagem"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estados baseados nas atividades\n"
+"Vencida: Ultrapassada a data planeada\n"
+"Hoje: Data da atividade é a de hoje\n"
+"Planeada: Atividades futuras."
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Stop"
+msgstr "Parar"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__tms_order_ids
+msgid "TMS Orders"
+msgstr "Pedidos TMS"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_kanban
+msgid "Tasks Analysis"
+msgstr "Análise de Tarefas"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__team_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__team_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_search
+msgid "Team"
+msgstr "Equipe"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__time_uom
+msgid "Time Uom"
+msgstr "Uom de Tempo"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__tms_sorted_order_ids
+msgid "Tms Sorted Order"
+msgstr "Pedidos TMS Ordenadas"
+
+#. module: tms_shipment
+#: model:ir.model,name:tms_shipment.model_tms_order
+msgid "Transport Management System Order"
+msgstr "Pedido de Sistema de Gerenciamento de Transporte"
+
+#. module: tms_shipment
+#: model:ir.model,name:tms_shipment.model_tms_stage
+msgid "Transport Management System Stage"
+msgstr "Estágio do Sistema de Gerenciamento de Transporte"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Trip Name"
+msgstr "Nome da Viagem"
+
+#. module: tms_shipment
+#: model_terms:ir.ui.view,arch_db:tms_shipment.tms_shipment_view_form
+msgid "Trips"
+msgstr "Viagens"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de atividade de exceção registada."
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_unread
+msgid "Unread Messages"
+msgstr "Mensagens Não Lidas"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de Mensagens Não Lidas"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__route
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__route
+msgid "Use predefined route"
+msgstr "Usar rota predefinida"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__vehicle_id
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__vehicle_id
+#: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
+msgid "Vehicle"
+msgstr "Veículo"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__vehicle_ids_domain
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__vehicle_ids_domain
+msgid "Vehicle Ids Domain"
+msgstr "Ids de Veículos Domínio"
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Website"
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do website"
+
+#. module: tms_shipment
+#: code:addons/tms_shipment/models/tms_shipment.py:0
+#, python-format
+msgid "You must create an TMS shipment stage first."
+msgstr "Primeiro, você deve criar uma etapa de remessa do TMS."

@@ -1,0 +1,68 @@
+<odoo>
+<record id="view_tms_shipment_create_form" model="ir.ui.view">
+    <field name="name">tms.shipment.create.form</field>
+    <field name="model">tms.shipment.create</field>
+    <field name="arch" type="xml">
+        <form string="Create Shipment">
+            <group name="general_info" string="General Info">
+                <field name="crew_active" invisible="1" />
+                <field name="crew_ids_domain" invisible="1" />
+                <field name="driver_ids_domain" invisible="1" />
+                <field name="vehicle_ids_domain" invisible="1" />
+                <field name="team_id" groups="tms.group_tms_team" />
+                <field
+                        name="crew_id"
+                        groups="tms.group_tms_crew"
+                        domain="[('id', 'in', crew_ids_domain)]"
+                    />
+                <field name="driver_id" domain="[('id', 'in', driver_ids_domain)]" />
+                <field name="vehicle_id" domain="[('id', 'in', vehicle_ids_domain)]" />
+            </group>
+            <group name="route" string="Route Info">
+                <field name="route" groups="tms.group_tms_route" />
+                <field
+                        name="route_id"
+                        attrs="{'invisible': [('route', '=', False)], 'required': [('route', '=', True)] }"
+                    />
+                <field
+                        name="origin_id"
+                        attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }"
+                    />
+                <field
+                        name="destination_id"
+                        attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }"
+                    />
+            </group>
+            <group name="schedule" string="Schedule Info">
+                <field name="scheduled_date_start" />
+                <field name="scheduled_duration" />
+                <field name="scheduled_date_end" />
+            </group>
+
+            <group name="parameters" string="Parameters">
+                <field name="overwrite_route_data" groups="tms.group_tms_route" />
+                <field name="overwrite_scheduled_date" />
+            </group>
+            <footer>
+                <button
+                        string="Create Shipment"
+                        type="object"
+                        name="create_shipment"
+                        class="btn-primary"
+                    />
+                <button string="Cancel" class="btn-secondary" special="cancel" />
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="action_shipment_wizard" model="ir.actions.act_window">
+    <field name="name">Create Shipment</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">tms.shipment.create</field>
+    <field name="binding_model_id" ref="tms.model_tms_order" />
+    <field name="view_id" ref="view_tms_shipment_create_form" />
+    <field name="binding_view_types">list,form</field>
+    <field name="target">new</field>
+</record>
+</odoo>
