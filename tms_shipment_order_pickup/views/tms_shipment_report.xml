@@ -1,0 +1,15 @@
+<odoo>
+    <template
+        id="report_tms_shipment_document"
+        inherit_id="tms_shipment.report_tms_shipment_document"
+    >
+        <xpath expr="//table[@name='tms_orders']/thead/tr" position="inside">
+            <th>Pickup Order</th>
+        </xpath>
+        <xpath expr="//tbody[@name='tms_orders']/t/tr" position="inside">
+            <td><t t-esc="order.is_pickup_order" /></td>
+        </xpath>
+    </template>
+
+
+</odoo>
