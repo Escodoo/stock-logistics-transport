@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_order_form_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_form" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="is_pickup_order" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tms_order_tree_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_tree" />
+        <field name="arch" type="xml">
+            <field name="stage_id" position="before">
+                <field name="is_pickup_order" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tms_order_kanban_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_kanban" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="is_pickup_order" />
+            </field>
+            <xpath
+                expr="//div[hasclass('o_kanban_primary_left')]/div/span"
+                position="after"
+            >
+                <span
+                    class="o_text_overflow text-muted"
+                    t-if="record.is_pickup_order.raw_value"
+                >
+                    <span
+                        class="fa fa-level-down me-2"
+                        aria-label="Pickup Order"
+                        title="Pickup Order"
+                    />
+                    <t t-esc="'Pickup Order'" />
+                </span>
+
+            </xpath>
+        </field>
+
+    </record>
+
+    <record model="ir.ui.view" id="tms_order_search_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms.tms_order_view_search" />
+        <field name="arch" type="xml">
+            <filter name="is_active" position="after">
+                <separator />
+                <filter
+                    name="is_pickup_order"
+                    string="Is Pickup Order"
+                    domain="[('is_pickup_order', '=', True)]"
+                />
+                <filter
+                    name="no_pickup_order"
+                    string="No Pickup Order"
+                    domain="[('is_pickup_order', '=', 'False')]"
+                />
+            </filter>
+        </field>
+    </record>
+
+<!--
+    <record model="ir.actions.act_window" id="tms_order_act_window">
+        <field name="name">Tms Order</field>
+        <field name="res_model">tms.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="tms_order_menu">
+        <field name="name">Tms Order</field>
+        <field name="parent_id" ref="xmlid of parent menu"/>
+        <field name="action" ref="tms_order_act_window"/>
+        <field name="sequence" eval="16"/>
+    </record> -->
+
+</odoo>
