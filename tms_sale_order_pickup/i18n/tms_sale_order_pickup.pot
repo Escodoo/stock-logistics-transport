@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_sale_order_pickup
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-01 16:43+0000\n"
+"PO-Revision-Date: 2024-08-01 16:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_need_pickup_order
+msgid "Need Pickup Order"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_destination_id
+msgid "Pickup Destination Location"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model_terms:ir.ui.view,arch_db:tms_sale_order_pickup.sale_order_view_form
+msgid "Pickup Info"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_origin_id
+msgid "Pickup Origin Location"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_route_id
+msgid "Pickup Route"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_scheduled_duration
+msgid "Pickup Scheduled Duration"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_scheduled_date_end
+msgid "Pickup Scheduled End"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_scheduled_date_start
+msgid "Pickup Scheduled Start"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model,name:tms_sale_order_pickup.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model_terms:ir.ui.view,arch_db:tms_sale_order_pickup.sale_order_view_form
+msgid "Schedule Pickup"
+msgstr ""
+
+#. module: tms_sale_order_pickup
+#: model:ir.model.fields,field_description:tms_sale_order_pickup.field_sale_order__tms_pickup_route_flag
+msgid "Use predefined pickup route"
+msgstr ""
