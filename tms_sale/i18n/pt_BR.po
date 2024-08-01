@@ -1,0 +1,218 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-01 16:59+0000\n"
+"PO-Revision-Date: 2024-08-01 14:03-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4.3\n"
+
+#. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.tms_order_view_form
+msgid "<span class=\"o_stat_text\">Sale Order</span>"
+msgstr "<span class=\"o_stat_text\">Pedido de Venda</span>"
+
+#. module: tms_sale
+#: model:ir.model.fields.selection,name:tms_sale.selection__product_template__tms_tracking__sale
+msgid "Create one TMS order per sale order"
+msgstr "Criar um pedido TMS por pedido de venda"
+
+#. module: tms_sale
+#: model:ir.model.fields.selection,name:tms_sale.selection__product_template__tms_tracking__line
+msgid "Create one TMS order per sale order line"
+msgstr "Criar um pedido TMS por linha de pedido de venda"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_destination_id
+msgid "Destination"
+msgstr "Destino"
+
+#. module: tms_sale
+#: model:ir.model.fields,help:tms_sale.field_product_product__tms_tracking
+#: model:ir.model.fields,help:tms_sale.field_product_template__tms_tracking
+msgid ""
+"Determines what happens upon sale order confirmation:\n"
+"                - None: nothing additional, default behavior.\n"
+"                - Per Sale Order: One TMS Order will be created for the "
+"sale.\n"
+"                - Per Sale Order Line: One TMS Order for each sale order "
+"line\n"
+"                will be created."
+msgstr ""
+"Determina o que acontece na confirmação do pedido de venda:\n"
+"                - None: nada adicional, comportamento padrão.\n"
+"                - Por pedido de venda: Um pedido TMS será criado para a "
+"venda.\n"
+"                - Por linha de pedido de venda: Será criada um pedido "
+"TMS para cada linha de pedido de venda\n"
+"                será criada."
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_product_template__display_name
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__display_name
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: tms_sale
+#: model:ir.model.fields.selection,name:tms_sale.selection__product_template__tms_tracking__no
+msgid "Don't create TMS order"
+msgstr "Não crie um pedido de TMS"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__has_tms_product
+msgid "Has Tms Product"
+msgstr "Possui Produto Tms"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_product_template__id
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__id
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__id
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_product_product__tms_product
+#: model:ir.model.fields,field_description:tms_sale.field_product_template__tms_product
+msgid "Is a TMS Product?"
+msgstr "É um produto TMS?"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_product_template____last_update
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order____last_update
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__tms_order_id
+msgid "Order"
+msgstr "Pedido"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_origin_id
+msgid "Origin"
+msgstr "Origem"
+
+#. module: tms_sale
+#: model:ir.model,name:tms_sale.model_product_template
+msgid "Product Template"
+msgstr "Modelo de Produto"
+
+#. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.sale_order_view_form
+msgid "Route"
+msgstr "Rota"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_route_id
+msgid "Routes"
+msgstr "Rotas"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order__sale_id
+msgid "Sale"
+msgstr "Venda"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order__sale_line_id
+msgid "Sale Line"
+msgstr "Linha de Venda"
+
+#. module: tms_sale
+#: model:ir.model,name:tms_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Pedidos de Venda"
+
+#. module: tms_sale
+#: model:ir.model,name:tms_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Linha de Pedido de Venda"
+
+#. module: tms_sale
+#: code:addons/tms_sale/models/tms_order.py:0
+#, python-format
+msgid "Sales Orders"
+msgstr "Pedidos de Venda"
+
+#. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.sale_order_view_form
+msgid "Schedule"
+msgstr "Cronograma"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_scheduled_duration
+msgid "Scheduled Duration"
+msgstr "Duração Programada"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_scheduled_date_end
+msgid "Scheduled End"
+msgstr "Final Programado"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_scheduled_date_start
+msgid "Scheduled Start"
+msgstr "Início Programado"
+
+#. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.product_template_view_form
+#: model_terms:ir.ui.view,arch_db:tms_sale.sale_order_view_form
+msgid "TMS"
+msgstr "TMS"
+
+#. module: tms_sale
+#: model:ir.model.fields,help:tms_sale.field_sale_order_line__tms_order_id
+msgid "TMS Order generated by the sales order item"
+msgstr "Pedido TMS gerado pelo item do pedido do cliente"
+
+#. module: tms_sale
+#: code:addons/tms_sale/models/sale_order.py:0
+#, python-format
+msgid "TMS Order(s) Created: %s"
+msgstr "Pedido(s) TMS criado(s): %s"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_order_count
+#: model_terms:ir.ui.view,arch_db:tms_sale.sale_order_view_form
+msgid "TMS Orders"
+msgstr "Pedidos TMS"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_order_ids
+msgid "TMS orders associated to this sale"
+msgstr "Pedidos de TMS associados a esta venda"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_product_product__tms_tracking
+#: model:ir.model.fields,field_description:tms_sale.field_product_template__tms_tracking
+msgid "Tms Tracking"
+msgstr "Rastreamento de Tms"
+
+#. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.product_template_view_form
+msgid "Tracking"
+msgstr "Rastreamento"
+
+#. module: tms_sale
+#: model:ir.model,name:tms_sale.model_tms_order
+msgid "Transport Management System Order"
+msgstr "Pedido de Sistema de Gerenciamento de Transporte"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_route_flag
+msgid "Use Routes"
+msgstr "Rotas de Uso"
