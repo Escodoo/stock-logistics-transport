@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 13:32+0000\n"
-"PO-Revision-Date: 2024-07-29 14:34-0300\n"
+"POT-Creation-Date: 2024-08-01 17:04+0000\n"
+"PO-Revision-Date: 2024-08-01 14:10-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -25,15 +25,6 @@ msgid ""
 msgstr ""
 "<i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow icon"
 "\" title=\"Arrow\"/>"
-
-#. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid ""
-"<i groups=\"tms.group_tms_route\" class=\"fa fa-long-arrow-right mx-2 "
-"oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>"
-msgstr ""
-"<i groups=\"tms.group_tms_route\" class=\"fa fa-long-arrow-right mx-2 "
-"oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.fleet_vehicle_inherit_view_form
@@ -67,8 +58,12 @@ msgstr ""
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "<span class=\"fa fa-map-o me-2\" title=\"Route\"/>"
-msgstr "<span class=\"fa fa-map-o me-2\" title=\"Route\"/>"
+msgid ""
+"<span class=\"fa fa-map-o me-2\" title=\"Route\" groups=\"tms.group_tms_route"
+"\"/>"
+msgstr ""
+"<span class=\"fa fa-map-o me-2\" title=\"Route\" groups=\"tms.group_tms_route"
+"\"/>"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.view_res_partner_kanban_tms_driver
@@ -120,15 +115,6 @@ msgstr "<span class=\"o_form_label\">UoM Padrão de Peso</span>"
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "<span class=\"w-75\">Hours</span>"
 msgstr "<span class=\"w-75\">Horas</span>"
-
-#. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid ""
-"<span groups=\"tms.group_tms_route\" class=\"fa fa-map-o me-2\" title=\"Route"
-"\"/>"
-msgstr ""
-"<span groups=\"tms.group_tms_route\" class=\"fa fa-map-o me-2\" title=\"Route"
-"\"/>"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
@@ -217,8 +203,8 @@ msgid "Allow the use of predefined routes in trips"
 msgstr "Permitir o uso de rotas predefinidas em viagens"
 
 #. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_crew_search
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_order_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_route_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_stage_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_team_search
@@ -441,12 +427,12 @@ msgid "Description"
 msgstr "Descrição"
 
 #. module: tms
-#: model:ir.model.fields,field_description:tms.field_tms_order__destination_id
-#: model:ir.model.fields,field_description:tms.field_tms_order__destination_location
+#: model:ir.model.fields,field_description:tms.field_tms_order__destination_location_id
 msgid "Destination"
 msgstr "Destino"
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__destination_id
 #: model:ir.model.fields,field_description:tms.field_tms_route__destination_location_id
 msgid "Destination Location"
 msgstr "Localização do Destino"
@@ -457,8 +443,6 @@ msgstr "Localização do Destino"
 #: model:ir.model.fields,field_description:tms.field_res_partner__display_name
 #: model:ir.model.fields,field_description:tms.field_tms_crew__display_name
 #: model:ir.model.fields,field_description:tms.field_tms_order__display_name
-#: model:ir.model.fields,field_description:tms.field_tms_order__route_destination
-#: model:ir.model.fields,field_description:tms.field_tms_order__route_origin
 #: model:ir.model.fields,field_description:tms.field_tms_route__display_name
 #: model:ir.model.fields,field_description:tms.field_tms_stage__display_name
 #: model:ir.model.fields,field_description:tms.field_tms_team__display_name
@@ -661,6 +645,21 @@ msgid "Gender"
 msgstr "Gênero"
 
 #. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__priority
+msgid "Gives the sequence order when displaying a list of TMS orders."
+msgstr "Fornece a ordem de sequência ao exibir uma lista de pedidos TMS."
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
+msgid "Group By"
+msgstr "Agrupar Por"
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__2
+msgid "High"
+msgstr "Alta"
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_fleet_vehicle__id
 #: model:ir.model.fields,field_description:tms.field_res_config_settings__id
 #: model:ir.model.fields,field_description:tms.field_res_partner__id
@@ -694,6 +693,16 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Se marcada, algumas mensagens têm um erro de entrega."
 
 #. module: tms
+#: model:ir.model.fields,help:tms.field_res_partner__team_id
+#: model:ir.model.fields,help:tms.field_res_users__team_id
+msgid ""
+"If set, this Sales Team will be used for sales and assignments related to "
+"this partner"
+msgstr ""
+"Se definido, esta Equipe de Vendas será usada para vendas e atribuições "
+"relacionadas a este parceiro."
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_res_partner__is_training
 #: model:ir.model.fields,field_description:tms.field_res_users__is_training
 msgid "In Training"
@@ -724,6 +733,11 @@ msgstr "É Seguidor"
 #: model:ir.model.fields,field_description:tms.field_tms_stage__is_closed
 msgid "Is a close stage"
 msgstr "É um estágio fechado"
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__is_closed
+msgid "Is closed"
+msgstr "Está Fechado"
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_fleet_vehicle____last_update
@@ -779,6 +793,11 @@ msgstr "Tipo de Localização"
 #: model:ir.ui.menu,name:tms.menu_tms_location
 msgid "Locations"
 msgstr "Localizações"
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__1
+msgid "Low"
+msgstr "Baixa"
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__message_main_attachment_id
@@ -942,6 +961,11 @@ msgid "Next Activity Type"
 msgstr "Tipo da Atividade Seguinte"
 
 #. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_route_form
 msgid "Notes"
 msgstr "Notas"
@@ -1006,15 +1030,15 @@ msgstr "Pedidos"
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_team__order_count
 msgid "Orders Count"
-msgstr "Contagem de Ordens"
+msgstr "Contagem de Pedidos"
 
 #. module: tms
-#: model:ir.model.fields,field_description:tms.field_tms_order__origin_id
-#: model:ir.model.fields,field_description:tms.field_tms_order__origin_location
+#: model:ir.model.fields,field_description:tms.field_tms_order__origin_location_id
 msgid "Origin"
 msgstr "Origem"
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__origin_id
 #: model:ir.model.fields,field_description:tms.field_tms_route__origin_location_id
 msgid "Origin Location"
 msgstr "Localização da Origem"
@@ -1039,6 +1063,11 @@ msgstr "Pessoal"
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "Planning"
 msgstr "Planejamento"
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__priority
+msgid "Priority"
+msgstr "Prioridade"
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_stage__legend_priority
@@ -1086,6 +1115,12 @@ msgid "Routes"
 msgstr "Rotas"
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_res_partner__team_id
+#: model:ir.model.fields,field_description:tms.field_res_users__team_id
+msgid "Sales Team"
+msgstr "Gerenciar Equipes"
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__scheduled_duration
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "Scheduled Duration"
@@ -1129,6 +1164,7 @@ msgid "Services"
 msgstr "Serviços"
 
 #. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__is_closed
 #: model:ir.model.fields,help:tms.field_tms_stage__is_closed
 msgid "Services in this stage are considered as closed."
 msgstr "Os serviços neste estágio são considerados fechados."
@@ -1166,8 +1202,8 @@ msgstr "Velocidade"
 #: model:ir.model.fields,field_description:tms.field_res_partner__stage_id
 #: model:ir.model.fields,field_description:tms.field_res_users__stage_id
 #: model:ir.model.fields,field_description:tms.field_tms_order__stage_id
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 #: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_order_search
 msgid "Stage"
 msgstr "Estágio"
 
@@ -1217,7 +1253,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_route__stop_location_ids
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_route_form
 msgid "Stop Locations"
-msgstr "Locais de parada"
+msgstr "Locais de Parada"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.res_config_settings_view_form
@@ -1253,18 +1289,16 @@ msgstr "Análise de Tarefas"
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_fleet_vehicle__team_id
-#: model:ir.model.fields,field_description:tms.field_res_partner__team_id
-#: model:ir.model.fields,field_description:tms.field_res_users__team_id
 #: model:ir.model.fields,field_description:tms.field_tms_crew__team_id
 #: model:ir.model.fields,field_description:tms.field_tms_order__team_id
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_order_search
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 msgid "Team"
 msgstr "Equipe"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_team_view_form
 msgid "Team Name"
-msgstr "Nome da equipe"
+msgstr "Nome da Equipe"
 
 #. module: tms
 #: model:ir.model.constraint,message:tms.constraint_tms_team_name_uniq
@@ -1372,11 +1406,6 @@ msgid "Trip Name"
 msgstr "Nome da Viagem"
 
 #. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_report_view_graph
-msgid "Trip Reports"
-msgstr "Relatórios de Viagem"
-
-#. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "Trip Tracking"
 msgstr "Rastreamento de Viagem"
@@ -1396,6 +1425,8 @@ msgstr "O nome da viagem já existe!"
 #: model:ir.ui.menu,name:tms.menu_tms_report_trip
 #: model_terms:ir.ui.view,arch_db:tms.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:tms.tms_crew_view_kanban
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_graph
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_pivot
 msgid "Trips"
 msgstr "Viagens"
 
@@ -1467,11 +1498,6 @@ msgid "Unread Messages Counter"
 msgstr "Contador de Mensagens Não Lidas"
 
 #. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_route_form
-msgid "UoM"
-msgstr "UdM"
-
-#. module: tms
 #: model:ir.model.fields,help:tms.field_tms_stage__custom_color
 msgid "Use Hex Code only Ex:-#FFFFFF"
 msgstr "Use somente o código hexadecimal Ex:-#FFFFFF"
@@ -1501,6 +1527,7 @@ msgstr "Usuário"
 #: model:ir.model.fields,field_description:tms.field_tms_order__vehicle_id
 #: model:ir.model.fields,field_description:tms.field_tms_team__vehicle_ids
 #: model_terms:ir.ui.view,arch_db:tms.tms_crew_view_form
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 msgid "Vehicle"
 msgstr "Veículo"
 
@@ -1527,6 +1554,21 @@ msgstr "Veículos"
 #: model:ir.model.fields,field_description:tms.field_tms_team__vehicle_count
 msgid "Vehicles Count"
 msgstr "Contagem de Veículos"
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__3
+msgid "Very High"
+msgstr "Muito Alta"
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do Website"
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do Website"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
@@ -1595,3 +1637,23 @@ msgstr "mi"
 #: model:uom.uom,name:tms.uom_mph
 msgid "mph"
 msgstr "mph"
+
+#~ msgid ""
+#~ "<i groups=\"tms.group_tms_route\" class=\"fa fa-long-arrow-right mx-2 "
+#~ "oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>"
+#~ msgstr ""
+#~ "<i groups=\"tms.group_tms_route\" class=\"fa fa-long-arrow-right mx-2 "
+#~ "oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>"
+
+#~ msgid ""
+#~ "<span groups=\"tms.group_tms_route\" class=\"fa fa-map-o me-2\" title="
+#~ "\"Route\"/>"
+#~ msgstr ""
+#~ "<span groups=\"tms.group_tms_route\" class=\"fa fa-map-o me-2\" title="
+#~ "\"Route\"/>"
+
+#~ msgid "Trip Reports"
+#~ msgstr "Relatórios de Viagem"
+
+#~ msgid "UoM"
+#~ msgstr "UdM"
