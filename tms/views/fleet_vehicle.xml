@@ -1,0 +1,36 @@
+<odoo>
+
+    <record id="fleet_vehicle_inherit_view_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.inherit.view.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form//notebook" position="inside">
+                <page string="TMS">
+
+                    <group>
+                        <field
+                            name="operation"
+                            widget="radio"
+                            options="{'horizontal': True}"
+                        />
+                        <label for="capacity">Capacity</label>
+                        <div class="d-flex w-25">
+                            <field name="capacity" class="w-25" />
+                            <field
+                                name="cargo_uom_id"
+                                attrs="{'invisible': [('operation', '!=', 'cargo')]}"
+                                class="w-50"
+                            />
+                            <span
+                                attrs="{'invisible': [('operation', '!=', 'passenger')]}"
+                                class="w-50"
+                            >Passengers</span>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
