@@ -11,6 +11,7 @@ class TMSTeam(models.Model):
     def _default_stages(self):
         return self.env["tms.stage"].search([("is_default", "=", True)])
 
+    @api.depends("order_ids")
     def _compute_order_count(self):
         order_data = self.env["tms.order"].read_group(
             [("team_id", "in", self.ids), ("stage_id.is_closed", "=", False)],
@@ -21,23 +22,31 @@ class TMSTeam(models.Model):
         for team in self:
             team.order_count = result.get(team.id, 0)
 
+    @api.depends("driver_ids")
     def _compute_driver_count(self):
         order_data = self.env["res.partner"].read_group(
-            [("team_id", "in", self.ids)],
-            ["team_id"],
-            ["team_id"],
+            [("tms_team_id", "in", self.ids)],
+            ["tms_team_id"],
+            ["tms_team_id"],
         )
-        result = {data["team_id"][0]: int(data["team_id_count"]) for data in order_data}
+        result = {
+            data["tms_team_id"][0]: int(data["tms_team_id_count"])
+            for data in order_data
+        }
         for team in self:
             team.driver_count = result.get(team.id, 0)
 
+    @api.depends("vehicle_ids")
     def _compute_vehicle_count(self):
         order_data = self.env["fleet.vehicle"].read_group(
-            [("team_id", "in", self.ids)],
-            ["team_id"],
-            ["team_id"],
+            [("tms_team_id", "in", self.ids)],
+            ["tms_team_id"],
+            ["tms_team_id"],
         )
-        result = {data["team_id"][0]: int(data["team_id_count"]) for data in order_data}
+        result = {
+            data["tms_team_id"][0]: int(data["tms_team_id_count"])
+            for data in order_data
+        }
         for team in self:
             team.vehicle_count = result.get(team.id, 0)
 
@@ -59,22 +68,24 @@ class TMSTeam(models.Model):
         string="Orders",
         domain=[("stage_id.is_closed", "=", False)],
     )
-    order_count = fields.Integer(compute="_compute_order_count", string="Orders Count")
+    order_count = fields.Integer(
+        string="Orders Count", compute="_compute_order_count", store=True
+    )
     sequence = fields.Integer(default=1, help="Used to sort teams. Lower is better.")
 
-    vehicle_ids = fields.One2many("fleet.vehicle", "team_id")
+    vehicle_ids = fields.One2many("fleet.vehicle", "tms_team_id")
     vehicle_count = fields.Integer(
-        compute="_compute_vehicle_count", string="Vehicles Count"
+        compute="_compute_vehicle_count", string="Vehicles Count", store=True
     )
 
     driver_ids = fields.One2many(
         "res.partner",
-        "team_id",
+        "tms_team_id",
         domain=[("tms_type", "=", "driver")],
         context={"default_tms_type": "driver"},
     )
     driver_count = fields.Integer(
-        compute="_compute_driver_count", string="Drivers Count"
+        compute="_compute_driver_count", string="Drivers Count", store=True
     )
 
     crew_ids = fields.One2many("tms.crew", "team_id")
@@ -89,15 +100,16 @@ class TMSTeam(models.Model):
     )
 
     trips_todo_count = fields.Integer(
-        string="Number of Trips", compute="_compute_trips_todo_count"
+        string="Number of Trips", compute="_compute_trips_todo_count", store=True
     )
     trips_todo_count_draft = fields.Integer(
-        string="Number of Trips", compute="_compute_trips_todo_count"
+        string="Number of Trips", compute="_compute_trips_todo_count", store=True
     )
     trips_todo_count_confirmed = fields.Integer(
-        string="Number of Trips", compute="_compute_trips_todo_count"
+        string="Number of Trips", compute="_compute_trips_todo_count", store=True
     )
 
+    # TODO: está fixo com a string do estágio. Deve ser dinâmico
     @api.depends("order_ids.stage_id")
     def _compute_trips_todo_count(self):
         for team in self:

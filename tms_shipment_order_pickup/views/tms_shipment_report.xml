@@ -7,7 +7,7 @@
             <th>Pickup Order</th>
         </xpath>
         <xpath expr="//tbody[@name='tms_orders']/t/tr" position="inside">
-            <td><t t-esc="order.is_pickup_order" /></td>
+            <td><span t-field="order.is_pickup_order" /></td>
         </xpath>
     </template>
 

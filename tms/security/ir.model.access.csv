@@ -9,3 +9,6 @@ access_tms_team_tms_user,tms.team.user,model_tms_team,tms.group_tms_user,1,0,0,0
 access_tms_team_tms_admin,tms.team.admin,model_tms_team,tms.group_tms_admin,1,1,1,1
 access_tms_crew_tms_user,tms.crew.user,model_tms_crew,tms.group_tms_user,1,0,0,0
 access_tms_crew_tms_admin,tms.crew.admin,model_tms_crew,tms.group_tms_admin,1,1,1,1
+access_tms_tag_tms_user,tms.tag.user,model_tms_tag,tms.group_tms_user,1,0,0,0
+access_tms_tag_tms_admin,tms.tag.admin,model_tms_tag,tms.group_tms_admin,1,1,1,1
+access_fleet_vehicle_tms_user,fleet.vehicle.user,model_fleet_vehicle,tms.group_tms_user,1,0,0,0

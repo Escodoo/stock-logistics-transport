@@ -25,6 +25,31 @@ class TMSStage(models.Model):
         " stages or orders that are in this"
         " stage.",
     )
+    legend_blocked = fields.Char(
+        "Red Kanban Label",
+        default=lambda s: _("Blocked"),
+        translate=True,
+        required=True,
+        help="Override the default value displayed for the blocked state for kanban \
+            selection, when the order or shipment is in that stage.",
+    )
+    legend_done = fields.Char(
+        "Green Kanban Label",
+        default=lambda s: _("Ready"),
+        translate=True,
+        required=True,
+        help="Override the default value displayed for the done state for kanban \
+            selection, when the order or shipment is in that stage.",
+    )
+    legend_normal = fields.Char(
+        "Grey Kanban Label",
+        default=lambda s: _("In Progress"),
+        translate=True,
+        required=True,
+        help="Override the default value displayed for the normal state for kanban \
+            selection, when the sorder or shipment is in that stage.",
+    )
+
     fold = fields.Boolean(
         "Folded in Kanban",
         help="This stage is folded in the kanban view when "

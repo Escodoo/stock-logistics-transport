@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_shipment_expense
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-04 09:39+0000\n"
+"PO-Revision-Date: 2024-08-04 09:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tms_shipment_expense
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.report_tms_shipment_detailed_document
+msgid "Account Date"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.report_tms_shipment_detailed_document
+msgid "Amount"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.tms_shipment_form_view
+msgid "Amount Expenses"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.report_tms_shipment_detailed_document
+msgid "Date"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.report_tms_shipment_detailed_document
+msgid "Description"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model:ir.model.fields,field_description:tms_shipment_expense.field_tms_shipment__employee_id
+msgid "Driver"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.report_tms_shipment_detailed_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.tms_shipment_form_view
+msgid "Expenses"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model:ir.model.fields,field_description:tms_shipment_expense.field_hr_expense__tms_shipment_id
+msgid "TMS Shipment"
+msgstr ""
+
+#. module: tms_shipment_expense
+#: model:ir.model.fields,field_description:tms_shipment_expense.field_tms_shipment__expense_total_amount
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense.tms_shipment_form_view
+msgid "Total Expense Amount"
+msgstr ""

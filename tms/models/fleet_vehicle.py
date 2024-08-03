@@ -7,16 +7,16 @@ from odoo import fields, models
 class FleetVehicle(models.Model):
     _inherit = "fleet.vehicle"
 
-    team_id = fields.Many2one("tms.team")
-    capacity = fields.Float()
-    cargo_uom_id = fields.Many2one(
+    tms_team_id = fields.Many2one("tms.team")
+    tms_capacity = fields.Float()
+    tms_cargo_uom_id = fields.Many2one(
         "uom.uom",
         domain="[('category_id', '=', 'Volume')]",
-        default=lambda self: self._default_volume_uom_id(),
+        default=lambda self: self._default_tms_volume_uom_id(),
     )
-    operation = fields.Selection([("cargo", "Cargo"), ("passenger", "Passenger")])
+    tms_operation = fields.Selection([("cargo", "Cargo"), ("passenger", "Passenger")])
 
-    def _default_volume_uom_id(self):
+    def _default_tms_volume_uom_id(self):
         default_volume_uom_id = (
             self.env["ir.config_parameter"].sudo().get_param("tms.default_weight_uom")
         )

@@ -28,6 +28,15 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
         >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
     </record>
 
+    <record id="tms_tag_comp_rule" model="ir.rule">
+        <field name="name">TMS Tags Entry</field>
+        <field name="model_id" ref="model_tms_tag" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+
     <record id="tms_team_comp_rule" model="ir.rule">
         <field name="name">TMS Teams Entry</field>
         <field name="model_id" ref="model_tms_team" />

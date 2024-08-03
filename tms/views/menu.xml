@@ -6,6 +6,7 @@
         name="TMS"
         sequence="10"
         web_icon="tms,static/description/icon.png"
+        groups="tms.group_tms_admin,group_tms_user"
     />
 
     <!-- Menus -->
@@ -13,7 +14,12 @@
     <menuitem id="operations" name="Operations" parent="root" />
     <menuitem id="data" name="Master Data" parent="root" />
     <menuitem id="reporting" name="Reporting" parent="root" />
-    <menuitem id="config" name="Configuration" parent="root" />
+    <menuitem
+        id="config"
+        name="Configuration"
+        parent="root"
+        groups="tms.group_tms_admin"
+    />
 
     <!-- Dashboard Menu -->
 
@@ -48,53 +54,60 @@
         action="fleet.fleet_vehicle_odometer_action"
         parent="operations"
         sequence="20"
+        groups="fleet.fleet_group_user"
     />
 
     <!-- Master Data Menu -->
-    <menuitem
-        id="menu_fleet_vehicle"
-        name="Vehicles"
-        action="fleet.fleet_vehicle_action"
-        parent="data"
-        sequence="10"
-    />
-    <menuitem
-        id="menu_fleet_contracts"
-        name="Contracts"
-        action="fleet.fleet_vehicle_log_contract_action"
-        parent="data"
-        sequence="20"
-        groups="fleet.fleet_group_user"
-    />
-    <menuitem
-        id="menu_fleet_services"
-        name="Services"
-        action="fleet.fleet_vehicle_service_types_action"
-        parent="data"
-        sequence="30"
-        groups="fleet.fleet_group_user"
-    />
     <menuitem
         id="menu_tms_driver"
         name="Drivers"
         action="action_tms_driver"
         parent="data"
-        sequence="40"
+        sequence="10"
     />
     <menuitem
         id="menu_tms_location"
         name="Locations"
         action="action_tms_location"
         parent="data"
-        sequence="50"
+        sequence="20"
     />
     <menuitem
         id="menu_tms_route"
         name="Routes"
         action="action_tms_route"
         parent="data"
-        sequence="60"
+        sequence="30"
         groups="tms.group_tms_route"
+    />
+
+    <menuitem
+        id="menu_data_fleet"
+        name="Fleet"
+        parent="data"
+        sequence="90"
+        groups="fleet.fleet_group_user"
+    />
+    <menuitem
+        id="menu_fleet_vehicle"
+        name="Vehicles"
+        action="fleet.fleet_vehicle_action"
+        parent="menu_data_fleet"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_fleet_contracts"
+        name="Contracts"
+        action="fleet.fleet_vehicle_log_contract_action"
+        parent="menu_data_fleet"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_fleet_services"
+        name="Services"
+        action="fleet.fleet_vehicle_service_types_action"
+        parent="menu_data_fleet"
+        sequence="30"
     />
 
     <!-- Reporting Menu -->
@@ -127,6 +140,13 @@
         id="menu_tms_config_stage"
         name="Stages"
         action="action_tms_stage"
+        parent="config"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_tms_config_tag"
+        name="Tags"
+        action="tms_tag_act_window"
         parent="config"
         sequence="20"
     />

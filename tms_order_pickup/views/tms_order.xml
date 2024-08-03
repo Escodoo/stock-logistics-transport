@@ -17,7 +17,7 @@
         <field name="model">tms.order</field>
         <field name="inherit_id" ref="tms.tms_order_view_tree" />
         <field name="arch" type="xml">
-            <field name="stage_id" position="before">
+            <field name="priority" position="before">
                 <field name="is_pickup_order" />
             </field>
         </field>
@@ -31,21 +31,13 @@
                 <field name="is_pickup_order" />
             </field>
             <xpath
-                expr="//div[hasclass('o_kanban_primary_left')]/div/span"
-                position="after"
+                expr="//div[hasclass('o_kanban_record_subtitle')]/t"
+                position="before"
             >
-                <span
-                    class="o_text_overflow text-muted"
-                    t-if="record.is_pickup_order.raw_value"
-                >
-                    <span
-                        class="fa fa-level-down me-2"
-                        aria-label="Pickup Order"
-                        title="Pickup Order"
-                    />
-                    <t t-esc="'Pickup Order'" />
-                </span>
-
+                <div t-if="record.is_pickup_order.raw_value" class="mb-2">
+                    <span class="fa fa-level-down me-2" title="Is Pickup Order" />
+                    <b class="ml-2" t-esc="'Is Pickup Order'" />
+                </div>
             </xpath>
         </field>
 

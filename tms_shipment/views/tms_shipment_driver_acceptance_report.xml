@@ -1,0 +1,79 @@
+<odoo>
+    <template id="report_tms_driver_acceptance_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" />
+            <div class="page">
+                <div class="oe_structure" />
+
+                <h2 class="mt16">Driver Acceptance</h2>
+                <table class="table table-sm" name="general_info">
+                    <tr>
+                        <th>Shipment</th>
+                        <td><span t-field="doc.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Driver</th>
+                        <td><span t-field="doc.driver_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Vehicle</th>
+                        <td><span t-field="doc.vehicle_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled Start</th>
+                        <td><span t-field="doc.scheduled_date_start" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled Duration</th>
+                        <td><span t-field="doc.scheduled_duration" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled End</th>
+                        <td><span t-field="doc.scheduled_date_end" /></td>
+                    </tr>
+                    <tr>
+                        <th>Origin Location</th>
+                        <td><span t-field="doc.origin_location_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Destination Location</th>
+                        <td><span t-field="doc.destination_location_id" /></td>
+                    </tr>
+                </table>
+
+                <!-- TODO: Se além do adiantamento houver pedido de compra contra o motorista
+                 e vinculada ao Shipment, talvez cabe inserir os pedidos de compra no aceite -->
+
+                <!-- Aceite do Motorista -->
+                <strong>Driver Acceptance:</strong>
+                <span t-if="doc.driver_signature">
+                    <img
+                        class="image"
+                        t-att-src="'data:image/png;base64,%s' % to_text(doc.driver_signature)"
+                        style="border:auto; max-width: 200px; max-height: 100px;"
+                    />
+                </span>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_tms_driver_acceptance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="tms_shipment.report_tms_driver_acceptance_document" />
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_tms_driver_acceptance" model="ir.actions.report">
+        <field name="name">Driver Acceptance</field>
+        <field name="model">tms.shipment</field>
+        <field name="report_name">tms_shipment.report_tms_driver_acceptance</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_file">tms_shipment.report_tms_driver_acceptance</field>
+        <field name="binding_model_id" ref="model_tms_shipment" />
+        <field name="binding_type">report</field>
+        <field name="print_report_name">
+            'Shipment-Driver-Acceptance-%s%s' % (object.name, "-" + object.driver_id.name)</field>
+    </record>
+</odoo>

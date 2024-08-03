@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_shipment_form_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="tms_shipment.tms_shipment_view_form" />
+        <field name="arch" type="xml">
+            <page name="amount_page" position="before">
+                <page
+                    name="expenses"
+                    string="Expenses"
+                    groups="hr_expense.group_hr_expense_team_approver"
+                >
+                    <field name="employee_id" invisible="1" />
+                    <field
+                        name="expense_ids"
+                        context="{'default_employee_id': employee_id}"
+                    />
+                    <!-- context="{'form_view_ref': 'tms_expense.tms_hr_expense_view_form', 'default_employee_id': driver_employee_id}" -->
+                </page>
+            </page>
+            <xpath expr="//page[@name='amount_page']" position="inside">
+                <group
+                    name="amount_expense_group"
+                    string="Amount Expenses"
+                    groups="hr_expense.group_hr_expense_team_approver"
+                >
+                    <field name="expense_total_amount" string="Total Expense Amount" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record model="ir.ui.view" id="tms_shipment_search_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="TODO othermodule.search_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tms_shipment_tree_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="TODO othermodule.tree_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record> -->
+
+</odoo>

@@ -113,15 +113,24 @@ class TmsShipment(models.Model):
         default=lambda self: self._default_time_uom_id(),
     )
 
-    tms_order_ids = fields.One2many("tms.order", "shipment_id", string="TMS Orders")
+    order_ids = fields.One2many("tms.order", "shipment_id", string="TMS Orders")
 
-    tms_sorted_order_ids = fields.One2many(
-        "tms.order", compute="_compute_sorted_order_lines"
+    currency_id = fields.Many2one(
+        "res.currency",
+        string="Currency",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+        default=lambda self: self.env.company.currency_id,
     )
 
+    tms_sorted_order_ids = fields.One2many(
+        "tms.order", compute="_compute_sorted_order_lines", compute_sudo=True
+    )
+
+    @api.depends("order_ids", "order_ids.shipment_sequence")
     def _compute_sorted_order_lines(self):
         for order in self:
-            order.tms_sorted_order_ids = order.tms_order_ids.sorted(
+            order.tms_sorted_order_ids = order.order_ids.sorted(
                 key=lambda line: line.shipment_sequence
             )
 
@@ -129,6 +138,84 @@ class TmsShipment(models.Model):
         "Is closed",
         related="stage_id.is_closed",
     )
+
+    driver_signature = fields.Binary(
+        string="Driver Acceptance",
+    )
+
+    priority = fields.Selection(
+        [("0", "Normal"), ("1", "Low"), ("2", "High"), ("3", "Very High")],
+        string="Priority",
+        help="Gives the sequence order when displaying a list of TMS shipments.",
+    )
+
+    color = fields.Integer("Color Index", default=0)
+
+    tag_ids = fields.Many2many(
+        "tms.tag",
+        "tms_shipment_tag_rel",
+        "tms_shipment_id",
+        "tag_id",
+        string="Tags",
+        help="Classify and analyze your shipments",
+    )
+
+    kanban_state = fields.Selection(
+        [("normal", "In Progress"), ("done", "Ready"), ("blocked", "Blocked")],
+        string="Kanban State",
+        copy=False,
+        default="normal",
+        required=True,
+    )
+
+    kanban_state_label = fields.Char(
+        compute="_compute_kanban_state_label",
+        string="Kanban State Label",
+        tracking=True,
+    )
+    legend_blocked = fields.Char(
+        related="stage_id.legend_blocked",
+        string="Kanban Blocked Explanation",
+        readonly=True,
+        related_sudo=False,
+    )
+    legend_done = fields.Char(
+        related="stage_id.legend_done",
+        string="Kanban Valid Explanation",
+        readonly=True,
+        related_sudo=False,
+    )
+    legend_normal = fields.Char(
+        related="stage_id.legend_normal",
+        string="Kanban Ongoing Explanation",
+        readonly=True,
+        related_sudo=False,
+    )
+
+    total_amount = fields.Monetary(
+        string="Total Amount", compute="_compute_total_amount", store=True
+    )
+
+    @api.depends("order_ids")
+    def _compute_total_amount(self):
+        for shipment in self:
+            shipment.total_amount = shipment._get_total_amount()
+
+    def _get_total_amount(self):
+        self.ensure_one()
+        total = 0.0
+        # Logic to calculate total, to be extended by other modules
+        return total
+
+    @api.depends("stage_id", "kanban_state")
+    def _compute_kanban_state_label(self):
+        for record in self:
+            if record.kanban_state == "normal":
+                record.kanban_state_label = record.legend_normal
+            elif record.kanban_state == "blocked":
+                record.kanban_state_label = record.legend_blocked
+            else:
+                record.kanban_state_label = record.legend_done
 
     def _default_time_uom_id(self):
         # Fetch the value of default_time_uom from settings
@@ -254,7 +341,7 @@ class TmsShipment(models.Model):
             else:
                 order.vehicle_id = order.vehicle_id
 
-    crew_active = fields.Boolean(compute="_compute_active_crew")
+    crew_active = fields.Boolean(compute="_compute_active_crew", store=True)
 
     # Constraints
     _sql_constraints = [
@@ -273,7 +360,7 @@ class TmsShipment(models.Model):
     def button_start_order(self):
         self.date_start = fields.Datetime.now()
         self.start_trip = True
-        for order in self.tms_order_ids:
+        for order in self.order_ids:
             order.button_start_order()
 
     def button_end_order(self):
@@ -283,7 +370,7 @@ class TmsShipment(models.Model):
         self.diff_duration = round(self.scheduled_duration - self.duration, 2)
         self.start_trip = False
         self.end_trip = True
-        for order in self.tms_order_ids:
+        for order in self.order_ids:
             if not order.end_trip:
                 order.button_end_order()
 
@@ -309,7 +396,7 @@ class TmsShipment(models.Model):
     )
     def _onchange_transport_data(self):
         for rec in self:
-            for order in rec.tms_order_ids:
+            for order in rec.order_ids:
                 order.team_id = rec.team_id
                 order.crew_id = rec.crew_id
                 order.driver_id = rec.driver_id
@@ -318,12 +405,12 @@ class TmsShipment(models.Model):
     @api.onchange("stage_id")
     def _onchange_stage_id(self):
         for rec in self:
-            for order in rec.tms_order_ids:
+            for order in rec.order_ids:
                 if order.stage_id.sequence <= rec.stage_id.sequence:
                     order.stage_id = rec.stage_id
 
     def update_tms_order_route(self):
-        for order in self.tms_order_ids:
+        for order in self.order_ids:
             if self.route:
                 if order.route:
                     order.route_id = self.route_id
@@ -332,6 +419,6 @@ class TmsShipment(models.Model):
 
     def update_tms_order_scheduled_date_start(self):
         for rec in self:
-            for order in rec.tms_order_ids:
+            for order in rec.order_ids:
                 order.scheduled_date_start = rec.scheduled_date_start
                 order._onchange_scheduled_date_start()

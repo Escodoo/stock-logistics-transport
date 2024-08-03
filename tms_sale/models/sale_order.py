@@ -9,14 +9,12 @@ from odoo import _, api, fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    tms_order_ids = fields.Many2many(
+    order_ids = fields.Many2many(
         "tms.order",
-        compute="_compute_tms_order_ids",
+        compute="_compute_order_ids",
         string="TMS orders associated to this sale",
     )
-    tms_order_count = fields.Integer(
-        string="TMS Orders", compute="_compute_tms_order_ids"
-    )
+    tms_order_count = fields.Integer(string="TMS Orders", compute="_compute_order_ids")
 
     has_tms_product = fields.Boolean(compute="_compute_has_tms_product")
 
@@ -81,7 +79,7 @@ class SaleOrder(models.Model):
             sale.has_tms_product = has_tms_product
 
     @api.depends("order_line")
-    def _compute_tms_order_ids(self):
+    def _compute_order_ids(self):
         for sale in self:
             tms = self.env["tms.order"].search(
                 [
@@ -90,8 +88,8 @@ class SaleOrder(models.Model):
                     ("sale_line_id", "in", sale.order_line.ids),
                 ]
             )
-            sale.tms_order_ids = tms
-            sale.tms_order_count = len(sale.tms_order_ids)
+            sale.order_ids = tms
+            sale.tms_order_count = len(sale.order_ids)
 
     def _prepare_line_tms_values(self, line):
         """
@@ -169,7 +167,7 @@ class SaleOrder(models.Model):
         )
         new_tms_orders |= self._tms_generate_sale_tms_orders(new_tms_sale_sol)
 
-        # Create new FSM Order for lines set to FSM Line
+        # Create new TMS Order for lines set to TMS Sale
         new_tms_line_sol = self.order_line.filtered(
             lambda L: L.product_id.tms_tracking == "line" and not L.tms_order_id
         )
@@ -233,7 +231,7 @@ class SaleOrder(models.Model):
         return result
 
     def action_view_tms_order(self):
-        tms_orders = self.mapped("tms_order_ids")
+        tms_orders = self.mapped("order_ids")
         action = self.env["ir.actions.act_window"]._for_xml_id(
             "tms.action_tms_dash_order"
         )

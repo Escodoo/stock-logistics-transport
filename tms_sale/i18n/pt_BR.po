@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-01 16:59+0000\n"
-"PO-Revision-Date: 2024-08-01 14:03-0300\n"
+"POT-Creation-Date: 2024-08-04 09:39+0000\n"
+"PO-Revision-Date: 2024-08-04 06:47-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -53,15 +53,13 @@ msgstr ""
 "                - None: nada adicional, comportamento padrão.\n"
 "                - Por pedido de venda: Um pedido TMS será criado para a "
 "venda.\n"
-"                - Por linha de pedido de venda: Será criada um pedido "
-"TMS para cada linha de pedido de venda\n"
+"                - Por linha de pedido de venda: Será criada um pedido TMS "
+"para cada linha de pedido de venda\n"
 "                será criada."
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_template__display_name
-#: model:ir.model.fields,field_description:tms_sale.field_sale_order__display_name
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__display_name
-#: model:ir.model.fields,field_description:tms_sale.field_tms_order__display_name
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
@@ -77,9 +75,7 @@ msgstr "Possui Produto Tms"
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_template__id
-#: model:ir.model.fields,field_description:tms_sale.field_sale_order__id
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__id
-#: model:ir.model.fields,field_description:tms_sale.field_tms_order__id
 msgid "ID"
 msgstr "ID"
 
@@ -91,9 +87,7 @@ msgstr "É um produto TMS?"
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_template____last_update
-#: model:ir.model.fields,field_description:tms_sale.field_sale_order____last_update
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line____last_update
-#: model:ir.model.fields,field_description:tms_sale.field_tms_order____last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
 
@@ -131,11 +125,6 @@ msgstr "Venda"
 #: model:ir.model.fields,field_description:tms_sale.field_tms_order__sale_line_id
 msgid "Sale Line"
 msgstr "Linha de Venda"
-
-#. module: tms_sale
-#: model:ir.model,name:tms_sale.model_sale_order
-msgid "Sales Order"
-msgstr "Pedidos de Venda"
 
 #. module: tms_sale
 #: model:ir.model,name:tms_sale.model_sale_order_line
@@ -192,7 +181,7 @@ msgid "TMS Orders"
 msgstr "Pedidos TMS"
 
 #. module: tms_sale
-#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_order_ids
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__order_ids
 msgid "TMS orders associated to this sale"
 msgstr "Pedidos de TMS associados a esta venda"
 
@@ -208,11 +197,12 @@ msgid "Tracking"
 msgstr "Rastreamento"
 
 #. module: tms_sale
-#: model:ir.model,name:tms_sale.model_tms_order
-msgid "Transport Management System Order"
-msgstr "Pedido de Sistema de Gerenciamento de Transporte"
-
-#. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_route_flag
 msgid "Use Routes"
 msgstr "Rotas de Uso"
+
+#~ msgid "Sales Order"
+#~ msgstr "Pedidos de Venda"
+
+#~ msgid "Transport Management System Order"
+#~ msgstr "Pedido de Sistema de Gerenciamento de Transporte"

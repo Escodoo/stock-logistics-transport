@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Tms Shipment Order Pickup",
+    "name": "TMS - Shipment Order Pickup",
     "summary": """
         TMS Shipment Pickup""",
     "version": "14.0.1.0.0",
