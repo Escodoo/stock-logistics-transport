@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_shipment_form_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="tms_shipment_expense.tms_shipment_form_view" />
+        <field name="arch" type="xml">
+            <page name="expenses" position="before">
+                <page
+                    name="advances"
+                    string="Advances"
+                    groups="hr_expense.group_hr_expense_team_approver"
+                >
+                    <field name="employee_id" invisible="1" />
+                    <field
+                        name="advance_ids"
+                        context="{'default_advance': True, 'default_employee_id': employee_id}"
+                    >
+                    </field>
+                </page>
+            </page>
+            <xpath
+                expr="//page[@name='amount_page']/group[@name='amount_expense_group']"
+                position="inside"
+                groups="hr_expense.group_hr_expense_team_approver"
+            >
+                <field name="clearing_total_amount" />
+                <!-- <field name="advance_sheet_total_residual" /> -->
+                <field name="amount_payable_total" />
+                <field name="advance_total_amount" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

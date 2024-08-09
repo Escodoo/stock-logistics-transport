@@ -1,0 +1,35 @@
+<odoo>
+    <template
+        id="report_tms_shipment_detailed_document"
+        inherit_id="tms_shipment_expense.report_tms_shipment_detailed_document"
+    >
+        <table name="expense_info" position="after">
+            <!-- Informações sobre Adiantamentos -->
+            <h3>Advances</h3>
+            <table class="table table-condensed" name="advance_info">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="doc.advance_ids" t-as="advance">
+                        <tr>
+                            <td><span t-field="advance.name" /></td>
+                            <td><span t-field="advance.total_amount" /></td>
+                            <td><span t-field="advance.accounting_date" /></td>
+                            <td><span t-field="advance.state" /></td>
+                        </tr>
+                    </t>
+                    <tr>
+                        <th>Total Advance Amount</th>
+                        <td colspan="2"><span t-field="doc.advance_total_amount" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </table>
+    </template>
+</odoo>

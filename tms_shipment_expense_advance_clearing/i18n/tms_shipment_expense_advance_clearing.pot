@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_shipment_expense_advance_clearing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-04 09:39+0000\n"
+"PO-Revision-Date: 2024-08-04 09:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_tms_shipment__advance_ids
+msgid "Advance"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_driver_acceptance_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_shipment_detailed_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.tms_shipment_form_view
+msgid "Advances"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_driver_acceptance_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_shipment_detailed_document
+msgid "Amount"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_driver_acceptance_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_shipment_detailed_document
+msgid "Date"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_driver_acceptance_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_shipment_detailed_document
+msgid "Description"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense__display_name
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense_sheet__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model,name:tms_shipment_expense_advance_clearing.model_hr_expense
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_tms_shipment__expense_ids
+msgid "Expense"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model,name:tms_shipment_expense_advance_clearing.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense__id
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense_sheet__id
+msgid "ID"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense____last_update
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense_sheet____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_shipment_detailed_document
+msgid "Status"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_hr_expense_sheet__tms_shipment_id
+msgid "TMS Shipment"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_driver_acceptance_document
+msgid "Total"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_tms_shipment__advance_total_amount
+#: model_terms:ir.ui.view,arch_db:tms_shipment_expense_advance_clearing.report_tms_shipment_detailed_document
+msgid "Total Advance Amount"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_tms_shipment__advance_sheet_total_residual
+msgid "Total Advance Sheet Residual"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_tms_shipment__clearing_total_amount
+msgid "Total Clearing Amount"
+msgstr ""
+
+#. module: tms_shipment_expense_advance_clearing
+#: model:ir.model.fields,field_description:tms_shipment_expense_advance_clearing.field_tms_shipment__amount_payable_total
+msgid "Total Payable Amount"
+msgstr ""

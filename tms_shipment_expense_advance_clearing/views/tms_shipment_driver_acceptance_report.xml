@@ -1,0 +1,37 @@
+<odoo>
+    <template
+        id="report_tms_driver_acceptance_document"
+        inherit_id="tms_shipment.report_tms_driver_acceptance_document"
+    >
+        <table name="general_info" position="after">
+            <!-- Informações sobre Adiantamentos -->
+            <t groups="hr_expense.group_hr_expense_team_approver">
+                <h3>Advances</h3>
+                <table class="table table-condensed" name="advance_info">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.advance_ids" t-as="advance">
+                            <tr>
+                                <td><span t-field="advance.name" /></td>
+                                <td><span t-field="advance.total_amount" /></td>
+                                <td><span t-field="advance.accounting_date" /></td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <th>Total</th>
+                            <td colspan="2"><span
+                                    t-field="doc.advance_total_amount"
+                                /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </table>
+    </template>
+</odoo>
