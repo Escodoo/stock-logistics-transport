@@ -1,0 +1,33 @@
+<odoo>
+    <template
+        id="report_tms_shipment_detailed_document"
+        inherit_id="tms_shipment.report_tms_shipment_detailed_document"
+    >
+        <table name="delivery_info" position="after">
+            <!-- Informações sobre Despesas -->
+            <t groups="hr_expense.group_hr_expense_team_approver">
+                <h3>Expenses</h3>
+                <table class="table table-condensed" name="expense_info">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Account Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.expense_ids" t-as="expense">
+                            <tr>
+                                <td><span t-field="expense.name" /></td>
+                                <td><span t-field="expense.total_amount" /></td>
+                                <td><span t-field="expense.date" /></td>
+                                <td><span t-field="expense.accounting_date" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </table>
+    </template>
+</odoo>
