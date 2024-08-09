@@ -38,16 +38,18 @@ class ResConfigSettings(models.TransientModel):
 
     # Custom Fields
 
-    driver_license_security_days = fields.Integer(
+    tms_driver_license_security_days = fields.Integer(
         required=True,
         string="Driver license security days",
         config_parameter="tms.default_driver_license_security_days",
+        default=30,
     )
 
-    vehicle_insurance_security_days = fields.Integer(
+    tms_vehicle_insurance_security_days = fields.Integer(
         required=True,
         string="Vehicle Insurance security days",
         config_parameter="tms.default_vehicle_insurance_security_days",
+        default=30,
     )
 
     tms_length_uom = fields.Many2one(

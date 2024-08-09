@@ -21,12 +21,15 @@
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="stage" attrs="{'column_invisible': True}" />
+                <field name="tms_stage" attrs="{'column_invisible': True}" />
                 <field name="display_name" string="Name" />
-                <field name="age" />
-                <field name="gender" />
+                <field name="tms_age" />
+                <field name="tms_gender" />
                 <field name="phone" />
-                <field name="stage_id" decoration-danger="stage == 'Not Available'" />
+                <field
+                    name="tms_stage_id"
+                    decoration-danger="tms_stage == 'Not Available'"
+                />
             </tree>
         </field>
     </record>
@@ -40,7 +43,7 @@
             <xpath expr="//form/sheet" position="before">
                 <header>
                     <field
-                        name="stage_id"
+                        name="tms_stage_id"
                         widget="statusbar"
                         domain="[('stage_type', '=', 'driver')]"
                         options="{'clickable':True}, {'fold_field':'fold'}"
@@ -60,8 +63,8 @@
             </xpath>
 
             <xpath expr="//field[@name='vat']" position="after">
-                <field name="age" />
-                <field name="gender" />
+                <field name="tms_age" />
+                <field name="tms_gender" />
             </xpath>
 
             <xpath expr="//field[@name='function']" position="attributes">
@@ -71,39 +74,39 @@
             <xpath expr="//group" position="after">
                 <group>
                     <group string="Driver Status">
-                        <field name="is_external" />
-                        <field name="is_training" />
-                        <field name="is_active" />
+                        <field name="tms_is_external" />
+                        <field name="tms_is_training" />
+                        <field name="tms_is_active" />
                     </group>
                     <group string="Driver Type">
-                        <field name="driver_type" />
+                        <field name="tms_driver_type" />
                         <field
-                            name="driver_license_number"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_driver_license_number"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
-                            name="driver_license_type"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_driver_license_type"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
-                            name="driver_license_expiration_date"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_driver_license_expiration_date"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
-                            name="driver_license_file"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_driver_license_file"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
-                            name="distance_traveled"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_distance_traveled"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
-                            name="distance_traveled_uom"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_distance_traveled_uom"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                         <field
-                            name="driving_experience_years"
-                            attrs="{'invisible': [('driver_type', '!=', 'terrestrial')]}"
+                            name="tms_driving_experience_years"
+                            attrs="{'invisible': [('tms_driver_type', '!=', 'terrestrial')]}"
                         />
                     </group>
                 </group>
@@ -119,13 +122,13 @@
         <field name="arch" type="xml">
             <kanban
                 class="o_kanban_dashboard o_emphasize_colors"
-                default_group_by="stage_id"
+                default_group_by="tms_stage_id"
                 group_create="false"
                 group_edit="false"
             >
                 <field name="display_name" />
-                <field name="team_id" />
-                <field name="crew_ids" />
+                <field name="tms_team_id" />
+                <field name="tms_crew_ids" />
                 <field name="mobile" />
                 <field name="image_128" />
                 <templates>
@@ -168,27 +171,29 @@
                                             <p style="margin-bottom: 0.5rem;">
                                                 <span
                                                     class="o_text_overflow text-muted"
-                                                    t-if="record.team_id.value"
+                                                    t-if="record.tms_team_id.value"
                                                 >
                                                     <span
                                                         class="fa fa-users me-2"
                                                         aria-label="Team"
                                                         title="Team"
                                                     />
-                                                    <t t-esc="record.team_id.value" />
+                                                    <t
+                                                        t-esc="record.tms_team_id.value"
+                                                    />
                                                 </span>
                                             </p>
                                             <p style="margin-bottom: 0.5rem;">
                                                 <span
                                                     groups="tms.group_tms_crew"
                                                     class="o_text_overflow text-muted"
-                                                    t-if="record.crew_ids.raw_value"
+                                                    t-if="record.tms_crew_ids.raw_value"
                                                 >
                                                     <t>Crews:</t>
                                                     <span
                                                         class="oe_kanban_list_many2many"
                                                     >
-                                                        <field name="crew_ids" />
+                                                        <field name="tms_crew_ids" />
                                                     </span>
                                                 </span>
                                             </p>
@@ -198,13 +203,16 @@
                             </div>
                             <div class="o_kanban_record_bottom mt-3">
                                 <div class="oe_kanban_bottom_left">
-                                    <label for="is_active">
+                                    <label for="tms_is_active">
                                         <span
-                                            t-if="record.is_active.raw_value"
+                                            t-if="record.tms_is_active.raw_value"
                                         >Active</span>
                                         <span t-else="">Inactive</span>
                                     </label>
-                                    <field name="is_active" widget="boolean_toggle" />
+                                    <field
+                                        name="tms_is_active"
+                                        widget="boolean_toggle"
+                                    />
                                 </div>
                             </div>
                         </div>

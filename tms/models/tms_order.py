@@ -123,6 +123,59 @@ class TMSOrder(models.Model):
         help="Gives the sequence order when displaying a list of TMS orders.",
     )
 
+    color = fields.Integer("Color Index", default=0)
+
+    tag_ids = fields.Many2many(
+        "tms.tag",
+        "tms_sorder_tag_rel",
+        "tms_order_id",
+        "tag_id",
+        string="Tags",
+        help="Classify and analyze your orders",
+    )
+
+    kanban_state = fields.Selection(
+        [("normal", "In Progress"), ("done", "Ready"), ("blocked", "Blocked")],
+        string="Kanban State",
+        copy=False,
+        default="normal",
+        required=True,
+    )
+
+    kanban_state_label = fields.Char(
+        compute="_compute_kanban_state_label",
+        string="Kanban State Label",
+        tracking=True,
+    )
+    legend_blocked = fields.Char(
+        related="stage_id.legend_blocked",
+        string="Kanban Blocked Explanation",
+        readonly=True,
+        related_sudo=False,
+    )
+    legend_done = fields.Char(
+        related="stage_id.legend_done",
+        string="Kanban Valid Explanation",
+        readonly=True,
+        related_sudo=False,
+    )
+    legend_normal = fields.Char(
+        related="stage_id.legend_normal",
+        string="Kanban Ongoing Explanation",
+        readonly=True,
+        related_sudo=False,
+    )
+
+    @api.depends("stage_id", "kanban_state")
+    def _compute_kanban_state_label(self):
+        for record in self:
+            if record.kanban_state == "normal":
+                record.kanban_state_label = record.legend_normal
+            elif record.kanban_state == "blocked":
+                record.kanban_state_label = record.legend_blocked
+            else:
+                record.kanban_state_label = record.legend_done
+
     def _default_time_uom_id(self):
         # Fetch the value of default_time_uom from settings
         default_time_uom_id = (
@@ -247,7 +300,7 @@ class TMSOrder(models.Model):
             else:
                 order.vehicle_id = order.vehicle_id
 
-    crew_active = fields.Boolean(compute="_compute_active_crew")
+    crew_active = fields.Boolean(compute="_compute_active_crew", store=True)
 
     # Constraints
     _sql_constraints = [

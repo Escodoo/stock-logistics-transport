@@ -12,6 +12,7 @@
                 <field name="vehicle_ids" />
                 <field name="vehicle_count" />
                 <field name="crew_ids" />
+                <field name="order_ids" />
                 <field name="trips_todo_count" />
                 <field name="trips_todo_count_draft" />
                 <field name="trips_todo_count_confirmed" />

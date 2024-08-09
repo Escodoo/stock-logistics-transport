@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 13:32+0000\n"
-"PO-Revision-Date: 2024-07-29 13:32+0000\n"
+"POT-Creation-Date: 2024-08-04 09:39+0000\n"
+"PO-Revision-Date: 2024-08-04 09:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,16 +17,34 @@ msgstr ""
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid ""
-"<i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow "
-"icon\" title=\"Arrow\"/>"
+msgid "<small class=\"fa fa-arrow-right me-2\" title=\"Date Start\"/>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<small class=\"fa fa-arrow-right me-2\" title=\"Scheduled Date End\"/>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<small><b>Effective</b></small>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<small><b>Origin/Destination</b></small>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<small><b>Planning</b></small>"
 msgstr ""
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
 msgid ""
-"<i groups=\"tms.group_tms_route\" class=\"fa fa-long-arrow-right mx-2 "
-"oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>"
+"<small><b>Route</b></small>\n"
+"                                    <span class=\"fa fa-map-o me-2\" title=\"Route\"/>"
 msgstr ""
 
 #. module: tms
@@ -50,17 +68,32 @@ msgstr ""
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "<span class=\"fa fa-car me-2\" aria-label=\"Vehicle\" title=\"Vehicle\"/>"
+msgid "<span class=\"fa fa-calendar me-2\" title=\"Date Start\"/>"
 msgstr ""
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "<span class=\"fa fa-map-o me-2\" title=\"Route\"/>"
+msgid "<span class=\"fa fa-calendar me-2\" title=\"Scheduled Date Start\"/>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<span class=\"fa fa-car me-2\" aria-label=\"Vehicle\" title=\"Vehicle\"/>"
 msgstr ""
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.view_res_partner_kanban_tms_driver
 msgid "<span class=\"fa fa-phone me-2\" aria-label=\"Mobile\" title=\"Mobile\"/>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<span class=\"fa fa-play-circle me-2\" title=\"Origin Location\"/>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<span class=\"fa fa-stop-circle me-2\" title=\"Destination Location\"/>"
 msgstr ""
 
 #. module: tms
@@ -73,6 +106,11 @@ msgstr ""
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.view_res_partner_kanban_tms_driver
 msgid "<span class=\"fa fa-users me-2\" aria-label=\"Team\" title=\"Team\"/>"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "<span class=\"fa fa-users me-2\" title=\"Team/Crew\"/>"
 msgstr ""
 
 #. module: tms
@@ -103,21 +141,6 @@ msgstr ""
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "<span class=\"w-75\">Hours</span>"
-msgstr ""
-
-#. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "<span groups=\"tms.group_tms_route\" class=\"fa fa-map-o me-2\" title=\"Route\"/>"
-msgstr ""
-
-#. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "<span>Reporting</span>"
-msgstr ""
-
-#. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "<span>View</span>"
 msgstr ""
 
 #. module: tms
@@ -197,12 +220,20 @@ msgid "Allow the use of predefined routes in trips"
 msgstr ""
 
 #. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_crew_search
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_order_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_route_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_stage_search
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_team_search
 msgid "Archived"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
+msgid ""
+"At each stage employees can block or make order/shipment ready\n"
+"                            for next stage. You can define here labels that will be\n"
+"                            displayed for the state instead of the default labels."
 msgstr ""
 
 #. module: tms
@@ -213,6 +244,23 @@ msgstr ""
 #. module: tms
 #: model:ir.model.fields.selection,name:tms.selection__res_partner__driver_license_type__b
 msgid "B - Automobiles"
+msgstr ""
+
+#. module: tms
+#: code:addons/tms/models/tms_stage.py:0
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__kanban_state__blocked
+#: model:tms.order,legend_blocked:tms.demo_order_1
+#: model:tms.order,legend_blocked:tms.demo_order_2
+#: model:tms.order,legend_blocked:tms.demo_order_3
+#: model:tms.stage,legend_blocked:tms.tms_stage_driver_in_base
+#: model:tms.stage,legend_blocked:tms.tms_stage_driver_in_trip
+#: model:tms.stage,legend_blocked:tms.tms_stage_driver_not_available
+#: model:tms.stage,legend_blocked:tms.tms_stage_order_cancelled
+#: model:tms.stage,legend_blocked:tms.tms_stage_order_completed
+#: model:tms.stage,legend_blocked:tms.tms_stage_order_confirmed
+#: model:tms.stage,legend_blocked:tms.tms_stage_order_draft
+#, python-format
+msgid "Blocked"
 msgstr ""
 
 #. module: tms
@@ -250,11 +298,18 @@ msgid "Cargo Uom"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__tag_ids
+msgid "Classify and analyze your orders"
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_stage__custom_color
 msgid "Color Code"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__color
+#: model:ir.model.fields,field_description:tms.field_tms_tag__color
 #: model:ir.model.fields,field_description:tms.field_tms_team__color
 msgid "Color Index"
 msgstr ""
@@ -269,6 +324,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_crew__company_id
 #: model:ir.model.fields,field_description:tms.field_tms_order__company_id
 #: model:ir.model.fields,field_description:tms.field_tms_stage__company_id
+#: model:ir.model.fields,field_description:tms.field_tms_tag__company_id
 #: model:ir.model.fields,field_description:tms.field_tms_team__company_id
 msgid "Company"
 msgstr ""
@@ -278,6 +334,11 @@ msgstr ""
 #: model:ir.model.fields,help:tms.field_tms_order__company_id
 #: model:ir.model.fields,help:tms.field_tms_team__company_id
 msgid "Company related to this order"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_tag__company_id
+msgid "Company related to this tag"
 msgstr ""
 
 #. module: tms
@@ -321,10 +382,16 @@ msgid "Create a Stage."
 msgstr ""
 
 #. module: tms
+#: model_terms:ir.actions.act_window,help:tms.tms_tag_act_window
+msgid "Create a tag."
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_crew__create_uid
 #: model:ir.model.fields,field_description:tms.field_tms_order__create_uid
 #: model:ir.model.fields,field_description:tms.field_tms_route__create_uid
 #: model:ir.model.fields,field_description:tms.field_tms_stage__create_uid
+#: model:ir.model.fields,field_description:tms.field_tms_tag__create_uid
 #: model:ir.model.fields,field_description:tms.field_tms_team__create_uid
 msgid "Created by"
 msgstr ""
@@ -334,6 +401,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_order__create_date
 #: model:ir.model.fields,field_description:tms.field_tms_route__create_date
 #: model:ir.model.fields,field_description:tms.field_tms_stage__create_date
+#: model:ir.model.fields,field_description:tms.field_tms_tag__create_date
 #: model:ir.model.fields,field_description:tms.field_tms_team__create_date
 msgid "Created on"
 msgstr ""
@@ -410,6 +478,11 @@ msgid "Default Vehicle"
 msgstr ""
 
 #. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "Delete"
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_crew__description
 #: model:ir.model.fields,field_description:tms.field_tms_order__description
 #: model:ir.model.fields,field_description:tms.field_tms_stage__description
@@ -419,12 +492,12 @@ msgid "Description"
 msgstr ""
 
 #. module: tms
-#: model:ir.model.fields,field_description:tms.field_tms_order__destination_id
-#: model:ir.model.fields,field_description:tms.field_tms_order__destination_location
+#: model:ir.model.fields,field_description:tms.field_tms_order__destination_location_id
 msgid "Destination"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__destination_id
 #: model:ir.model.fields,field_description:tms.field_tms_route__destination_location_id
 msgid "Destination Location"
 msgstr ""
@@ -434,11 +507,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:tms.field_res_partner__display_name
 #: model:ir.model.fields,field_description:tms.field_tms_crew__display_name
-#: model:ir.model.fields,field_description:tms.field_tms_order__display_name
-#: model:ir.model.fields,field_description:tms.field_tms_order__route_destination
-#: model:ir.model.fields,field_description:tms.field_tms_order__route_origin
 #: model:ir.model.fields,field_description:tms.field_tms_route__display_name
-#: model:ir.model.fields,field_description:tms.field_tms_stage__display_name
+#: model:ir.model.fields,field_description:tms.field_tms_tag__display_name
 #: model:ir.model.fields,field_description:tms.field_tms_team__display_name
 msgid "Display Name"
 msgstr ""
@@ -477,6 +547,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:tms.selection__res_partner__tms_type__driver
 #: model:ir.model.fields.selection,name:tms.selection__tms_stage__stage_type__driver
 #: model:res.groups,name:tms.group_tms_driver
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
 msgid "Driver"
 msgstr ""
 
@@ -541,8 +612,18 @@ msgid "Driving Experience Years"
 msgstr ""
 
 #. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "Dropdown menu"
+msgstr ""
+
+#. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "Duration"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
+msgid "Edit"
 msgstr ""
 
 #. module: tms
@@ -631,9 +712,38 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_tag__full_name
+msgid "Full Name"
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_res_partner__gender
-#: model:ir.model.fields,field_description:tms.field_res_users__gender
 msgid "Gender"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__priority
+msgid "Gives the sequence order when displaying a list of TMS orders."
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_stage__legend_done
+msgid "Green Kanban Label"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_stage__legend_normal
+msgid "Grey Kanban Label"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__2
+msgid "High"
 msgstr ""
 
 #. module: tms
@@ -641,9 +751,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_res_config_settings__id
 #: model:ir.model.fields,field_description:tms.field_res_partner__id
 #: model:ir.model.fields,field_description:tms.field_tms_crew__id
-#: model:ir.model.fields,field_description:tms.field_tms_order__id
 #: model:ir.model.fields,field_description:tms.field_tms_route__id
-#: model:ir.model.fields,field_description:tms.field_tms_stage__id
+#: model:ir.model.fields,field_description:tms.field_tms_tag__id
 #: model:ir.model.fields,field_description:tms.field_tms_team__id
 msgid "ID"
 msgstr ""
@@ -667,6 +776,31 @@ msgstr ""
 #. module: tms
 #: model:ir.model.fields,help:tms.field_tms_order__message_has_error
 msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_res_partner__team_id
+#: model:ir.model.fields,help:tms.field_res_users__team_id
+msgid ""
+"If set, this Sales Team will be used for sales and assignments related to "
+"this partner"
+msgstr ""
+
+#. module: tms
+#: code:addons/tms/models/tms_stage.py:0
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__kanban_state__normal
+#: model:tms.order,legend_normal:tms.demo_order_1
+#: model:tms.order,legend_normal:tms.demo_order_2
+#: model:tms.order,legend_normal:tms.demo_order_3
+#: model:tms.stage,legend_normal:tms.tms_stage_driver_in_base
+#: model:tms.stage,legend_normal:tms.tms_stage_driver_in_trip
+#: model:tms.stage,legend_normal:tms.tms_stage_driver_not_available
+#: model:tms.stage,legend_normal:tms.tms_stage_order_cancelled
+#: model:tms.stage,legend_normal:tms.tms_stage_order_completed
+#: model:tms.stage,legend_normal:tms.tms_stage_order_confirmed
+#: model:tms.stage,legend_normal:tms.tms_stage_order_draft
+#, python-format
+msgid "In Progress"
 msgstr ""
 
 #. module: tms
@@ -702,13 +836,42 @@ msgid "Is a close stage"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__is_closed
+msgid "Is closed"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__legend_blocked
+msgid "Kanban Blocked Explanation"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__legend_normal
+msgid "Kanban Ongoing Explanation"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__kanban_state
+msgid "Kanban State"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__kanban_state_label
+msgid "Kanban State Label"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__legend_done
+msgid "Kanban Valid Explanation"
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_fleet_vehicle____last_update
 #: model:ir.model.fields,field_description:tms.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:tms.field_res_partner____last_update
 #: model:ir.model.fields,field_description:tms.field_tms_crew____last_update
-#: model:ir.model.fields,field_description:tms.field_tms_order____last_update
 #: model:ir.model.fields,field_description:tms.field_tms_route____last_update
-#: model:ir.model.fields,field_description:tms.field_tms_stage____last_update
+#: model:ir.model.fields,field_description:tms.field_tms_tag____last_update
 #: model:ir.model.fields,field_description:tms.field_tms_team____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -718,6 +881,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_order__write_uid
 #: model:ir.model.fields,field_description:tms.field_tms_route__write_uid
 #: model:ir.model.fields,field_description:tms.field_tms_stage__write_uid
+#: model:ir.model.fields,field_description:tms.field_tms_tag__write_uid
 #: model:ir.model.fields,field_description:tms.field_tms_team__write_uid
 msgid "Last Updated by"
 msgstr ""
@@ -727,6 +891,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_order__write_date
 #: model:ir.model.fields,field_description:tms.field_tms_route__write_date
 #: model:ir.model.fields,field_description:tms.field_tms_stage__write_date
+#: model:ir.model.fields,field_description:tms.field_tms_tag__write_date
 #: model:ir.model.fields,field_description:tms.field_tms_team__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -754,6 +919,11 @@ msgstr ""
 #: model:ir.actions.act_window,name:tms.action_tms_location
 #: model:ir.ui.menu,name:tms.menu_tms_location
 msgid "Locations"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__1
+msgid "Low"
 msgstr ""
 
 #. module: tms
@@ -890,6 +1060,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_order__name
 #: model:ir.model.fields,field_description:tms.field_tms_order__stage
 #: model:ir.model.fields,field_description:tms.field_tms_stage__name
+#: model:ir.model.fields,field_description:tms.field_tms_tag__name
 #: model:ir.model.fields,field_description:tms.field_tms_team__name
 #: model_terms:ir.ui.view,arch_db:tms.view_res_partner_tree_tms_driver
 msgid "Name"
@@ -919,6 +1090,11 @@ msgstr ""
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__0
+msgid "Normal"
 msgstr ""
 
 #. module: tms
@@ -989,12 +1165,12 @@ msgid "Orders Count"
 msgstr ""
 
 #. module: tms
-#: model:ir.model.fields,field_description:tms.field_tms_order__origin_id
-#: model:ir.model.fields,field_description:tms.field_tms_order__origin_location
+#: model:ir.model.fields,field_description:tms.field_tms_order__origin_location_id
 msgid "Origin"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__origin_id
 #: model:ir.model.fields,field_description:tms.field_tms_route__origin_location_id
 msgid "Origin Location"
 msgstr ""
@@ -1002,6 +1178,35 @@ msgstr ""
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_crew__personnel_ids
 msgid "Other Personnel"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__legend_blocked
+#: model:ir.model.fields,help:tms.field_tms_stage__legend_blocked
+msgid ""
+"Override the default value displayed for the blocked state for kanban"
+"             selection, when the order or shipment is in that stage."
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__legend_done
+#: model:ir.model.fields,help:tms.field_tms_stage__legend_done
+msgid ""
+"Override the default value displayed for the done state for kanban"
+"             selection, when the order or shipment is in that stage."
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__legend_normal
+#: model:ir.model.fields,help:tms.field_tms_stage__legend_normal
+msgid ""
+"Override the default value displayed for the normal state for kanban"
+"             selection, when the sorder or shipment is in that stage."
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_tag__parent_id
+msgid "Parent"
 msgstr ""
 
 #. module: tms
@@ -1021,8 +1226,35 @@ msgid "Planning"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__priority
+msgid "Priority"
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_stage__legend_priority
 msgid "Priority Management Explanation"
+msgstr ""
+
+#. module: tms
+#: code:addons/tms/models/tms_stage.py:0
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__kanban_state__done
+#: model:tms.order,legend_done:tms.demo_order_1
+#: model:tms.order,legend_done:tms.demo_order_2
+#: model:tms.order,legend_done:tms.demo_order_3
+#: model:tms.stage,legend_done:tms.tms_stage_driver_in_base
+#: model:tms.stage,legend_done:tms.tms_stage_driver_in_trip
+#: model:tms.stage,legend_done:tms.tms_stage_driver_not_available
+#: model:tms.stage,legend_done:tms.tms_stage_order_cancelled
+#: model:tms.stage,legend_done:tms.tms_stage_order_completed
+#: model:tms.stage,legend_done:tms.tms_stage_order_confirmed
+#: model:tms.stage,legend_done:tms.tms_stage_order_draft
+#, python-format
+msgid "Ready"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_stage__legend_blocked
+msgid "Red Kanban Label"
 msgstr ""
 
 #. module: tms
@@ -1042,7 +1274,6 @@ msgstr ""
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__route_id
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
 #: model_terms:ir.ui.view,arch_db:tms.view_tms_route_form
 msgid "Route"
 msgstr ""
@@ -1063,6 +1294,12 @@ msgstr ""
 #: model:ir.ui.menu,name:tms.menu_tms_route
 #: model_terms:ir.ui.view,arch_db:tms.res_config_settings_view_form
 msgid "Routes"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_res_partner__team_id
+#: model:ir.model.fields,field_description:tms.field_res_users__team_id
+msgid "Sales Team"
 msgstr ""
 
 #. module: tms
@@ -1109,6 +1346,7 @@ msgid "Services"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__is_closed
 #: model:ir.model.fields,help:tms.field_tms_stage__is_closed
 msgid "Services in this stage are considered as closed."
 msgstr ""
@@ -1142,8 +1380,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_res_partner__stage_id
 #: model:ir.model.fields,field_description:tms.field_res_users__stage_id
 #: model:ir.model.fields,field_description:tms.field_tms_order__stage_id
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 #: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_order_search
 msgid "Stage"
 msgstr ""
 
@@ -1209,27 +1447,42 @@ msgid "TMS"
 msgstr ""
 
 #. module: tms
+#: model:ir.actions.act_window,name:tms.tms_tag_act_window
+msgid "TMS Tags"
+msgstr ""
+
+#. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_team_view_kanban
 msgid "TRIPS"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.constraint,message:tms.constraint_tms_tag_name_uniq
+msgid "Tag name already exists!"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__tag_ids
 #: model:ir.ui.menu,name:tms.menu_config_fleet_vehicles_tags
+#: model:ir.ui.menu,name:tms.menu_tms_config_tag
 msgid "Tags"
 msgstr ""
 
 #. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
-msgid "Tasks Analysis"
+#: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
+msgid "Task in progress. Click to block or set as done."
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
+msgid "Task is blocked. Click to unblock or set as done."
 msgstr ""
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_fleet_vehicle__team_id
-#: model:ir.model.fields,field_description:tms.field_res_partner__team_id
-#: model:ir.model.fields,field_description:tms.field_res_users__team_id
 #: model:ir.model.fields,field_description:tms.field_tms_crew__team_id
 #: model:ir.model.fields,field_description:tms.field_tms_order__team_id
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_order_search
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 msgid "Team"
 msgstr ""
 
@@ -1266,6 +1519,11 @@ msgid ""
 msgstr ""
 
 #. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
+msgid "This step is done. Click to block or set in progress."
+msgstr ""
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__time_uom
 msgid "Time Uom"
 msgstr ""
@@ -1283,6 +1541,11 @@ msgstr ""
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_res_config_settings__tms_speed_uom
 msgid "Tms Speed Uom"
+msgstr ""
+
+#. module: tms
+#: model:ir.model,name:tms.model_tms_tag
+msgid "Tms Tag"
 msgstr ""
 
 #. module: tms
@@ -1307,18 +1570,8 @@ msgid "Transport Management System Crew"
 msgstr ""
 
 #. module: tms
-#: model:ir.model,name:tms.model_tms_order
-msgid "Transport Management System Order"
-msgstr ""
-
-#. module: tms
 #: model:ir.model,name:tms.model_tms_route
 msgid "Transport Management System Route"
-msgstr ""
-
-#. module: tms
-#: model:ir.model,name:tms.model_tms_stage
-msgid "Transport Management System Stage"
 msgstr ""
 
 #. module: tms
@@ -1342,11 +1595,6 @@ msgid "Trip Name"
 msgstr ""
 
 #. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.tms_order_report_view_graph
-msgid "Trip Reports"
-msgstr ""
-
-#. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "Trip Tracking"
 msgstr ""
@@ -1366,6 +1614,8 @@ msgstr ""
 #: model:ir.ui.menu,name:tms.menu_tms_report_trip
 #: model_terms:ir.ui.view,arch_db:tms.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:tms.tms_crew_view_kanban
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_graph
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_pivot
 msgid "Trips"
 msgstr ""
 
@@ -1437,11 +1687,6 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: tms
-#: model_terms:ir.ui.view,arch_db:tms.view_tms_route_form
-msgid "UoM"
-msgstr ""
-
-#. module: tms
 #: model:ir.model.fields,help:tms.field_tms_stage__custom_color
 msgid "Use Hex Code only Ex:-#FFFFFF"
 msgstr ""
@@ -1471,6 +1716,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms.field_tms_order__vehicle_id
 #: model:ir.model.fields,field_description:tms.field_tms_team__vehicle_ids
 #: model_terms:ir.ui.view,arch_db:tms.tms_crew_view_form
+#: model_terms:ir.ui.view,arch_db:tms.tms_order_view_search
 msgid "Vehicle"
 msgstr ""
 
@@ -1499,10 +1745,25 @@ msgid "Vehicles Count"
 msgstr ""
 
 #. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__tms_order__priority__3
+msgid "Very High"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,field_description:tms.field_tms_order__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: tms
+#: model:ir.model.fields,help:tms.field_tms_order__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_stage_form_view
 msgid ""
-"You can add a description to help your coworkers understand the meaning and purpose of the\n"
-"                            stage."
+"You can also add a description to help your coworkers\n"
+"                            understand the meaning and purpose of the stage."
 msgstr ""
 
 #. module: tms
@@ -1560,4 +1821,9 @@ msgstr ""
 #. module: tms
 #: model:uom.uom,name:tms.uom_mph
 msgid "mph"
+msgstr ""
+
+#. module: tms
+#: model_terms:ir.ui.view,arch_db:tms.tms_tag_form_view
+msgid "tag"
 msgstr ""

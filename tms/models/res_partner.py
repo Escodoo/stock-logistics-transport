@@ -3,13 +3,13 @@
 
 from odoo import api, fields, models
 
-DRIVER_LICENSE_TYPES = [
+TMS_DRIVER_LICENSE_TYPES = [
     ("A", "A - Motorcycles"),
     ("B", "B - Automobiles"),
     ("C", "C - Truck"),
     ("D", "D - Bus"),
 ]
-LOCATION_TYPES = [("terrestrial", "Terrestrial")]
+TMS_LOCATION_TYPES = [("terrestrial", "Terrestrial")]
 
 
 class ResPartner(models.Model):
@@ -26,69 +26,69 @@ class ResPartner(models.Model):
     # ------------------------------
 
     # Driver - Flags
-    is_external = fields.Boolean(string="External Driver")
-    is_training = fields.Boolean(string="In Training")
-    is_active = fields.Boolean(default=True)
+    tms_is_external = fields.Boolean(string="External Driver")
+    tms_is_training = fields.Boolean(string="In TMS Training")
+    tms_is_active = fields.Boolean(string="Active on TMS", default=True)
 
     # Driver - Information
-    age = fields.Integer()  # TODO: Add min age
-    gender = fields.Selection(selection=[("male", "Male"), ("female", "Female")])
+    tms_age = fields.Integer()  # TODO: Add min age
+    tms_gender = fields.Selection(selection=[("male", "Male"), ("female", "Female")])
 
     # Driver - Relations
-    vehicles_ids = fields.One2many("fleet.vehicle", "driver_id")
-    trips_ids = fields.One2many("tms.order", "driver_id")
+    tms_vehicles_ids = fields.One2many("fleet.vehicle", "driver_id")
+    tms_order_ids = fields.One2many("tms.order", "driver_id")
 
     # Driver - Type
-    driver_type = fields.Selection(
+    tms_driver_type = fields.Selection(
         string="Type", selection=[("terrestrial", "Terrestrial")]
     )
 
     # Driver - Relations
-    team_id = fields.Many2one("tms.team")
-    crew_ids = fields.Many2many(
+    tms_team_id = fields.Many2one("tms.team")
+    tms_crew_ids = fields.Many2many(
         "tms.crew",
         "tms_crew_drivers_rel",
         string="Crews",
     )
-    stage_id = fields.Many2one(
+    tms_stage_id = fields.Many2one(
         "tms.stage",
         string="Stage",
         index=True,
         copy=False,
-        default=lambda self: self._default_stage_id(),
-        group_expand="_read_group_stage_ids",
+        default=lambda self: self._default_tms_stage_id(),
+        group_expand="_read_group_tms_stage_ids",
     )
-    stage = fields.Char(related="stage_id.name")
+    tms_stage = fields.Char(related="tms_stage_id.name")
 
     # ------------------------------
     #      Driver - Terrestrial
     # ------------------------------
 
     # Terrestrial - Licenses
-    driver_license_number = fields.Char()
-    driver_license_type = fields.Selection(
-        string="License type", selection=DRIVER_LICENSE_TYPES
+    tms_driver_license_number = fields.Char()
+    tms_driver_license_type = fields.Selection(
+        string="License type", selection=TMS_DRIVER_LICENSE_TYPES
     )
-    driver_license_expiration_date = fields.Date()
-    driver_license_file = fields.Binary()
+    tms_driver_license_expiration_date = fields.Date()
+    tms_driver_license_file = fields.Binary()
 
     # Terrestrial - Experience
-    distance_traveled = fields.Integer()
-    distance_traveled_uom = fields.Selection(selection=[("km", "km"), ("mi", "mi")])
-    driving_experience_years = fields.Integer()
+    tms_distance_traveled = fields.Integer()
+    tms_distance_traveled_uom = fields.Selection(selection=[("km", "km"), ("mi", "mi")])
+    tms_driving_experience_years = fields.Integer()
 
     # ==========================================================================
 
     # Location - Types
-    location_type = fields.Selection(selection=LOCATION_TYPES)
+    tms_location_type = fields.Selection(selection=TMS_LOCATION_TYPES)
 
     @api.model
-    def _read_group_stage_ids(self, stages, domain, order):
+    def _read_group_tms_stage_ids(self, stages, domain, order):
         return self.env["tms.stage"].search(
             [("stage_type", "=", "driver")], order=order
         )
 
-    def _default_stage_id(self):
+    def _default_tms_stage_id(self):
         stage = self.env["tms.stage"].search(
             [("stage_type", "=", "driver")],
             order="sequence asc",
