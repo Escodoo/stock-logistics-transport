@@ -1,7 +1,7 @@
 # Copyright (C) 2018 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "TMS - Sales",
+    "name": "TMS - Sale",
     "version": "14.0.1.0.0",
     "summary": "Sell transportation management system.",
     "category": "TMS",
