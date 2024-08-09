@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="tms_shipment.tms_shipment_view_form" />
         <field name="arch" type="xml">
             <xpath
-                expr="//field[@name='tms_order_ids']/tree/field[@name='stage_id']"
+                expr="//field[@name='order_ids']/tree/field[@name='priority']"
                 position="before"
             >
                 <field name="is_pickup_order" optional="show" />
