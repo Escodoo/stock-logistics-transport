@@ -1,0 +1,33 @@
+<odoo>
+    <template
+        id="report_tms_shipment_detailed_document"
+        inherit_id="tms_shipment.report_tms_shipment_detailed_document"
+    >
+        <table name="delivery_info" position="after">
+            <t groups="purchase.group_purchase_user">
+                <!-- Informações sobre Compras -->
+                <h3>Purchases</h3>
+                <table class="table table-condensed" name="purchase_info">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date Order</th>
+                            <th>Date Approved</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.purchase_ids" t-as="purchase">
+                            <tr>
+                                <td><span t-field="purchase.name" /></td>
+                                <td><span t-field="purchase.amount_total" /></td>
+                                <td><span t-field="purchase.date_order" /></td>
+                                <td><span t-field="purchase.date_approve" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </table>
+    </template>
+</odoo>

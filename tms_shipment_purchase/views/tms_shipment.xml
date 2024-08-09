@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_shipment_form_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="tms_shipment.tms_shipment_view_form" />
+        <field name="arch" type="xml">
+            <page name="amount_page" position="before">
+                <page
+                    name="purchases"
+                    string="Purchases"
+                    groups="purchase.group_purchase_user"
+                >
+                    <field name="purchase_ids" groups="purchase.group_purchase_user" />
+                </page>
+            </page>
+            <xpath expr="//page[@name='amount_page']" position="inside">
+                <group
+                    name="amount_purchase_group"
+                    string="Amount Purchases"
+                    groups="purchase.group_purchase_user"
+                >
+                    <field
+                        name="purchase_total_amount"
+                        string="Total Purchase Amount"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+<!--
+    <record model="ir.ui.view" id="tms_shipment_search_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="TODO othermodule.search_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tms_shipment_tree_view">
+        <field name="model">tms.shipment</field>
+        <field name="inherit_id" ref="TODO othermodule.tree_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record>
+ -->
+</odoo>

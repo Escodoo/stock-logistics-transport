@@ -1,0 +1,101 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_shipment_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-04 06:00+0000\n"
+"PO-Revision-Date: 2024-08-04 06:51-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4.3\n"
+
+#. module: tms_shipment_purchase
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.report_tms_shipment_detailed_document
+msgid "Amount"
+msgstr "Total"
+
+#. module: tms_shipment_purchase
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.tms_shipment_form_view
+msgid "Amount Purchases"
+msgstr "Total de Compras"
+
+#. module: tms_shipment_purchase
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.report_tms_shipment_detailed_document
+msgid "Date Approved"
+msgstr "Data de Aprovação"
+
+#. module: tms_shipment_purchase
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.report_tms_shipment_detailed_document
+msgid "Date Order"
+msgstr "Data do Pedido"
+
+#. module: tms_shipment_purchase
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.report_tms_shipment_detailed_document
+msgid "Description"
+msgstr "Descrição"
+
+#. module: tms_shipment_purchase
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_tms_shipment__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: tms_shipment_purchase
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order__id
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_tms_shipment__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tms_shipment_purchase
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order_line____last_update
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_tms_shipment____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: tms_shipment_purchase
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_tms_shipment__purchase_ids
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: tms_shipment_purchase
+#: model:ir.model,name:tms_shipment_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de Compra"
+
+#. module: tms_shipment_purchase
+#: model:ir.model,name:tms_shipment_purchase.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Linha de Pedido de Compra"
+
+#. module: tms_shipment_purchase
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.report_tms_shipment_detailed_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.tms_shipment_form_view
+msgid "Purchases"
+msgstr "Compras"
+
+#. module: tms_shipment_purchase
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_purchase_order__tms_shipment_id
+msgid "TMS Shipment"
+msgstr "Remessa TMS"
+
+#. module: tms_shipment_purchase
+#: model:ir.model,name:tms_shipment_purchase.model_tms_shipment
+msgid "Tms Shipment"
+msgstr "Remessa Tms"
+
+#. module: tms_shipment_purchase
+#: model:ir.model.fields,field_description:tms_shipment_purchase.field_tms_shipment__purchase_total_amount
+#: model_terms:ir.ui.view,arch_db:tms_shipment_purchase.tms_shipment_form_view
+msgid "Total Purchase Amount"
+msgstr "Valor Total da Compra"
