@@ -173,11 +173,11 @@ class TmsShipmentCreate(models.TransientModel):
                 "scheduled_date_start": self.scheduled_date_start or None,
                 "scheduled_duration": self.scheduled_duration or None,
                 "scheduled_date_end": self.scheduled_date_end or None,
-                "tms_order_ids": [(6, 0, active_ids)],
+                "order_ids": [(6, 0, active_ids)],
             }
         )
 
-        shipment.tms_order_ids.write(
+        shipment.order_ids.write(
             {
                 "team_id": shipment.team_id.id or None,
                 "crew_id": shipment.crew_id.id or None,
@@ -187,7 +187,7 @@ class TmsShipmentCreate(models.TransientModel):
         )
 
         if self.overwrite_route_data:
-            for order in shipment.tms_order_ids:
+            for order in shipment.order_ids:
                 if self.route:
                     if order.route_id:
                         order.write(
@@ -202,7 +202,7 @@ class TmsShipmentCreate(models.TransientModel):
             shipment._onchange_scheduled_duration()
 
         if self.overwrite_scheduled_date:
-            shipment.tms_order_ids.write(
+            shipment.order_ids.write(
                 {
                     "scheduled_date_start": shipment.scheduled_date_start,
                     "scheduled_duration": self.scheduled_duration,

@@ -1,7 +1,6 @@
 <odoo>
     <template id="report_tms_shipment_document">
         <t t-call="web.external_layout">
-            <!-- <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" /> -->
             <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" />
             <div class="page">
                 <div class="oe_structure" />
@@ -10,35 +9,35 @@
                 <table class="table table-sm">
                     <tr>
                         <th>Name</th>
-                        <td><t t-esc="doc.display_name" /></td>
+                        <td><span t-field="doc.display_name" /></td>
                     </tr>
                     <tr t-if="doc.route">
                         <th>Route</th>
-                        <td><t t-esc="doc.route_id.display_name" /></td>
+                        <td><span t-field="doc.route_id" /></td>
                     </tr>
                     <tr>
                         <th>Origin</th>
-                        <td><t t-esc="doc.origin_location_id.display_name" /></td>
+                        <td><span t-field="doc.origin_location_id" /></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
-                        <td><t t-esc="doc.destination_location_id.display_name" /></td>
+                        <td><span t-field="doc.destination_location_id" /></td>
                     </tr>
                     <tr>
                         <th>Driver</th>
-                        <td><t t-esc="doc.driver_id.display_name" /></td>
+                        <td><span t-field="doc.driver_id" /></td>
                     </tr>
                     <tr>
                         <th>Vehicle</th>
-                        <td><t t-esc="doc.vehicle_id.display_name" /></td>
+                        <td><span t-field="doc.vehicle_id" /></td>
                     </tr>
                     <tr>
                         <th>Scheduled Start</th>
-                        <td><t t-esc="doc.scheduled_date_start" /></td>
+                        <td><span t-field="doc.scheduled_date_start" /></td>
                     </tr>
                     <tr>
                         <th>Scheduled End</th>
-                        <td><t t-esc="doc.scheduled_date_end" /></td>
+                        <td><span t-field="doc.scheduled_date_end" /></td>
                     </tr>
 
                 </table>
@@ -54,7 +53,7 @@
                         <tbody>
                             <t t-foreach="doc.route_id.stop_location_ids" t-as="stop">
                                 <tr>
-                                    <td><t t-esc="stop.display_name" /></td>
+                                    <td><span t-field="stop.display_name" /></td>
                                 </tr>
                             </t>
                         </tbody>
@@ -75,15 +74,13 @@
                     <tbody name="tms_orders">
                         <t t-foreach="doc.tms_sorted_order_ids" t-as="order">
                             <tr>
-                                <td><t t-esc="order.shipment_sequence" /></td>
-                                <td><t t-esc="order.display_name" /></td>
-                                <td><t
-                                        t-esc="order.origin_location_id.display_name"
+                                <td><span t-field="order.shipment_sequence" /></td>
+                                <td><span t-field="order.display_name" /></td>
+                                <td><span t-field="order.origin_location_id" /></td>
+                                <td><span
+                                        t-field="order.destination_location_id"
                                     /></td>
-                                <td><t
-                                        t-esc="order.destination_location_id.display_name"
-                                    /></td>
-                                <td><t t-esc="order.scheduled_date_end" /></td>
+                                <td><span t-field="order.scheduled_date_end" /></td>
                             </tr>
                         </t>
                     </tbody>

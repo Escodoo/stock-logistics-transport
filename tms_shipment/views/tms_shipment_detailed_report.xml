@@ -1,0 +1,141 @@
+<odoo>
+    <template id="report_tms_shipment_detailed_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" />
+            <div class="page">
+                <div class="oe_structure" />
+
+                <h2 class="mt16">Shipment Report</h2>
+                <!-- Informações Gerais -->
+                <table class="table table-sm" name="general_info">
+                    <tr>
+                        <th>Shipment</th>
+                        <td><span t-field="doc.display_name" /></td>
+                    </tr>
+                    <tr>
+                        <th>Driver</th>
+                        <td><span t-field="doc.driver_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Vehicle</th>
+                        <td><span t-field="doc.vehicle_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled Start</th>
+                        <td><span t-field="doc.scheduled_date_start" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled Duration</th>
+                        <td><span t-field="doc.scheduled_duration" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled End</th>
+                        <td><span t-field="doc.scheduled_date_end" /></td>
+                    </tr>
+                    <tr>
+                        <th>Actual Start</th>
+                        <td><span t-field="doc.date_start" /></td>
+                    </tr>
+                    <tr>
+                        <th>Actual End</th>
+                        <td><span t-field="doc.date_end" /></td>
+                    </tr>
+                    <tr>
+                        <th>Origin Location</th>
+                        <td><span t-field="doc.origin_location_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Destination Location</th>
+                        <td><span t-field="doc.destination_location_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td><span t-field="doc.stage_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Priority</th>
+                        <td><span t-field="doc.priority" /></td>
+                    </tr>
+                    <tr>
+                        <th>Tags</th>
+                        <td><t t-foreach="doc.tag_ids" t-as="tag">
+                            <span class="badge badge-secondary"><t
+                                        t-esc="tag.name"
+                                    /></span>
+                        </t></td>
+                    </tr>
+                </table>
+
+                <!-- Informações sobre Entregas -->
+                <h3>Deliveries</h3>
+                <table class="table table-condensed" name="delivery_info">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Scheduled Start</th>
+                            <th>Scheduled End</th>
+                            <th>Actual Start</th>
+                            <th>Actual End</th>
+                            <th>Stage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.order_ids" t-as="order">
+                            <tr>
+                                <td><span t-field="order.display_name" /></td>
+                                <td><span
+                                        t-field="order.origin_location_id.display_name"
+                                    /></td>
+                                <td><span
+                                        t-field="order.destination_location_id.display_name"
+                                    /></td>
+                                <td><span
+                                        t-field="order.scheduled_date_start"
+                                        t-options="{'widget': 'date'}"
+                                    /></td>
+                                <td><span t-field="order.scheduled_date_end" /></td>
+                                <td><span t-field="order.date_start" /></td>
+                                <td><span t-field="order.date_end" /></td>
+                                <td><span t-field="order.stage_id" /></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <!-- Aceite do Motorista -->
+                <strong>Driver Acceptance:</strong>
+                <span t-if="doc.driver_signature">
+                    <img
+                        class="image"
+                        t-att-src="'data:image/png;base64,%s' % to_text(doc.driver_signature)"
+                        style="border:auto; max-width: 200px; max-height: 100px;"
+                    />
+
+                </span>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_tms_shipment_detailed">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="tms_shipment.report_tms_shipment_detailed_document" />
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_tms_shipment_detailed" model="ir.actions.report">
+        <field name="name">Detailed Shipment</field>
+        <field name="model">tms.shipment</field>
+        <field name="report_name">tms_shipment.report_tms_shipment_detailed</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_file">tms_shipment.report_tms_shipment_detailed</field>
+        <field name="binding_model_id" ref="model_tms_shipment" />
+        <field name="binding_type">report</field>
+        <field
+            name="print_report_name"
+        >'Detailed-Shipment-Report-%s' % (object.name)</field>
+    </record>
+</odoo>
