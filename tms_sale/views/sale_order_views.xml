@@ -28,26 +28,23 @@
                     attrs="{'invisible': [('has_tms_product', '=', False)]}"
                 >
                     <group>
-                        <group
-                            name="tms_route_group"
-                            string="Route"
-                            groups="tms.group_tms_route"
-                        >
-                            <field name="tms_route_flag" />
+                        <group name="tms_route_group" string="Order Info">
+                            <field name="tms_route_flag" groups="tms.group_tms_route" />
                             <field
                                 name="tms_route_id"
                                 attrs="{'invisible': [('tms_route_flag', '=', False)], 'required': [('tms_route_flag', '=', True)]}"
+                                groups="tms.group_tms_route"
                             />
                             <field
                                 name="tms_origin_id"
-                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': [('tms_route_flag', '=', False)]}"
+                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': ['&amp;', ('has_tms_product', '=', True), ('tms_route_flag', '=', False)]}"
                             />
                             <field
                                 name="tms_destination_id"
-                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': [('tms_route_flag', '=', False)]}"
+                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': ['&amp;', ('has_tms_product', '=', True), ('tms_route_flag', '=', False)]}"
                             />
                         </group>
-                        <group
+                        <!-- <group
                             name="tms_route"
                             string="Route"
                             groups="!tms.group_tms_route"
@@ -60,7 +57,7 @@
                                 name="tms_destination_id"
                                 attrs="{'required': [('tms_route_flag', '=', False)]}"
                             />
-                        </group>
+                        </group> -->
                         <group name="tms_schedule" string="Schedule">
                             <field
                                 name="tms_scheduled_date_start"

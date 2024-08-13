@@ -15,20 +15,22 @@
                     <field
                         name="tms_pickup_route_flag"
                         attrs="{'invisible': [('tms_need_pickup_order', '=', False)]}"
+                        groups="tms.group_tms_route"
                     />
 
                     <field
                         name="tms_pickup_route_id"
                         attrs="{'invisible': ['|',('tms_need_pickup_order', '=', False), ('tms_pickup_route_flag', '=', False)], 'required': [('tms_pickup_route_flag', '=', True)]}"
+                        groups="tms.group_tms_route"
                     />
 
                     <field
                         name="tms_pickup_origin_id"
-                        attrs="{'invisible': ['|',('tms_need_pickup_order', '=', False), ('tms_pickup_route_flag', '=', True)]}"
+                        attrs="{'invisible': ['|',('tms_need_pickup_order', '=', False), ('tms_pickup_route_flag', '=', True)], 'required': ['&amp;',('tms_need_pickup_order', '=', True), ('tms_pickup_route_flag', '=', False)]}"
                     />
                     <field
                         name="tms_pickup_destination_id"
-                        attrs="{'invisible': ['|',('tms_need_pickup_order', '=', False), ('tms_pickup_route_flag', '=', True)], 'required': [('tms_pickup_route_flag', '=', False)]}"
+                        attrs="{'invisible': ['|',('tms_need_pickup_order', '=', False), ('tms_pickup_route_flag', '=', True)], 'required': ['&amp;',('tms_need_pickup_order', '=', True), ('tms_pickup_route_flag', '=', False)]}"
                     />
                 </group>
                 <group
