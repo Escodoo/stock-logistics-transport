@@ -53,7 +53,6 @@ class ResPartner(models.Model):
         copy=False,
         default=lambda self: self._default_tms_stage_id(),
         group_expand="_read_group_tms_stage_ids",
-        company_dependent=True,
     )
     tms_stage = fields.Char(related="tms_stage_id.name")
 
