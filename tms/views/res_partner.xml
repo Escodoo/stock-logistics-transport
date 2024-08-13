@@ -23,8 +23,13 @@
             <tree>
                 <field name="tms_stage" attrs="{'column_invisible': True}" />
                 <field name="display_name" string="Name" />
-                <field name="tms_age" />
-                <field name="tms_gender" />
+                <field name="age" optional="hide" />
+                <field name="gender" optional="hide" />
+                <field name="tms_is_external" optional="show" />
+                <field name="tms_driver_type" optional="show" />
+                <field name="tms_driver_license_number" optional="show" />
+                <field name="tms_driver_license_type" optional="show" />
+                <field name="tms_driver_license_expiration_date" optional="show" />
                 <field name="phone" />
                 <field
                     name="tms_stage_id"
@@ -60,11 +65,6 @@
 
             <xpath expr="//span[@name='address_name']//b" position="attributes">
                 <attribute name="invisible">False</attribute>
-            </xpath>
-
-            <xpath expr="//field[@name='vat']" position="after">
-                <field name="tms_age" />
-                <field name="tms_gender" />
             </xpath>
 
             <xpath expr="//field[@name='function']" position="attributes">

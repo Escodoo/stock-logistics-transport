@@ -30,10 +30,6 @@ class ResPartner(models.Model):
     tms_is_training = fields.Boolean(string="In TMS Training")
     tms_is_active = fields.Boolean(string="Active on TMS", default=True)
 
-    # Driver - Information
-    tms_age = fields.Integer()  # TODO: Add min age
-    tms_gender = fields.Selection(selection=[("male", "Male"), ("female", "Female")])
-
     # Driver - Relations
     tms_vehicles_ids = fields.One2many("fleet.vehicle", "driver_id")
     tms_order_ids = fields.One2many("tms.order", "driver_id")
@@ -57,6 +53,7 @@ class ResPartner(models.Model):
         copy=False,
         default=lambda self: self._default_tms_stage_id(),
         group_expand="_read_group_tms_stage_ids",
+        company_dependent=True,
     )
     tms_stage = fields.Char(related="tms_stage_id.name")
 

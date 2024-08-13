@@ -5,80 +5,80 @@
         <field name="name">Sergio Perez</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">34</field>
-        <field name="tms_gender">male</field>
+        <field name="birthdate_date">1980-09-05</field>
+        <field name="gender">male</field>
     </record>
 
     <record id="demo_driver_2" model="res.partner">
         <field name="name">Esteban Gutierréz</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">32</field>
-        <field name="tms_gender">male</field>
+        <field name="birthdate_date">1995-09-05</field>
+        <field name="gender">male</field>
     </record>
 
     <record id="demo_driver_3" model="res.partner">
         <field name="name">Luisa Fernandez</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">28</field>
-        <field name="tms_gender">female</field>
+        <field name="birthdate_date">1965-09-05</field>
+        <field name="gender">female</field>
     </record>
 
     <record id="demo_driver_4" model="res.partner">
         <field name="name">James Johnson</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">35</field>
-        <field name="tms_gender">male</field>
+        <field name="birthdate_date">1977-09-05</field>
+        <field name="gender">male</field>
     </record>
 
     <record id="demo_driver_5" model="res.partner">
         <field name="name">Sophie Martinez</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">27</field>
-        <field name="tms_gender">female</field>
+        <field name="birthdate_date">1982-09-05</field>
+        <field name="gender">female</field>
     </record>
 
     <record id="demo_driver_6" model="res.partner">
         <field name="name">Daniel Lee</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">30</field>
-        <field name="tms_gender">male</field>
+        <field name="birthdate_date">1999-09-05</field>
+        <field name="gender">male</field>
     </record>
 
     <record id="demo_driver_7" model="res.partner">
         <field name="name">Emily Garcia</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">29</field>
-        <field name="tms_gender">female</field>
+        <field name="birthdate_date">1998-09-05</field>
+        <field name="gender">female</field>
     </record>
 
     <record id="demo_driver_8" model="res.partner">
         <field name="name">Michael Brown</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">33</field>
-        <field name="tms_gender">male</field>
+        <field name="birthdate_date">1981-09-05</field>
+        <field name="gender">male</field>
     </record>
 
     <record id="demo_driver_9" model="res.partner">
         <field name="name">Isabella Rossi</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">31</field>
-        <field name="tms_gender">female</field>
+        <field name="birthdate_date">1971-09-05</field>
+        <field name="gender">female</field>
     </record>
 
     <record id="demo_driver_10" model="res.partner">
         <field name="name">David Smith</field>
         <field name="tms_type">driver</field>
         <field name="tms_driver_type">terrestrial</field>
-        <field name="tms_age">34</field>
-        <field name="tms_gender">male</field>
+        <field name="birthdate_date">1987-09-05</field>
+        <field name="gender">male</field>
     </record>
 
     <!-- Locations -->
