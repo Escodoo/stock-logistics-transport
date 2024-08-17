@@ -59,10 +59,11 @@ class SaleOrder(models.Model):
 
     @api.onchange("tms_pickup_scheduled_duration")
     def _onchange_tms_pickup_scheduled_duration(self):
-        self.tms_pickup_scheduled_date_end = (
-            self.tms_pickup_scheduled_date_start
-            + timedelta(hours=self.tms_pickup_scheduled_duration)
-        )
+        if self.tms_pickup_scheduled_date_start and self.tms_pickup_scheduled_duration:
+            self.tms_pickup_scheduled_date_end = (
+                self.tms_pickup_scheduled_date_start
+                + timedelta(hours=self.tms_pickup_scheduled_duration)
+            )
 
     @api.onchange("tms_pickup_scheduled_date_end")
     def _onchange_tms_pickup_scheduled_date_end(self):
@@ -76,10 +77,21 @@ class SaleOrder(models.Model):
     @api.onchange("tms_pickup_scheduled_date_start")
     def _onchange_tms_pickup_scheduled_date_start(self):
         if self.tms_pickup_scheduled_date_start:
-            self.tms_pickup_scheduled_date_end = (
-                self.tms_pickup_scheduled_date_start
-                + timedelta(hours=self.tms_pickup_scheduled_duration)
-            )
+            # Se a data de fim estiver vazia e houver duração, calcula a data de fim
+            if (
+                self.tms_pickup_scheduled_duration
+                and not self.tms_pickup_scheduled_date_end
+            ):
+                self.tms_pickup_scheduled_date_end = (
+                    self.tms_pickup_scheduled_date_start
+                    + timedelta(hours=self.tms_pickup_scheduled_duration)
+                )
+            # Se a data de fim estiver preenchida, ajusta conforme a duração
+            elif self.tms_pickup_scheduled_date_end:
+                self.tms_pickup_scheduled_date_end = (
+                    self.tms_pickup_scheduled_date_start
+                    + timedelta(hours=self.tms_pickup_scheduled_duration)
+                )
 
     def _tms_generation(self):
         result = super()._tms_generation()
