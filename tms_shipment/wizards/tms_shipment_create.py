@@ -9,7 +9,7 @@ from odoo.exceptions import UserError
 
 class TmsShipmentCreate(models.TransientModel):
     _name = "tms.shipment.create"
-    _description = "Shipment Wizard Create"
+    _description = "TMS Shipment Wizard Create"
 
     team_id = fields.Many2one("tms.team", string="Team")
     crew_id = fields.Many2one("tms.crew", string="Crew")

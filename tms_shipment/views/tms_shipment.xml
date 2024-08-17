@@ -523,7 +523,7 @@
                                     class="mt-2"
                                     t-if="record.date_start.raw_value or record.date_end.raw_value"
                                 >
-                                    <small><b>Effective</b></small>
+                                    <small><b>Actual</b></small>
                                     <div>
                                         <span
                                             class="fa fa-calendar me-2"
@@ -720,13 +720,13 @@
                     <separator />
                     <filter
                         name="date_start"
-                        string="Effective Date Start"
+                        string="Actual Date Start"
                         domain="[]"
                         context="{'group_by':'date_start'}"
                     />
                     <filter
                         name="date_end"
-                        string="Effective Date End"
+                        string="Actual Date End"
                         domain="[]"
                         context="{'group_by':'date_end'}"
                     />

@@ -10,7 +10,7 @@ from odoo.exceptions import ValidationError
 class TmsShipment(models.Model):
 
     _name = "tms.shipment"
-    _description = "Tms Shipment"  # TODO
+    _description = "TMS Shipment"
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
     active = fields.Boolean(default=True)
@@ -139,7 +139,10 @@ class TmsShipment(models.Model):
     )
 
     tms_sorted_order_ids = fields.One2many(
-        "tms.order", compute="_compute_sorted_order_lines", compute_sudo=True
+        "tms.order",
+        compute="_compute_sorted_order_lines",
+        compute_sudo=True,
+        string="TMS Orders Sorted",
     )
 
     @api.depends("order_ids", "order_ids.shipment_sequence")
