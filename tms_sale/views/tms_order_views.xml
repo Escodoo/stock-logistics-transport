@@ -11,12 +11,25 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-usd"
+                    attrs="{'invisible': [('sale_id', '=', False)]}"
                 >
                     <span class="o_stat_text">Sale Order</span>
                     <field name="sale_id" invisible="1" />
                     <field name="sale_line_id" invisible="1" />
                 </button>
             </xpath>
+            <notebook position="inside">
+                <page
+                    string="Sale Info"
+                    name="sale_page"
+                    groups="sales_team.group_sale_salesman"
+                >
+                    <group>
+                        <field name="sale_id" />
+                        <field name="sale_line_id" />
+                    </group>
+                </page>
+            </notebook>
         </field>
     </record>
 

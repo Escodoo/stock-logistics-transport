@@ -1,7 +1,7 @@
 # Copyright (C) 2019 Open Source Integrators
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from odoo import _, api, fields, models
 
@@ -9,12 +9,14 @@ from odoo import _, api, fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    order_ids = fields.Many2many(
+    tms_order_ids = fields.Many2many(
         "tms.order",
-        compute="_compute_order_ids",
+        compute="_compute_tms_order_ids",
         string="TMS orders associated to this sale",
     )
-    tms_order_count = fields.Integer(string="TMS Orders", compute="_compute_order_ids")
+    tms_order_count = fields.Integer(
+        string="TMS Orders", compute="_compute_tms_order_ids"
+    )
 
     has_tms_product = fields.Boolean(compute="_compute_has_tms_product")
 
@@ -28,7 +30,7 @@ class SaleOrder(models.Model):
     )
 
     tms_scheduled_date_start = fields.Datetime(
-        string="Scheduled Start", default=datetime.now()
+        string="Scheduled Start", default=fields.Datetime.now
     )
     tms_scheduled_date_end = fields.Datetime(string="Scheduled End")
     tms_scheduled_duration = fields.Float(string="Scheduled Duration")
@@ -53,9 +55,10 @@ class SaleOrder(models.Model):
 
     @api.onchange("tms_scheduled_duration")
     def _onchange_tms_scheduled_duration(self):
-        self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
-            hours=self.tms_scheduled_duration
-        )
+        if self.tms_scheduled_date_start and self.tms_scheduled_duration:
+            self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
+                hours=self.tms_scheduled_duration
+            )
 
     @api.onchange("tms_scheduled_date_end")
     def _onchange_tms_scheduled_date_end(self):
@@ -66,9 +69,16 @@ class SaleOrder(models.Model):
     @api.onchange("tms_scheduled_date_start")
     def _onchange_tms_scheduled_date_start(self):
         if self.tms_scheduled_date_start:
-            self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
-                hours=self.tms_scheduled_duration
-            )
+            # Se a data de fim estiver vazia e houver duração, calcula a data de fim
+            if self.tms_scheduled_duration and not self.tms_scheduled_date_end:
+                self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
+                    hours=self.tms_scheduled_duration
+                )
+            # Se a data de fim estiver preenchida, ajusta conforme a duração
+            elif self.tms_scheduled_date_end:
+                self.tms_scheduled_date_end = self.tms_scheduled_date_start + timedelta(
+                    hours=self.tms_scheduled_duration
+                )
 
     @api.depends("order_line")
     def _compute_has_tms_product(self):
@@ -79,7 +89,7 @@ class SaleOrder(models.Model):
             sale.has_tms_product = has_tms_product
 
     @api.depends("order_line")
-    def _compute_order_ids(self):
+    def _compute_tms_order_ids(self):
         for sale in self:
             tms = self.env["tms.order"].search(
                 [
@@ -88,8 +98,8 @@ class SaleOrder(models.Model):
                     ("sale_line_id", "in", sale.order_line.ids),
                 ]
             )
-            sale.order_ids = tms
-            sale.tms_order_count = len(sale.order_ids)
+            sale.tms_order_ids = tms
+            sale.tms_order_count = len(sale.tms_order_ids)
 
     def _prepare_line_tms_values(self, line):
         """
@@ -108,6 +118,7 @@ class SaleOrder(models.Model):
             "sale_id": kwargs.get("so_id", False),
             "sale_line_id": kwargs.get("sol_id", False),
             "company_id": self.company_id.id,
+            "partner_id": self.partner_id.id,
             "route": self.tms_route_flag,
             "route_id": self.tms_route_id.id or None,
             "origin_id": self.tms_origin_id.id or None,
@@ -159,22 +170,23 @@ class SaleOrder(models.Model):
         Override this method to add new tms_tracking types.
         """
         self.ensure_one()
-        new_tms_orders = self.env["tms.order"]
+        if not self.tms_order_ids:
+            new_tms_orders = self.env["tms.order"]
 
-        # Process lines set to TMS Sale
-        new_tms_sale_sol = self.order_line.filtered(
-            lambda L: L.product_id.tms_tracking == "sale" and not L.tms_order_id
-        )
-        new_tms_orders |= self._tms_generate_sale_tms_orders(new_tms_sale_sol)
+            # Process lines set to TMS Sale
+            new_tms_sale_sol = self.order_line.filtered(
+                lambda L: L.product_id.tms_tracking == "sale" and not L.tms_order_id
+            )
+            new_tms_orders |= self._tms_generate_sale_tms_orders(new_tms_sale_sol)
 
-        # Create new TMS Order for lines set to TMS Sale
-        new_tms_line_sol = self.order_line.filtered(
-            lambda L: L.product_id.tms_tracking == "line" and not L.tms_order_id
-        )
+            # Create new TMS Order for lines set to TMS Sale
+            new_tms_line_sol = self.order_line.filtered(
+                lambda L: L.product_id.tms_tracking == "line" and not L.tms_order_id
+            )
 
-        new_tms_orders |= self._tms_generate_line_tms_orders(new_tms_line_sol)
+            new_tms_orders |= self._tms_generate_line_tms_orders(new_tms_line_sol)
 
-        return new_tms_orders
+            return new_tms_orders
 
     def _tms_generation(self):
         """
@@ -185,12 +197,13 @@ class SaleOrder(models.Model):
         created_tms_orders = self.env["tms.order"]
 
         for sale in self:
-            new_tms_orders = self._tms_generate()
+            if not sale.tms_order_ids:
+                new_tms_orders = self._tms_generate()
 
-            if len(new_tms_orders) > 0:
-                created_tms_orders |= new_tms_orders
-                # If FSM Orders were created, post a message to the Sale Order
-                sale._post_tms_message(new_tms_orders)
+                if len(new_tms_orders) > 0:
+                    created_tms_orders |= new_tms_orders
+                    # If FSM Orders were created, post a message to the Sale Order
+                    sale._post_tms_message(new_tms_orders)
 
         for tms_order in created_tms_orders:
             tms_order._onchange_scheduled_date_end()
@@ -231,7 +244,7 @@ class SaleOrder(models.Model):
         return result
 
     def action_view_tms_order(self):
-        tms_orders = self.mapped("order_ids")
+        tms_orders = self.mapped("tms_order_ids")
         action = self.env["ir.actions.act_window"]._for_xml_id(
             "tms.action_tms_dash_order"
         )
