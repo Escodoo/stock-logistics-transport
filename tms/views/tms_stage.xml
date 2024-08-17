@@ -22,7 +22,6 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="is_default" invisible="1" />
                             <field name="active" invisible="1" />
                             <field name="name" />
                             <field name="sequence" />
@@ -30,11 +29,15 @@
                         </group>
                         <group>
                             <field name="custom_color" />
+                            <field name="stage_decoration_color" />
                             <field name="fold" />
+                            <field name="is_default" />
+                            <field name="is_transit" />
                             <field name="is_closed" />
                             <field
                                 name="company_id"
                                 groups="base.group_multi_company"
+                                attrs="{'invisible': [('stage_type', '=', 'driver')], 'readonly': [('stage_type', '=', 'driver')]}"
                             />
                         </group>
                     </group>

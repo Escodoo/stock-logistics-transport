@@ -30,14 +30,13 @@
             <field name="team_id" position="after">
                 <field name="is_pickup_order" />
             </field>
-            <xpath
-                expr="//div[hasclass('o_kanban_record_subtitle')]/t"
-                position="before"
-            >
-                <div t-if="record.is_pickup_order.raw_value" class="mb-2">
-                    <span class="fa fa-level-down me-2" title="Is Pickup Order" />
-                    <b class="ml-2" t-esc="'Is Pickup Order'" />
-                </div>
+            <xpath expr="//div[hasclass('oe_kanban_bottom_right')]/t" position="before">
+                <t t-if="record.is_pickup_order.raw_value">
+                    <span
+                        class="fa fa-shopping-basket text-success mr-2 me-2"
+                        title="Is Pickup Order"
+                    />
+                </t>
             </xpath>
         </field>
 

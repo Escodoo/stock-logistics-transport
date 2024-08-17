@@ -32,6 +32,10 @@
                         <td><span t-field="doc.vehicle_id" /></td>
                     </tr>
                     <tr>
+                        <th>Trailer</th>
+                        <td><span t-field="doc.trailer_id" /></td>
+                    </tr>
+                    <tr>
                         <th>Scheduled Start</th>
                         <td><span t-field="doc.scheduled_date_start" /></td>
                     </tr>

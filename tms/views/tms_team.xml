@@ -13,9 +13,9 @@
                 <field name="vehicle_count" />
                 <field name="crew_ids" />
                 <field name="order_ids" />
-                <field name="trips_todo_count" />
-                <field name="trips_todo_count_draft" />
-                <field name="trips_todo_count_confirmed" />
+                <field name="order_count" />
+                <field name="order_need_assign_count" />
+                <field name="order_need_schedule_count" />
                 <templates>
                     <t t-name="kanban-box">
                         <div
@@ -53,7 +53,7 @@
                                                 t-if="record.vehicle_ids.value"
                                             >
                                                 <span
-                                                    class="fa fa-bus me-2"
+                                                    class="fa fa-truck me-2"
                                                     aria-label="Vehicle"
                                                     title="Vehicles"
                                                 />
@@ -71,7 +71,7 @@
                                         name="%(tms.action_tms_order_kanban)d"
                                         type="action"
                                     >
-                                        <t t-esc="record.trips_todo_count.value" />
+                                        <t t-esc="record.order_count.value" />
                                         TRIPS
                                     </button>
                                 </div>
@@ -79,31 +79,31 @@
                                     class="oe_kanban_bottom_right d-flex flex-column justify-content-end"
                                 >
                                     <div
-                                        t-if="record.trips_todo_count_draft.raw_value > 0"
+                                        t-if="record.order_need_assign_count.value > 0"
                                     >
                                         <a
                                             name="%(tms.action_tms_operation_trip)d"
                                             type="action"
-                                            context="{'search_default_team_id': active_id, 'search_default_stage': 'Draft'}"
+                                            context="{'search_default_team_id': active_id, 'search_default_unassigned': 1}"
                                         >
                                             <t
-                                                t-esc="record.trips_todo_count_draft.value"
+                                                t-esc="record.order_need_assign_count.value"
                                             />
-                                            Draft
+                                            Need Assigned
                                         </a>
                                     </div>
                                     <div
-                                        t-if="record.trips_todo_count_confirmed.raw_value > 0"
+                                        t-if="record.order_need_schedule_count.raw_value > 0"
                                     >
                                         <a
                                             name="%(tms.action_tms_operation_trip)d"
                                             type="action"
-                                            context="{'search_default_team_id': active_id, 'search_default_stage': 'Confirmed'}"
+                                            context="{'search_default_team_id': active_id, 'search_default_unscheduled': 1}"
                                         >
                                             <t
-                                                t-esc="record.trips_todo_count_confirmed.value"
+                                                t-esc="record.order_need_schedule_count.value"
                                             />
-                                            Confirmed
+                                            Need Scheduled
                                         </a>
                                     </div>
                                 </div>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-04 09:39+0000\n"
-"PO-Revision-Date: 2024-08-04 06:47-0300\n"
+"POT-Creation-Date: 2024-08-17 17:11+0000\n"
+"PO-Revision-Date: 2024-08-17 14:13-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -59,7 +59,9 @@ msgstr ""
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_template__display_name
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__display_name
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order__display_name
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
@@ -75,7 +77,9 @@ msgstr "Possui Produto Tms"
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_template__id
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__id
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__id
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order__id
 msgid "ID"
 msgstr "ID"
 
@@ -87,7 +91,9 @@ msgstr "É um produto TMS?"
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_template____last_update
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order____last_update
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:tms_sale.field_tms_order____last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
 
@@ -95,6 +101,11 @@ msgstr "Última Modificação em"
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order_line__tms_order_id
 msgid "Order"
 msgstr "Pedido"
+
+#. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.sale_order_view_form
+msgid "Order Info"
+msgstr "Informações do Pedido"
 
 #. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_origin_id
@@ -107,11 +118,6 @@ msgid "Product Template"
 msgstr "Modelo de Produto"
 
 #. module: tms_sale
-#: model_terms:ir.ui.view,arch_db:tms_sale.sale_order_view_form
-msgid "Route"
-msgstr "Rota"
-
-#. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_route_id
 msgid "Routes"
 msgstr "Rotas"
@@ -122,9 +128,19 @@ msgid "Sale"
 msgstr "Venda"
 
 #. module: tms_sale
+#: model_terms:ir.ui.view,arch_db:tms_sale.tms_order_view_form
+msgid "Sale Info"
+msgstr "Informações de Venda"
+
+#. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_tms_order__sale_line_id
 msgid "Sale Line"
 msgstr "Linha de Venda"
+
+#. module: tms_sale
+#: model:ir.model,name:tms_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Pedidos de Venda"
 
 #. module: tms_sale
 #: model:ir.model,name:tms_sale.model_sale_order_line
@@ -181,15 +197,15 @@ msgid "TMS Orders"
 msgstr "Pedidos TMS"
 
 #. module: tms_sale
-#: model:ir.model.fields,field_description:tms_sale.field_sale_order__order_ids
-msgid "TMS orders associated to this sale"
-msgstr "Pedidos de TMS associados a esta venda"
-
-#. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_product_product__tms_tracking
 #: model:ir.model.fields,field_description:tms_sale.field_product_template__tms_tracking
-msgid "Tms Tracking"
-msgstr "Rastreamento de Tms"
+msgid "TMS Tracking"
+msgstr "Rastreamento TMS"
+
+#. module: tms_sale
+#: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_order_ids
+msgid "TMS orders associated to this sale"
+msgstr "Pedidos de TMS associados a esta venda"
 
 #. module: tms_sale
 #: model_terms:ir.ui.view,arch_db:tms_sale.product_template_view_form
@@ -197,12 +213,14 @@ msgid "Tracking"
 msgstr "Rastreamento"
 
 #. module: tms_sale
+#: model:ir.model,name:tms_sale.model_tms_order
+msgid "Transport Management System Order"
+msgstr "Pedido de Sistema de Gerenciamento de Transporte"
+
+#. module: tms_sale
 #: model:ir.model.fields,field_description:tms_sale.field_sale_order__tms_route_flag
 msgid "Use Routes"
-msgstr "Rotas de Uso"
+msgstr "Usar Rotas"
 
-#~ msgid "Sales Order"
-#~ msgstr "Pedidos de Venda"
-
-#~ msgid "Transport Management System Order"
-#~ msgstr "Pedido de Sistema de Gerenciamento de Transporte"
+#~ msgid "Route"
+#~ msgstr "Rota"

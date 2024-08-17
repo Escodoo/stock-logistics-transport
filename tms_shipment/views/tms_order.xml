@@ -41,6 +41,7 @@
                 />
             </filter>
             <group position="inside">
+                <separator />
                 <filter
                     name="shipment"
                     string="Shipment"

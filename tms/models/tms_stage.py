@@ -55,13 +55,31 @@ class TMSStage(models.Model):
         help="This stage is folded in the kanban view when "
         "there are no record in that stage to display.",
     )
+    is_default = fields.Boolean("Is a default stage", help="Used a default stage")
+
+    is_transit = fields.Boolean(
+        "Is in transit stage",
+        help="Indicates whether this stage is considered in transit.",
+    )
+
     is_closed = fields.Boolean(
         "Is a close stage", help="Services in this stage are considered " "as closed."
     )
-    is_default = fields.Boolean(readonly=True, default=False)
+
     custom_color = fields.Char(
         "Color Code", default="#FFFFFF", help="Use Hex Code only Ex:-#FFFFFF"
     )
+
+    stage_decoration_color = fields.Selection(
+        [
+            ("green", "Green"),
+            ("yellow", "Yellow"),
+            ("red", "Red"),
+        ],
+        string="Stage Color",
+        default="green",
+    )
+
     description = fields.Text(translate=True)
     stage_type = fields.Selection(
         [
@@ -116,6 +134,10 @@ class TMSStage(models.Model):
                             "of an existing TMS Stage."
                         )
                     )
+                if vals.get("stage_type") == "driver":
+                    vals[
+                        "company_id"
+                    ] = False  # Remover a associação da empresa para estágios de motoristas
         return super().create(vals_list)
 
     @api.constrains("custom_color")
@@ -132,3 +154,13 @@ class TMSStage(models.Model):
             if stage.is_default:
                 raise UserError(_("You cannot delete default stages."))
         return super().unlink()
+
+    @api.constrains("stage_type", "company_id")
+    def _check_stage_type_company(self):
+        for stage in self:
+            if stage.stage_type == "driver" and stage.company_id:
+                raise ValidationError(
+                    _(
+                        "Stages of type 'Driver' cannot be associated with a specific company."
+                    )
+                )

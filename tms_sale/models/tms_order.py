@@ -17,6 +17,6 @@ class TMSOrder(models.Model):
             "res_model": "sale.order",
             "views": [[False, "form"]],
             "res_id": self.sale_line_id.order_id.id or self.sale_id.id,
-            "context": {"create": False},
+            "context": {"create": False, "show_sale": True},
             "name": _("Sales Orders"),
         }

@@ -10,30 +10,30 @@ class ResConfigSettings(models.TransientModel):
     # Groups
 
     group_tms_team = fields.Boolean(
-        string="Manage Teams", implied_group="tms.group_tms_team"
+        string="TMS Manage Teams", implied_group="tms.group_tms_team"
     )
     group_tms_crew = fields.Boolean(
-        string="Manage Crews", implied_group="tms.group_tms_crew"
+        string="TMS Manage Crews", implied_group="tms.group_tms_crew"
     )
     group_tms_driver_license = fields.Boolean(
-        string="Manage Driver License", implied_group="tms.group_tms_driver_license"
+        string="TMS Manage Driver License", implied_group="tms.group_tms_driver_license"
     )
 
     group_tms_vehicle_insurance = fields.Boolean(
-        string="Manage Vehicle Insurance",
+        string="TMS Manage Vehicle Insurance",
         implied_group="tms.group_tms_vehicle_insurance",
     )
 
     group_tms_route = fields.Boolean(
-        string="Manage Routes", implied_group="tms.group_tms_route"
+        string="TMS Manage Routes", implied_group="tms.group_tms_route"
     )
 
     group_tms_route_stop = fields.Boolean(
-        string="Manage Route Stops", implied_group="tms.group_tms_route_stop"
+        string="TMS Manage Route Stops", implied_group="tms.group_tms_route_stop"
     )
 
     group_tms_uom = fields.Boolean(
-        string="Units of Measure", implied_group="tms.group_tms_uom"
+        string="TMS Units of Measure", implied_group="tms.group_tms_uom"
     )
 
     # Custom Fields
@@ -54,35 +54,35 @@ class ResConfigSettings(models.TransientModel):
 
     tms_length_uom = fields.Many2one(
         "uom.uom",
-        # domain="[('category_id', '=', 'Length / Distance')]",
         default_model="res.config.settings",
         config_parameter="tms.default_length_uom",
+        string="TMS Length Unit of Measure",
     )
 
     tms_distance_uom = fields.Many2one(
         "uom.uom",
-        # domain="[('category_id', '=', 'Length / Distance')]",
         default_model="res.config.settings",
         config_parameter="tms.default_distance_uom",
+        string="TMS Distance Unit of Measure",
     )
 
     tms_weight_uom = fields.Many2one(
         "uom.uom",
-        # domain="[('category_id', '=', 'Weight')]",
         default_model="res.config.settings",
         config_parameter="tms.default_weight_uom",
+        string="TMS Weight Unit of Measure",
     )
 
     tms_speed_uom = fields.Many2one(
         "uom.uom",
-        # domain="[('category_id', '=', 'Speed')]",
         default_model="res.config.settings",
         config_parameter="tms.default_speed_uom",
+        string="TMS Speed Unit of Measure",
     )
 
     tms_time_uom = fields.Many2one(
         "uom.uom",
-        # domain="[('category_id', '=', 'Working Time')]",
         default_model="res.config.settings",
         config_parameter="tms.default_time_uom",
+        string="TMS Time Unit of Measure",
     )

@@ -17,6 +17,7 @@
                     />
                 <field name="driver_id" domain="[('id', 'in', driver_ids_domain)]" />
                 <field name="vehicle_id" domain="[('id', 'in', vehicle_ids_domain)]" />
+                <field name="trailer_id" />
             </group>
             <group name="route" string="Route Info">
                 <field name="route" groups="tms.group_tms_route" />

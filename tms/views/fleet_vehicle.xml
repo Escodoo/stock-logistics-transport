@@ -5,6 +5,16 @@
         <field name="model">fleet.vehicle</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
         <field name="arch" type="xml">
+
+            <field name="driver_id" position="before">
+                <field name="vehicle_type" />
+                <field
+                    name="tms_trailer_id"
+                    attrs="{'invisible': [('vehicle_type', '!=', 'tractor')]}"
+                    context="{'default_vehicle_type': 'trailer'}"
+                />
+            </field>
+
             <xpath expr="//form//notebook" position="inside">
                 <page string="TMS">
 
@@ -22,10 +32,6 @@
                                 attrs="{'invisible': [('tms_operation', '!=', 'cargo')]}"
                                 class="w-50"
                             />
-                            <span
-                                attrs="{'invisible': [('tms_operation', '!=', 'passenger')]}"
-                                class="w-50"
-                            >Passengers</span>
                         </div>
                     </group>
                 </page>
