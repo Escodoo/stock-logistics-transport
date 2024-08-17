@@ -7,7 +7,7 @@ from odoo import fields, models
 class TmsTag(models.Model):
 
     _name = "tms.tag"
-    _description = "Tms Tag"  # TODO
+    _description = "TMS Tag"
 
     name = fields.Char(string="Name", required=True, translate=True)
     parent_id = fields.Many2one("tms.tag", string="Parent")

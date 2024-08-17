@@ -132,93 +132,110 @@
                 group_create="false"
                 group_edit="false"
             >
+                <field name="id" />
+                <field name="name" />
                 <field name="display_name" />
                 <field name="tms_team_id" />
                 <field name="tms_crew_ids" />
                 <field name="mobile" />
                 <field name="image_128" />
+                <field name="tms_is_active" />
+                <field
+                    name="tms_driver_license_expiration_date"
+                /> <!-- Campo da data de expiração da licença -->
+                <field name="tms_order_ids" />
                 <templates>
                     <t t-name="kanban-box">
                         <div
                             t-attf-class="oe_kanban_global_click o_has_icon oe_kanban_content oe_kanban_card"
                         >
                             <div
-                                class="o_project_kanban_main d-flex align-items-baseline gap-1"
+                                class="o_project_kanban_main d-flex align-items-center justify-content-between gap-2"
                             >
-                                <div class="o_kanban_card_content mw-100">
-                                    <div class="o_kanban_image o_kanban_image_top_left">
-                                        <img
-                                            t-attf-src="#{kanban_image('res.partner', 'image_128', record.raw_value)}"
-                                            t-att-alt="record.value"
-                                            class="img-fluid rounded-circle"
-                                        />
-                                    </div>
-                                    <div class="o_kanban_primary_left">
-                                        <div class="o_primary me-5">
-                                            <span
-                                                class="o_text_overflow mb-2"
-                                                t-att-title="record.display_name.value"
-                                            >
-                                                <t t-esc="record.display_name.value" />
+                                <!-- Detalhes principais do motorista -->
+                                <div class="o_kanban_primary_left">
+                                    <div class="o_primary">
+                                        <span
+                                            class="o_text_overflow mb-2"
+                                            t-att-title="record.name.value"
+                                        >
+                                            <strong><t
+                                                    t-esc="record.name.value"
+                                                /></strong>
+                                        </span>
+                                        <p class="text-muted mb-1">
+                                            <span t-if="record.mobile.raw_value">
+                                                <span
+                                                    class="fa fa-phone me-2"
+                                                    aria-label="Mobile"
+                                                    title="Mobile"
+                                                />
+                                                <t t-esc="record.mobile.value" />
                                             </span>
-                                            <p style="margin-bottom: 0.5rem;">
+                                        </p>
+                                        <p class="text-muted mb-1">
+                                            <span t-if="record.tms_team_id.raw_value">
                                                 <span
-                                                    class="o_text_overflow text-muted"
-                                                    t-if="record.mobile.value"
-                                                >
-                                                    <span
-                                                        class="fa fa-phone me-2"
-                                                        aria-label="Mobile"
-                                                        title="Mobile"
-                                                    />
-                                                    <t t-esc="record.mobile.value" />
-                                                </span>
-                                            </p>
-                                            <p style="margin-bottom: 0.5rem;">
-                                                <span
-                                                    class="o_text_overflow text-muted"
-                                                    t-if="record.tms_team_id.value"
-                                                >
-                                                    <span
-                                                        class="fa fa-users me-2"
-                                                        aria-label="Team"
-                                                        title="Team"
-                                                    />
-                                                    <t
-                                                        t-esc="record.tms_team_id.value"
+                                                    class="fa fa-users me-2"
+                                                    aria-label="Team"
+                                                    title="Team"
+                                                />
+                                                <t t-esc="record.tms_team_id.value" />
+                                            </span>
+                                        </p>
+                                        <p class="text-muted mb-1">
+                                            <span t-if="record.tms_crew_ids.raw_value">
+                                                <t>Crews:</t>
+                                                <span class="oe_kanban_list_many2many">
+                                                    <field
+                                                        name="tms_crew_ids"
+                                                        widget="many2many_tags"
                                                     />
                                                 </span>
-                                            </p>
-                                            <p style="margin-bottom: 0.5rem;">
+                                            </span>
+                                        </p>
+                                        <p class="text-muted mb-1">
+                                            <span t-if="record.tms_is_active.raw_value">
                                                 <span
-                                                    groups="tms.group_tms_crew"
-                                                    class="o_text_overflow text-muted"
-                                                    t-if="record.tms_crew_ids.raw_value"
-                                                >
-                                                    <t>Crews:</t>
-                                                    <span
-                                                        class="oe_kanban_list_many2many"
-                                                    >
-                                                        <field name="tms_crew_ids" />
-                                                    </span>
-                                                </span>
-                                            </p>
-                                        </div>
+                                                    class="badge bg-success"
+                                                >Active</span>
+                                            </span>
+                                            <span t-else=""><span
+                                                    class="badge bg-danger"
+                                                >Inactive</span></span>
+                                        </p>
                                     </div>
+                                </div>
+                                <!-- Foto do motorista (mover para a direita) -->
+                                <div class="o_kanban_image o_kanban_image_top_right">
+                                    <img
+                                        alt="Driver image"
+                                        t-if="record.image_128.raw_value"
+                                        t-att-src="kanban_image('res.partner', 'image_128', record.id.raw_value)"
+                                        class="img-fluid rounded-circle"
+                                    />
                                 </div>
                             </div>
                             <div class="o_kanban_record_bottom mt-3">
                                 <div class="oe_kanban_bottom_left">
-                                    <label for="tms_is_active">
+
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <!-- Adicionando a data de expiração da licença -->
+                                    <p class="text-muted mb-0">
                                         <span
-                                            t-if="record.tms_is_active.raw_value"
-                                        >Active</span>
-                                        <span t-else="">Inactive</span>
-                                    </label>
-                                    <field
-                                        name="tms_is_active"
-                                        widget="boolean_toggle"
-                                    />
+                                            t-if="record.tms_driver_license_expiration_date.raw_value"
+                                        >
+                                            <span
+                                                class="fa fa-calendar me-2"
+                                                aria-label="License Expiration Date"
+                                                title="License Expiration Date"
+                                            />
+                                            <t
+                                                t-esc="record.tms_driver_license_expiration_date.value"
+                                            />
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

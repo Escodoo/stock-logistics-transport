@@ -7,14 +7,17 @@ from odoo import fields, models
 class FleetVehicle(models.Model):
     _inherit = "fleet.vehicle"
 
-    tms_team_id = fields.Many2one("tms.team")
-    tms_capacity = fields.Float()
+    tms_team_id = fields.Many2one("tms.team", string="TMS Team")
+    tms_capacity = fields.Float(string="TMS Capacity")
     tms_cargo_uom_id = fields.Many2one(
         "uom.uom",
         domain="[('category_id', '=', 'Volume')]",
         default=lambda self: self._default_tms_volume_uom_id(),
+        string="TMS Cargo UOM",
     )
-    tms_operation = fields.Selection([("cargo", "Cargo"), ("passenger", "Passenger")])
+    tms_operation = fields.Selection(
+        [("cargo", "Cargo"), ("passenger", "Passenger")], string="TMS Operation"
+    )
 
     tms_trailer_id = fields.Many2one(
         comodel_name="fleet.vehicle",
