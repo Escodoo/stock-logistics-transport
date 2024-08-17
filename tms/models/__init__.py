@@ -7,3 +7,4 @@ from . import tms_order
 from . import tms_route
 from . import fleet_vehicle
 from . import tms_tag
+from . import fleet_vehicle_model

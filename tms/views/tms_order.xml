@@ -8,9 +8,16 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="stage" attrs="{'column_invisible': True}" />
+                <field
+                    name="stage_decoration_color"
+                    attrs="{'column_invisible': True}"
+                />
+                <field name="is_closed" attrs="{'column_invisible': True}" />
                 <field name="start_trip" attrs="{'column_invisible': True}" />
                 <field name="end_trip" attrs="{'column_invisible': True}" />
+
                 <field name="name" />
+                <field name="partner_id" widget="many2one_avatar" />
                 <field name="driver_id" widget="many2one_avatar" />
                 <field name="route_id" optional="show" />
                 <field
@@ -29,20 +36,25 @@
                     widget="many2many_tags"
                     options="{'color_field': 'color'}"
                 />
-                <field name="stage_id" />
+                <field
+                    name="stage_id"
+                    decoration-danger="stage_decoration_color == 'red'"
+                    decoration-warning="stage_decoration_color == 'yellow'"
+                    decoration-success="stage_decoration_color == 'green'"
+                />
                 <button
                     name="button_start_order"
                     type="object"
-                    string="Start"
+                    string="Start Trip"
                     class="btn btn-primary text-uppercase"
-                    attrs="{'invisible': ['|', ('start_trip', '=', True), ('end_trip', '=', True)]}"
+                    attrs="{'invisible': ['|', '|',('start_trip', '=', True), ('end_trip', '=', True), ('is_closed', '=', True)]}"
                 />
                 <button
                     name="button_end_order"
                     type="object"
-                    string="End"
+                    string="End Trip"
                     class="btn btn-primary text-uppercase"
-                    attrs="{'invisible': ['|', ('start_trip', '=', False), ('end_trip', '=', True)]}"
+                    attrs="{'invisible': ['|', '|', ('start_trip', '=', False), ('end_trip', '=', True), ('is_closed', '=', True)]}"
                 />
             </tree>
         </field>
@@ -58,35 +70,36 @@
                 <!-- Invisible Fields -->
                 <field name="active" invisible="1" />
                 <field name="stage" invisible="1" />
+                <field name="is_closed" invisible="1" />
                 <field name="crew_active" invisible="1" />
                 <field name="crew_ids_domain" invisible="1" />
                 <field name="driver_ids_domain" invisible="1" />
                 <field name="vehicle_ids_domain" invisible="1" />
-                <field name="start_trip" invisible="1" />
-                <field name="end_trip" invisible="1" />
+                <field name="start_trip" invisible="1" force_save="1" />
+                <field name="end_trip" invisible="1" force_save="1" />
 
                 <!-- Header -->
                 <header>
                     <button
                         name="button_start_order"
                         type="object"
-                        string="Start"
+                        string="Start Trip"
                         class="btn btn-primary text-uppercase"
-                        attrs="{'invisible': ['|', ('start_trip', '=', True), ('end_trip', '=', True)]}"
+                        attrs="{'invisible': ['|', '|',('start_trip', '=', True), ('end_trip', '=', True), ('is_closed', '=', True)]}"
                     />
-                    <button
+                    <!-- <button
                         name="button_refresh_duration"
                         type="object"
                         string="Refresh"
                         class="btn btn-secondary text-uppercase"
-                        attrs="{'invisible': ['|', ('start_trip', '=', False), ('end_trip', '=', True)]}"
-                    />
+                        attrs="{'invisible': ['|','|', ('start_trip', '=', False), ('end_trip', '=', True), ('is_closed', '=', True)]}"
+                    /> -->
                     <button
                         name="button_end_order"
                         type="object"
-                        string="End"
+                        string="End Trip"
                         class="btn btn-primary text-uppercase"
-                        attrs="{'invisible': ['|', ('start_trip', '=', False), ('end_trip', '=', True)]}"
+                        attrs="{'invisible': ['|', '|', ('start_trip', '=', False), ('end_trip', '=', True), ('is_closed', '=', True)]}"
                     />
                     <field
                         name="stage_id"
@@ -95,7 +108,6 @@
                         options="{'clickable':True}, {'fold_field':'fold'}"
                     />
                 </header>
-
 
                 <!-- Sheet -->
                 <sheet>
@@ -106,20 +118,19 @@
 
                     <widget
                         name="web_ribbon"
-                        title="Completed"
-                        attrs="{'invisible': [('stage', '!=', 'Completed')]}"
+                        title="Outgoing"
+                        attrs="{'invisible': [('start_trip', '!=', True)]}"
                     />
                     <widget
                         name="web_ribbon"
-                        title="Cancelled"
-                        attrs="{'invisible': [('stage', '!=', 'Cancelled')]}"
-                        bg_color="bg-danger"
+                        title="Delivered"
+                        attrs="{'invisible': [('end_trip', '!=', True)]}"
                     />
-                    <field
+                    <!-- <field
                         name="kanban_state"
                         widget="state_selection"
                         class="ml-3 float-right"
-                    />
+                    /> -->
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" string="Trip Name" />
                         <h1>
@@ -128,8 +139,8 @@
                     </div>
                     <group>
                         <group>
+                            <field name="partner_id" />
                             <field name="team_id" groups="tms.group_tms_team" />
-
                             <field
                                 name="crew_id"
                                 groups="tms.group_tms_crew"
@@ -145,6 +156,7 @@
                                 name="vehicle_id"
                                 domain="[('id', 'in', vehicle_ids_domain)]"
                             />
+                            <field name="trailer_id" />
                             <field name="priority" widget="priority" />
                             <field
                                 name="tag_ids"
@@ -221,9 +233,11 @@
             <kanban default_group_by="stage_id" sample="1">
                 <field name="name" />
                 <field name="vehicle_id" />
+                <field name="trailer_id" />
                 <field name="route_id" />
                 <field name="origin_location_id" />
                 <field name="destination_location_id" />
+                <field name="partner_id" />
                 <field name="team_id" />
                 <field name="crew_id" />
                 <field name="driver_id" />
@@ -234,6 +248,7 @@
                 <field name="date_start" />
                 <field name="date_end" />
                 <field name="tag_ids" />
+                <field name="start_trip" />
                 <progressbar
                     field="kanban_state"
                     colors='{"done": "success", "blocked": "danger", "normal": "muted"}'
@@ -277,6 +292,16 @@
                                     <strong><field name="name" /></strong>
                                 </div>
                                 <div class="o_kanban_record_subtitle mt-2">
+                                    <t t-if="record.partner_id.raw_value">
+                                        <span
+                                            class="fa fa-user me-2"
+                                            title="Customer"
+                                        />
+                                        <span
+                                            class="ml-2"
+                                            t-esc="record.partner_id.value"
+                                        />
+                                    </t>
                                     <t
                                         t-if="record.team_id.raw_value or record.crew_id.raw_value"
                                     >
@@ -303,13 +328,25 @@
                                 <!-- Vehicle -->
                                 <div t-if="record.vehicle_id.raw_value">
                                     <span
-                                        class="fa fa-car me-2"
+                                        class="fa fa-truck me-2"
                                         aria-label="Vehicle"
                                         title="Vehicle"
                                     />
                                     <span
                                         class="ml-2"
                                         t-esc="record.vehicle_id.value"
+                                    />
+                                </div>
+                                <!-- Trailer -->
+                                <div t-if="record.trailer_id.raw_value">
+                                    <span
+                                        class="fa fa-archive me-2"
+                                        aria-label="Trailer"
+                                        title="Trailer"
+                                    />
+                                    <span
+                                        class="ml-2"
+                                        t-esc="record.trailer_id.value"
                                     />
                                 </div>
                                 <!-- Route -->
@@ -363,7 +400,7 @@
                                         <small
                                             class="ml-2"
                                             t-if="record.scheduled_date_start.raw_value"
-                                            t-esc="record.date_start.value"
+                                            t-esc="record.scheduled_date_start.value"
                                         />
                                         <small
                                             class="fa fa-arrow-right me-2"
@@ -371,7 +408,7 @@
                                         />
                                         <small
                                             t-if="record.scheduled_date_end.raw_value"
-                                            t-esc="record.date_end.value"
+                                            t-esc="record.scheduled_date_end.value"
                                         />
                                     </div>
                                 </div>
@@ -421,6 +458,12 @@
                                         />
                                     </div>
                                     <div class="oe_kanban_bottom_right">
+                                        <t t-if="record.start_trip.raw_value">
+                                            <span
+                                                class="fa fa-plane text-success mr-2 me-2"
+                                                title="Outgoing"
+                                            />
+                                        </t>
                                         <field
                                             name="kanban_state"
                                             widget="state_selection"
@@ -451,14 +494,104 @@
         <field name="model">tms.order</field>
         <field name="arch" type="xml">
             <search>
+                <field name="partner_id" string="Partner" />
                 <field name="team_id" string="Team" />
+                <field name="driver_id" string="Driver" />
                 <field name="stage" string="Stage" />
                 <filter
                     name="is_active"
                     string="Archived"
                     domain="[('active', '=', 'False')]"
                 />
+                <separator />
+                <filter
+                    string="To Do"
+                    domain="[('stage_id.is_closed', '=', False)]"
+                    name="todo"
+                />
+                <filter
+                    string="Unassigned"
+                    domain="[('driver_id', '=', False), ('stage_id.is_closed', '=', False)]"
+                    name="unassigned"
+                />
+                <filter
+                    string="Unscheduled"
+                    domain="[('scheduled_date_end', '=', False), ('stage_id.is_closed', '=', False)]"
+                    name="unscheduled"
+                />
+                <filter
+                    string="Outgoing"
+                    domain="[('start_trip', '=', True)]"
+                    name="outgoing"
+                />
+                <filter
+                    string="Delivered"
+                    domain="[('end_trip', '=', True)]"
+                    name="delivered"
+                />
+                <separator />
+                <filter
+                    string="Today Orders"
+                    domain="[
+                    ('scheduled_date_start', '&gt;=', (datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0)))),
+                    ('scheduled_date_start', '&lt;', (datetime.datetime.combine(datetime.date.today(), datetime.time(23,59,59))))
+                    ]"
+                    name="order_today"
+                />
+                <filter
+                    string="Future Orders"
+                    domain="[('scheduled_date_start', '&gt;=', (datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0))))]"
+                    name="order_upcoming_all"
+                />
+                <filter
+                    string="Due Within 7 Days"
+                    domain="[
+                    ('scheduled_date_start', '&gt;=', (datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0)))),
+                    ('scheduled_date_start', '&lt;=', (datetime.datetime.combine((datetime.date.today()+relativedelta(days=6)), datetime.time(23,59,59))))
+                    ]"
+                    name="order_upcoming_week"
+                />
+                <filter
+                    string="Due Within 30 Days"
+                    domain="[
+                    ('scheduled_date_start', '&gt;=',(datetime.datetime.combine(datetime.date.today(), datetime.time(0,0,0)))),
+                    ('scheduled_date_start', '&lt;=', (datetime.datetime.combine((datetime.date.today()+relativedelta(days=29)), datetime.time(23,59,59))))
+                    ]"
+                    name="order_upcoming_month"
+                />
+                <separator />
+                <filter
+                    string="Create Date"
+                    name="filter_create_date"
+                    date="create_date"
+                />
+                <separator />
                 <group expand="0" string="Group By">
+                    <filter
+                        name="partner"
+                        string="Partner"
+                        domain="[]"
+                        context="{'group_by':'partner_id'}"
+                    />
+                    <filter
+                        name="driver"
+                        string="Driver"
+                        domain="[]"
+                        context="{'group_by':'driver_id'}"
+                    />
+                    <filter
+                        name="vehicle"
+                        string="Vehicle"
+                        domain="[]"
+                        context="{'group_by':'vehicle_id'}"
+                    />
+                    <filter
+                        name="trailer"
+                        string="Trailer"
+                        domain="[]"
+                        context="{'group_by':'trailer_id'}"
+                    />
+                    <separator />
                     <filter
                         name="stage"
                         string="Stage"
@@ -466,10 +599,36 @@
                         context="{'group_by':'stage_id'}"
                     />
                     <filter
-                        name="stage"
-                        string="Vehicle"
+                        name="priority"
+                        string="Priority"
                         domain="[]"
-                        context="{'group_by':'stage_id'}"
+                        context="{'group_by':'priority'}"
+                    />
+                    <separator />
+                    <filter
+                        name="scheduled_date_start"
+                        string="Scheduled Date Start"
+                        domain="[]"
+                        context="{'group_by':'scheduled_date_start'}"
+                    />
+                    <filter
+                        name="scheduled_date_end"
+                        string="Scheduled Date End"
+                        domain="[]"
+                        context="{'group_by':'scheduled_date_end'}"
+                    />
+                    <separator />
+                    <filter
+                        name="date_start"
+                        string="Effective Date Start"
+                        domain="[]"
+                        context="{'group_by':'date_start'}"
+                    />
+                    <filter
+                        name="date_end"
+                        string="Effective Date End"
+                        domain="[]"
+                        context="{'group_by':'date_end'}"
                     />
                 </group>
             </search>

@@ -17,6 +17,7 @@
         "partner_contact_birthdate",
     ],
     "data": [
+        "views/fleet_vehicle_model.xml",
         # Data
         "data/ir_sequence_data.xml",
         "data/module_category.xml",

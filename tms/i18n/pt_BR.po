@@ -668,7 +668,7 @@ msgstr "Fim"
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__end_trip
 msgid "End Trip"
-msgstr "Viagem Final"
+msgstr "Viagem Finalizada"
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_route__estimated_time
@@ -1236,7 +1236,7 @@ msgid ""
 "kanban             selection, when the sorder or shipment is in that stage."
 msgstr ""
 "Substituir o valor padrão exibido para o estado normal da seleção Kanban, "
-"quando a ordem ou remessa estiver nesse estágio."
+"quando o pedido ou remessa estiver nesse estágio."
 
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_tag__parent_id
@@ -1445,7 +1445,7 @@ msgstr "Iniciar"
 #. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__start_trip
 msgid "Start Trip"
-msgstr "Iniciar Viagem"
+msgstr "Viagem Iniciada"
 
 #. module: tms
 #: model:ir.ui.menu,name:tms.menu_config_fleet_vehicles_status

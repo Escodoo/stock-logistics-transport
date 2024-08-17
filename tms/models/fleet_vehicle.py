@@ -16,6 +16,12 @@ class FleetVehicle(models.Model):
     )
     tms_operation = fields.Selection([("cargo", "Cargo"), ("passenger", "Passenger")])
 
+    tms_trailer_id = fields.Many2one(
+        comodel_name="fleet.vehicle",
+        domain="[('vehicle_type', '=', 'trailer')]",
+        string="Trailer",
+    )
+
     def _default_tms_volume_uom_id(self):
         default_volume_uom_id = (
             self.env["ir.config_parameter"].sudo().get_param("tms.default_weight_uom")

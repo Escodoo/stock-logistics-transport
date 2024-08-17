@@ -22,18 +22,24 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="tms_stage" attrs="{'column_invisible': True}" />
+                <field
+                    name="tms_stage_decoration_color"
+                    attrs="{'column_invisible': True}"
+                />
                 <field name="display_name" string="Name" />
                 <field name="age" optional="hide" />
                 <field name="gender" optional="hide" />
-                <field name="tms_is_external" optional="show" />
                 <field name="tms_driver_type" optional="show" />
                 <field name="tms_driver_license_number" optional="show" />
                 <field name="tms_driver_license_type" optional="show" />
                 <field name="tms_driver_license_expiration_date" optional="show" />
-                <field name="phone" />
+                <field name="phone" optional="show" />
+                <field name="tms_is_external" optional="hide" />
                 <field
                     name="tms_stage_id"
-                    decoration-danger="tms_stage == 'Not Available'"
+                    decoration-danger="tms_stage_decoration_color == 'red'"
+                    decoration-warning="tms_stage_decoration_color == 'yellow'"
+                    decoration-success="tms_stage_decoration_color == 'green'"
                 />
             </tree>
         </field>

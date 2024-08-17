@@ -54,7 +54,11 @@ class ResPartner(models.Model):
         default=lambda self: self._default_tms_stage_id(),
         group_expand="_read_group_tms_stage_ids",
     )
+
     tms_stage = fields.Char(related="tms_stage_id.name")
+    tms_stage_decoration_color = fields.Selection(
+        related="tms_stage_id.stage_decoration_color", string="Stage Decoration Color"
+    )
 
     # ------------------------------
     #      Driver - Terrestrial
@@ -92,3 +96,44 @@ class ResPartner(models.Model):
         )
         if stage:
             return stage.id
+
+    # def _default_tms_stage_is_transit(self):
+    #     stage = self.env["tms.stage"].search(
+    #         [
+    #             ("stage_type", "=", "driver"),
+    #             ("is_transit", "=", True),
+    #         ],
+    #         order="sequence asc",
+    #         limit=1,
+    #     )
+    #     if stage:
+    #         return stage.id
+
+    @api.depends("tms_order_ids.start_trip", "tms_order_ids.end_trip")
+    def _compute_tms_stage_id(self):
+        transit_stage = self.env["tms.stage"].search(
+            [("stage_type", "=", "driver"), ("is_transit", "=", True)],
+            order="sequence asc",
+            limit=1,
+        )
+        default_stage = self.env["tms.stage"].search(
+            [("stage_type", "=", "driver"), ("is_default", "=", True)],
+            order="sequence asc",
+            limit=1,
+        )
+        for partner in self:
+            orders_in_progress = self.env["tms.order"].search(
+                [
+                    ("driver_id", "=", partner.id),
+                    ("stage_id.is_closed", "=", False),
+                    ("start_trip", "=", True),
+                ]
+            )
+
+            if orders_in_progress and transit_stage != partner.tms_stage_id:
+                if transit_stage:
+                    partner.tms_stage_id = transit_stage
+                else:
+                    partner.tms_stage_id = False
+            else:
+                partner.tms_stage_id = default_stage if default_stage else False
