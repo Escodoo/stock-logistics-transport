@@ -17,6 +17,7 @@ class ProductTemplate(models.Model):
             ("line", "Create one TMS order per sale order line"),
         ],
         default="no",
+        string="TMS Tracking",
         help="""Determines what happens upon sale order confirmation:
                 - None: nothing additional, default behavior.
                 - Per Sale Order: One TMS Order will be created for the sale.
