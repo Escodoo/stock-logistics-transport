@@ -14,6 +14,13 @@ class TmsShipmentCreate(models.TransientModel):
     team_id = fields.Many2one("tms.team", string="Team")
     crew_id = fields.Many2one("tms.crew", string="Crew")
     vehicle_id = fields.Many2one("fleet.vehicle", string="Vehicle")
+    trailer_id = fields.Many2one(
+        comodel_name="fleet.vehicle",
+        related="vehicle_id.tms_trailer_id",
+        domain="[('vehicle_type', '=', 'trailer')]",
+        string="Trailer",
+        readonly=False,
+    )
     driver_id = fields.Many2one(
         "res.partner",
         string="Driver",
@@ -61,9 +68,10 @@ class TmsShipmentCreate(models.TransientModel):
 
     @api.onchange("scheduled_duration")
     def _onchange_scheduled_duration(self):
-        self.scheduled_date_end = self.scheduled_date_start + timedelta(
-            hours=self.scheduled_duration
-        )
+        if self.scheduled_date_start and self.scheduled_duration:
+            self.scheduled_date_end = self.scheduled_date_start + timedelta(
+                hours=self.scheduled_duration
+            )
 
     @api.onchange("scheduled_date_end")
     def _onchange_scheduled_date_end(self):
@@ -74,9 +82,16 @@ class TmsShipmentCreate(models.TransientModel):
     @api.onchange("scheduled_date_start")
     def _onchange_scheduled_date_start(self):
         if self.scheduled_date_start:
-            self.scheduled_date_end = self.scheduled_date_start + timedelta(
-                hours=self.scheduled_duration
-            )
+            # Se a data de fim estiver vazia e houver duração, calcula a data de fim
+            if self.scheduled_duration and not self.scheduled_date_end:
+                self.scheduled_date_end = self.scheduled_date_start + timedelta(
+                    hours=self.scheduled_duration
+                )
+            # Se a data de fim estiver preenchida, ajusta conforme a duração
+            elif self.scheduled_date_end:
+                self.scheduled_date_end = self.scheduled_date_start + timedelta(
+                    hours=self.scheduled_duration
+                )
 
     @api.depends("team_id.driver_ids", "crew_id.driver_ids")
     def _compute_driver_ids_domain(self):
@@ -100,7 +115,9 @@ class TmsShipmentCreate(models.TransientModel):
 
     @api.depends("team_id")
     def _compute_vehicle_ids_domain(self):
-        all_vehicles = self.env["fleet.vehicle"].search([])
+        all_vehicles = self.env["fleet.vehicle"].search(
+            [("vehicle_type", "!=", "trailer")]
+        )
         all_vehicles_ids = all_vehicles.ids
         for order in self:
             order.vehicle_ids_domain = [(6, 0, all_vehicles_ids)]
@@ -165,6 +182,7 @@ class TmsShipmentCreate(models.TransientModel):
                 "team_id": self.team_id.id or None,
                 "crew_id": self.crew_id.id or None,
                 "vehicle_id": self.vehicle_id.id or None,
+                "trailer_id": self.trailer_id.id or None,
                 "driver_id": self.driver_id.id or None,
                 "route": self.route,
                 "route_id": self.route_id.id or None,
@@ -183,6 +201,7 @@ class TmsShipmentCreate(models.TransientModel):
                 "crew_id": shipment.crew_id.id or None,
                 "driver_id": shipment.driver_id.id or None,
                 "vehicle_id": shipment.vehicle_id.id or None,
+                "trailer_id": shipment.trailer_id.id or None,
             }
         )
 

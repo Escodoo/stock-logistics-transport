@@ -371,7 +371,7 @@ msgstr "Fim"
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__end_trip
 msgid "End Trip"
-msgstr "Viagem Final"
+msgstr "Viagem Finalizada"
 
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__message_follower_ids
@@ -651,7 +651,7 @@ msgid ""
 "kanban             selection, when the sorder or shipment is in that stage."
 msgstr ""
 "Substituir o valor padrão exibido para o estado normal da seleção Kanban, "
-"quando a ordem ou remessa estiver nesse estágio."
+"quando o pedido ou remessa estiver nesse estágio."
 
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__overwrite_route_data
@@ -846,7 +846,7 @@ msgstr "Assinatura"
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_detailed_document
 #: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_search
 msgid "Stage"
-msgstr "Etapa"
+msgstr "Estágio"
 
 #. module: tms_shipment
 #: model:ir.actions.act_window,name:tms_shipment.action_tms_shipment_config_stage
@@ -862,7 +862,7 @@ msgstr "Iniciar"
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__start_trip
 msgid "Start Trip"
-msgstr "Iniciar Viagem"
+msgstr "Viagem Iniciada"
 
 #. module: tms_shipment
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_detailed_document
@@ -913,7 +913,7 @@ msgstr "Uom de Tempo"
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__tms_sorted_order_ids
 msgid "Tms Sorted Order"
-msgstr "Pedidos TMS Ordenadas"
+msgstr "Pedidos TMS Ordenados"
 
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__total_amount

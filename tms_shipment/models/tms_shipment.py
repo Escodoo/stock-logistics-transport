@@ -74,6 +74,14 @@ class TmsShipment(models.Model):
         context={"default_tms_type": "driver"},
     )
     vehicle_id = fields.Many2one("fleet.vehicle", string="Vehicle")
+    trailer_id = fields.Many2one(
+        comodel_name="fleet.vehicle",
+        related="vehicle_id.tms_trailer_id",
+        domain="[('vehicle_type', '=', 'trailer')]",
+        string="Trailer",
+        readonly=False,
+        store=True,
+    )
     team_id = fields.Many2one("tms.team", string="Team")
     crew_id = fields.Many2one("tms.crew", string="Crew")
 
@@ -88,6 +96,13 @@ class TmsShipment(models.Model):
         ondelete="set null",
     )
     stage = fields.Char(related="stage_id.name")
+    stage_decoration_color = fields.Selection(
+        related="stage_id.stage_decoration_color", string="Stage Decoration Color"
+    )
+    is_closed = fields.Boolean(
+        "Is closed",
+        related="stage_id.is_closed",
+    )
 
     scheduled_date_start = fields.Datetime(
         string="Scheduled Start", default=datetime.now()
@@ -97,11 +112,11 @@ class TmsShipment(models.Model):
     )
     scheduled_date_end = fields.Datetime(string="Scheduled End")
 
-    start_trip = fields.Boolean(readonly=True)
-    end_trip = fields.Boolean(readonly=True)
-    date_start = fields.Datetime()
-    date_end = fields.Datetime()
-    duration = fields.Float(string="Shipment Duration")
+    start_trip = fields.Boolean(string="Trip Start", readonly=True)
+    end_trip = fields.Boolean(string="Trip Finish", readonly=True)
+    date_start = fields.Datetime(string="Actual Start")
+    date_end = fields.Datetime(string="Actual End")
+    duration = fields.Float(string="Actual Duration")
 
     diff_duration = fields.Float(
         readonly=True, string="Scheduled Duration - Actual Duration"
@@ -133,11 +148,6 @@ class TmsShipment(models.Model):
             order.tms_sorted_order_ids = order.order_ids.sorted(
                 key=lambda line: line.shipment_sequence
             )
-
-    is_closed = fields.Boolean(
-        "Is closed",
-        related="stage_id.is_closed",
-    )
 
     driver_signature = fields.Binary(
         string="Driver Acceptance",
@@ -262,9 +272,10 @@ class TmsShipment(models.Model):
 
     @api.onchange("scheduled_duration")
     def _onchange_scheduled_duration(self):
-        self.scheduled_date_end = self.scheduled_date_start + timedelta(
-            hours=self.scheduled_duration
-        )
+        if self.scheduled_date_start and self.scheduled_duration:
+            self.scheduled_date_end = self.scheduled_date_start + timedelta(
+                hours=self.scheduled_duration
+            )
 
     @api.onchange("scheduled_date_end")
     def _onchange_scheduled_date_end(self):
@@ -275,9 +286,16 @@ class TmsShipment(models.Model):
     @api.onchange("scheduled_date_start")
     def _onchange_scheduled_date_start(self):
         if self.scheduled_date_start:
-            self.scheduled_date_end = self.scheduled_date_start + timedelta(
-                hours=self.scheduled_duration
-            )
+            # Se a data de fim estiver vazia e houver duração, calcula a data de fim
+            if self.scheduled_duration and not self.scheduled_date_end:
+                self.scheduled_date_end = self.scheduled_date_start + timedelta(
+                    hours=self.scheduled_duration
+                )
+            # Se a data de fim estiver preenchida, ajusta conforme a duração
+            elif self.scheduled_date_end:
+                self.scheduled_date_end = self.scheduled_date_start + timedelta(
+                    hours=self.scheduled_duration
+                )
 
     @api.depends("team_id.driver_ids", "crew_id.driver_ids")
     def _compute_driver_ids_domain(self):
@@ -301,7 +319,9 @@ class TmsShipment(models.Model):
 
     @api.depends("team_id")
     def _compute_vehicle_ids_domain(self):
-        all_vehicles = self.env["fleet.vehicle"].search([])
+        all_vehicles = self.env["fleet.vehicle"].search(
+            [("vehicle_type", "!=", "trailer")]
+        )
         all_vehicles_ids = all_vehicles.ids
         for order in self:
             order.vehicle_ids_domain = [(6, 0, all_vehicles_ids)]
@@ -357,27 +377,128 @@ class TmsShipment(models.Model):
     def _read_group_stage_ids(self, stages, domain, order):
         return self.env["tms.stage"].search([("stage_type", "=", "order")], order=order)
 
+    def _stage_find(self, team_id=False, domain=None, order="sequence"):
+        """Determine the stage of the current record with its teams, the given domain
+        and the given team_id
+        :param team_id
+        :param domain : base search domain for stage
+        :returns tms.stage recordset
+        """
+        # collect all team_ids by adding given one, and the ones related to the current records
+        # team_ids = set()
+        # if team_id:
+        #     team_ids.add(team_id)
+        # for record in self:
+        #     if record.team_id:
+        #         team_ids.add(record.team_id.id)
+        # generate the domain
+
+        search_domain = [("stage_type", "=", "order")]
+
+        # if team_ids:
+        #     search_domain += ['|', ('team_id', '=', False), ('team_id', 'in', list(team_ids))]
+        # else:
+        #     search_domain += [('team_id', '=', False)]
+
+        # AND with the domain in parameter
+        if domain:
+            search_domain += list(domain)
+        # perform search, return the first found
+        return self.env["tms.stage"].search(search_domain, order=order, limit=1)
+
+    @api.onchange("duration")
+    def _onchange_duration(self):
+        """Adjust date_end based on duration and date_start."""
+        if self.date_start and self.date_end:
+            self.date_end = self.date_start + timedelta(hours=self.duration)
+
+    @api.onchange("date_end")
+    def _onchange_date_end(self):
+        """Adjust duration based on date_end and date_start, handle trip status.
+        Handle scenarios where date_end is removed to correct an erroneous order."""
+        if self.date_end and self.date_start:
+            self._update_duration()
+            if not self.end_trip:
+                self.button_end_order()
+        elif not self.date_end:
+            # Case where date_end is being removed to correct an erroneous order
+            self._handle_removed_end_date()
+        if self.date_end and not self.date_start:
+            self.date_start = self.date_end
+            self.duration = 0
+
+    @api.onchange("date_start")
+    def _onchange_date_start(self):
+        """Reset trip-related fields and handle date_end changes."""
+        if not self.date_start:
+            self._reset_trip_fields()
+        else:
+            self._onchange_date_end()
+            if not self.date_end and not self.start_trip:
+                self.button_start_order()
+
     def button_start_order(self):
-        self.date_start = fields.Datetime.now()
+        """Start a trip, set the date_start, and update driver stage."""
+        if not self.date_start:
+            self.date_start = fields.Datetime.now()
         self.start_trip = True
-        for order in self.order_ids:
-            order.button_start_order()
+        # self._update_driver_stage(is_transit=True)
+        self.stage_id = self._stage_find(domain=[("is_transit", "=", True)])
 
     def button_end_order(self):
+        """End a trip, set the date_end, and calculate the duration and diff_duration."""
         self.date_end = fields.Datetime.now()
-        duration = self.date_end - self.date_start
-        self.duration = duration.total_seconds() / 3600
+        self._update_duration()
         self.diff_duration = round(self.scheduled_duration - self.duration, 2)
         self.start_trip = False
         self.end_trip = True
-        for order in self.order_ids:
-            if not order.end_trip:
-                order.button_end_order()
+        self.stage_id = self._stage_find(domain=[("is_closed", "=", True)])
+        # self._update_driver_stage(is_transit=False)
 
     def button_refresh_duration(self):
+        """Refresh the trip duration based on current date_end and date_start."""
         self.date_end = fields.Datetime.now()
+        self._update_duration()
+
+    def _update_duration(self):
+        """Helper method to calculate and set the duration based on date_start and date_end."""
+        self.duration = self._calculate_duration()
+
+    def _calculate_duration(self):
+        """Calculate the duration between date_start and date_end in hours."""
+        if not self.date_start or not self.date_end:
+            return 0
         duration = self.date_end - self.date_start
-        self.duration = duration.total_seconds() / 3600
+        return duration.total_seconds() / 3600
+
+    def _reset_trip_fields(self):
+        """Reset fields related to trip status."""
+        self.start_trip = False
+        self.end_trip = False
+        self.date_end = False
+        self.duration = 0
+        self.diff_duration = 0
+        # self._update_driver_stage()
+
+    def _handle_removed_end_date(self):
+        """Handle cases where date_end is removed to correct an erroneous order."""
+        if self.date_start and not self.start_trip:
+            self.end_trip = False
+            self.button_start_order()
+        else:
+            self.end_trip = False
+            # self._update_driver_stage()
+        self.duration = 0
+        self.diff_duration = 0
+
+    # def _update_driver_stage(self, is_transit=None):
+    #     """Update the driver's stage if necessary."""
+    #     if self.driver_id:
+    #         if (
+    #             is_transit is None
+    #             or self.driver_id.tms_stage_id.is_transit != is_transit
+    #         ):
+    #             self.driver_id._compute_tms_stage_id()
 
     @api.model_create_multi
     def create(self, vals_list):
