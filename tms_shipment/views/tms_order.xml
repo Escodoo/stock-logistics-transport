@@ -27,6 +27,9 @@
         <field name="model">tms.order</field>
         <field name="inherit_id" ref="tms.tms_order_view_search" />
         <field name="arch" type="xml">
+            <search position="inside">
+                <field name="shipment_id" />
+            </search>
             <filter name="is_active" position="after">
                 <separator />
                 <filter

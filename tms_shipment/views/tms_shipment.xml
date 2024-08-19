@@ -600,8 +600,13 @@
         <field name="model">tms.shipment</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name" />
                 <field name="team_id" string="Team" />
+                <field name="driver_id" string="Driver" />
+                <field name="vehicle_id" string="Vehicle" />
                 <field name="stage_name" string="Stage" />
+                <field name="origin_location_id" string="Origin Location" />
+                <field name="destination_location_id" string="Destination Location" />
                 <field name="is_closed" attrs="{'column_invisible': True}" />
                 <field name="start_trip" attrs="{'column_invisible': True}" />
                 <field name="end_trip" attrs="{'column_invisible': True}" />
