@@ -95,11 +95,13 @@ class TmsShipment(models.Model):
         group_expand="_read_group_stage_ids",
         ondelete="set null",
     )
-    stage_name = fields.Char(related="stage_id.name")
+    stage_name = fields.Char(string="Stage Name", related="stage_id.name")
     stage_decoration_color = fields.Selection(
         related="stage_id.stage_decoration_color", string="Stage Decoration Color"
     )
-    custom_color = fields.Char(string="Custom Color", related="stage_id.custom_color")
+    custom_color = fields.Char(
+        string="Stage Custom Color", related="stage_id.custom_color"
+    )
     is_closed = fields.Boolean(
         "Is closed",
         related="stage_id.is_closed",
