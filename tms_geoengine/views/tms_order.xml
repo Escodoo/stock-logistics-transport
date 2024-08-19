@@ -36,12 +36,12 @@
     </record>
 
     <!-- GeoEngine views -->
-    <record id="ir_ui_view_tms_order_map" model="ir.ui.view">
+    <record id="tms_order_map_view" model="ir.ui.view">
         <field name="name">ir.ui.view.tms.order.map</field>
         <field name="arch" type="xml">
             <geoengine>
-                <field name="name" select="1" />
-                <field name="display_name" />
+                <field name="display_name" select="1" />
+                <field name='stage_name' string="Stage" />
                 <field name="destination_phone" />
                 <field name="destination_mobile" />
                 <field name="destination_street" />
@@ -50,9 +50,9 @@
                 <field name="destination_state_name" />
                 <field name='destination_zip' />
                 <field name="destination_country_name" />
-                <field name='stage_name' />
                 <field name="destination_shape" />
-                <field name="custom_color" />
+                <field name="driver_id" />
+                <!-- <field name="custom_color" /> -->
             </geoengine>
         </field>
         <field name="priority" eval="16" />
@@ -66,11 +66,13 @@
         <field name="name">TMS Order Point</field>
         <field name="classification">unique</field>
         <field name="sequence" eval="6" />
-        <field name="view_id" ref="ir_ui_view_tms_order_map" />
+        <field name="view_id" ref="tms_order_map_view" />
         <field name="geo_repr">colored</field>
         <field name="nb_class" eval="1" />
         <field name="attribute_field_id" ref="tms.field_tms_order__stage_name" />
-        <field name="begin_color">#0AFF68</field>
+        <field name="begin_color">#D62839</field>
+        <field name="end_color">#CCE6F4</field>
+
     </record>
     <record
         id="geoengine_vector_layer_tmsordertatecoloredcustom0"
@@ -83,7 +85,7 @@
         <field name="name">TMS Order State colored custom</field>
         <field name="classification">custom</field>
         <field name="sequence" eval="6" />
-        <field name="view_id" ref="ir_ui_view_tms_order_map" />
+        <field name="view_id" ref="tms_order_map_view" />
         <field name="geo_repr">colored</field>
         <field name="nb_class" eval="1" />
         <field name="attribute_field_id" ref="tms.field_tms_order__custom_color" />
@@ -92,14 +94,14 @@
     <record id="geoengine_raster_layer_retailmachineosm" model="geoengine.raster.layer">
         <field name="raster_type">osm</field>
         <field name="name">Open Street Map</field>
-        <field name="view_id" ref="ir_ui_view_tms_order_map" />
+        <field name="view_id" ref="tms_order_map_view" />
         <field name="overlay" eval="0" />
     </record>
     <record id="geoengine_raster_layer_basic0" model="geoengine.raster.layer">
         <field name="raster_type">d_wms</field>
         <field name="name">basic</field>
         <field name="url">vmap0.tiles.osgeo.org/wms/vmap0</field>
-        <field name="view_id" ref="ir_ui_view_tms_order_map" />
+        <field name="view_id" ref="tms_order_map_view" />
         <field name="overlay" eval="1" />
     </record>
 
