@@ -96,7 +96,7 @@ class TMSOrder(models.Model):
         group_expand="_read_group_stage_ids",
         ondelete="set null",
     )
-    stage_name = fields.Char(related="stage_id.name")
+    stage_name = fields.Char(string="Stage Name", related="stage_id.name")
     stage_decoration_color = fields.Selection(
         related="stage_id.stage_decoration_color", string="Stage Decoration Color"
     )

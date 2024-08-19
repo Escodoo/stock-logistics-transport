@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="tms_order_map_view">
+        <field name="model">tms.order</field>
+        <field name="inherit_id" ref="tms_geoengine.tms_order_map_view" />
+        <field name="arch" type="xml">
+            <geoengine position="inside">
+                <field name="shipment_id" />
+            </geoengine>
+
+        </field>
+    </record>
+
+
+</odoo>

@@ -494,10 +494,14 @@
         <field name="model">tms.order</field>
         <field name="arch" type="xml">
             <search>
-                <field name="partner_id" string="Partner" />
+                <field name="name" />
                 <field name="team_id" string="Team" />
                 <field name="driver_id" string="Driver" />
+                <field name="vehicle_id" string="Vehicle" />
                 <field name="stage_name" string="Stage" />
+                <field name="partner_id" string="Partner" />
+                <field name="origin_location_id" string="Origin Location" />
+                <field name="destination_location_id" string="Destination Location" />
                 <filter
                     name="is_active"
                     string="Archived"
