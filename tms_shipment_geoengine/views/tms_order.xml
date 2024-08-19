@@ -9,6 +9,7 @@
         <field name="arch" type="xml">
             <geoengine position="inside">
                 <field name="shipment_id" />
+                <field name="shipment_sequence" />
             </geoengine>
 
         </field>
