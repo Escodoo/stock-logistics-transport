@@ -100,7 +100,9 @@ class TMSOrder(models.Model):
     stage_decoration_color = fields.Selection(
         related="stage_id.stage_decoration_color", string="Stage Decoration Color"
     )
-    custom_color = fields.Char(string="Custom Color", related="stage_id.custom_color")
+    custom_color = fields.Char(
+        string="Stage Custom Color", related="stage_id.custom_color"
+    )
     is_closed = fields.Boolean(
         "Is closed",
         related="stage_id.is_closed",
