@@ -7,7 +7,7 @@
         <field name="model">tms.order</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="stage" attrs="{'column_invisible': True}" />
+                <field name="stage_name" attrs="{'column_invisible': True}" />
                 <field
                     name="stage_decoration_color"
                     attrs="{'column_invisible': True}"
@@ -69,7 +69,7 @@
 
                 <!-- Invisible Fields -->
                 <field name="active" invisible="1" />
-                <field name="stage" invisible="1" />
+                <field name="stage_name" invisible="1" />
                 <field name="is_closed" invisible="1" />
                 <field name="crew_active" invisible="1" />
                 <field name="crew_ids_domain" invisible="1" />
@@ -497,7 +497,7 @@
                 <field name="partner_id" string="Partner" />
                 <field name="team_id" string="Team" />
                 <field name="driver_id" string="Driver" />
-                <field name="stage" string="Stage" />
+                <field name="stage_name" string="Stage" />
                 <filter
                     name="is_active"
                     string="Archived"
