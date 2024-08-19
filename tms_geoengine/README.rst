@@ -1,5 +1,5 @@
 =============
-Tms Geoengine
+TMS Geoengine
 =============
 
 .. 
