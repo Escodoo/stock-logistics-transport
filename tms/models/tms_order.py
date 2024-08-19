@@ -96,10 +96,11 @@ class TMSOrder(models.Model):
         group_expand="_read_group_stage_ids",
         ondelete="set null",
     )
-    stage = fields.Char(related="stage_id.name")
+    stage_name = fields.Char(related="stage_id.name")
     stage_decoration_color = fields.Selection(
         related="stage_id.stage_decoration_color", string="Stage Decoration Color"
     )
+    custom_color = fields.Char(string="Custom Color", related="stage_id.custom_color")
     is_closed = fields.Boolean(
         "Is closed",
         related="stage_id.is_closed",
@@ -182,6 +183,24 @@ class TMSOrder(models.Model):
         readonly=True,
         related_sudo=False,
     )
+
+    # Fields for Geoengine Identify
+    destination_street = fields.Char(related="destination_location_id.street")
+    destination_street2 = fields.Char(related="destination_location_id.street2")
+    destination_zip = fields.Char(related="destination_location_id.zip")
+    destination_city = fields.Char(
+        related="destination_location_id.city", string="City"
+    )
+    destination_state_name = fields.Char(
+        related="destination_location_id.state_id.name", string="State"
+    )
+    destination_country_name = fields.Char(
+        related="destination_location_id.country_id.name", string="Country"
+    )
+    destination_phone = fields.Char(
+        related="destination_location_id.phone", string="Location Phone"
+    )
+    destination_mobile = fields.Char(related="destination_location_id.mobile")
 
     @api.depends("stage_id", "kanban_state")
     def _compute_kanban_state_label(self):
