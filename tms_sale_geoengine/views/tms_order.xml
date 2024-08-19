@@ -8,8 +8,7 @@
         <field name="inherit_id" ref="tms_geoengine.tms_order_map_view" />
         <field name="arch" type="xml">
             <geoengine position="inside">
-                <field name="shipment_id" />
-                <field name="shipment_sequence" />
+                <field name="sale_id" />
             </geoengine>
 
         </field>

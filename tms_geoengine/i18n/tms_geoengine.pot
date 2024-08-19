@@ -1,0 +1,99 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_geoengine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-19 21:37+0000\n"
+"PO-Revision-Date: 2024-08-19 21:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tms_geoengine
+#: model:ir.model,name:tms_geoengine.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_tms_order__destination_shape
+msgid "Destination Coordinate"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: tms_geoengine
+#: model_terms:ir.ui.view,arch_db:tms_geoengine.tms_order_form_view
+msgid "GeoCode Location"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: tms_geoengine
+#: model_terms:ir.ui.view,arch_db:tms_geoengine.tms_order_form_view
+msgid "Map"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:geoengine.raster.layer,name:tms_geoengine.geoengine_raster_layer_retailmachineosm
+msgid "Open Street Map"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_tms_order__origin_shape
+msgid "Origin Coordinate"
+msgstr ""
+
+#. module: tms_geoengine
+#: model_terms:ir.ui.view,arch_db:tms_geoengine.tms_order_map_view
+msgid "Stage"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_partner__tms_shape
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_users__tms_shape
+msgid "TMS Coordinate"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:geoengine.vector.layer,name:tms_geoengine.geoengine_vector_layer_tms0
+msgid "TMS Order Point"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:geoengine.vector.layer,name:tms_geoengine.geoengine_vector_layer_tmsordertatecoloredcustom0
+msgid "TMS Order State colored custom"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_partner__tms_stage_custom_color
+#: model:ir.model.fields,field_description:tms_geoengine.field_res_users__tms_stage_custom_color
+msgid "TMS Stage Color"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:ir.model.fields,help:tms_geoengine.field_res_partner__tms_stage_custom_color
+#: model:ir.model.fields,help:tms_geoengine.field_res_users__tms_stage_custom_color
+msgid "Use Hex Code only Ex:-#FFFFFF"
+msgstr ""
+
+#. module: tms_geoengine
+#: model:geoengine.raster.layer,name:tms_geoengine.geoengine_raster_layer_basic0
+msgid "basic"
+msgstr ""

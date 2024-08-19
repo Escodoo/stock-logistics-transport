@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-17 16:55+0000\n"
-"PO-Revision-Date: 2024-08-17 16:55+0000\n"
+"POT-Creation-Date: 2024-08-19 21:37+0000\n"
+"PO-Revision-Date: 2024-08-19 21:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -311,6 +311,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__destination_id
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_driver_acceptance_document
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_detailed_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_search
 msgid "Destination Location"
 msgstr ""
 
@@ -320,7 +321,6 @@ msgid "Detailed Shipment"
 msgstr ""
 
 #. module: tms_shipment
-#: model:ir.model.fields,field_description:tms_shipment.field_tms_order__display_name
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__display_name
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__display_name
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_stage__display_name
@@ -439,7 +439,6 @@ msgid "High"
 msgstr ""
 
 #. module: tms_shipment
-#: model:ir.model.fields,field_description:tms_shipment.field_tms_order__id
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__id
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__id
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_stage__id
@@ -509,7 +508,6 @@ msgid "Kanban Valid Explanation"
 msgstr ""
 
 #. module: tms_shipment
-#: model:ir.model.fields,field_description:tms_shipment.field_tms_order____last_update
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment____last_update
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create____last_update
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_stage____last_update
@@ -555,7 +553,6 @@ msgstr ""
 
 #. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__name
-#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__stage
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_document
 msgid "Name"
 msgstr ""
@@ -653,6 +650,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__origin_id
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_driver_acceptance_document
 #: model_terms:ir.ui.view,arch_db:tms_shipment.report_tms_shipment_detailed_document
+#: model_terms:ir.ui.view,arch_db:tms_shipment.view_tms_shipment_search
 msgid "Origin Location"
 msgstr ""
 
@@ -874,8 +872,18 @@ msgid "Stage"
 msgstr ""
 
 #. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__custom_color
+msgid "Stage Custom Color"
+msgstr ""
+
+#. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__stage_decoration_color
 msgid "Stage Decoration Color"
+msgstr ""
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__stage_name
+msgid "Stage Name"
 msgstr ""
 
 #. module: tms_shipment
@@ -973,11 +981,6 @@ msgid "Trailer"
 msgstr ""
 
 #. module: tms_shipment
-#: model:ir.model,name:tms_shipment.model_tms_order
-msgid "Transport Management System Order"
-msgstr ""
-
-#. module: tms_shipment
 #: model:ir.model,name:tms_shipment.model_tms_stage
 msgid "Transport Management System Stage"
 msgstr ""
@@ -1028,6 +1031,11 @@ msgid "Unscheduled"
 msgstr ""
 
 #. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__custom_color
+msgid "Use Hex Code only Ex:-#FFFFFF"
+msgstr ""
+
+#. module: tms_shipment
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__route
 #: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment_create__route
 msgid "Use predefined route"
@@ -1052,6 +1060,16 @@ msgstr ""
 #. module: tms_shipment
 #: model:ir.model.fields.selection,name:tms_shipment.selection__tms_shipment__priority__3
 msgid "Very High"
+msgstr ""
+
+#. module: tms_shipment
+#: model:ir.model.fields,field_description:tms_shipment.field_tms_shipment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: tms_shipment
+#: model:ir.model.fields,help:tms_shipment.field_tms_shipment__website_message_ids
+msgid "Website communication history"
 msgstr ""
 
 #. module: tms_shipment
