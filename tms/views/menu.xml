@@ -91,7 +91,7 @@
     <menuitem
         id="menu_fleet_vehicle"
         name="Vehicles"
-        action="fleet.fleet_vehicle_action"
+        action="action_tms_vehicle"
         parent="menu_data_fleet"
         sequence="10"
     />

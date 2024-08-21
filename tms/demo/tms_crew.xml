@@ -2,7 +2,7 @@
 
     <record id="demo_crew_1" model="tms.crew">
         <field name="name">Crew Mexico 1</field>
-        <field name="default_vehicle_id" ref="fleet.vehicle_1" />
+        <field name="default_vehicle_id" ref="tractor_1" />
         <field
             name="driver_ids"
             eval="[(6, 0, [

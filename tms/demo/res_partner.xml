@@ -7,6 +7,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1980-09-05</field>
         <field name="gender">male</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/driver_portrait_44_1.jpeg"
+        />
     </record>
 
     <record id="demo_driver_2" model="res.partner">
@@ -15,6 +20,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1995-09-05</field>
         <field name="gender">male</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/driver_portrait_44_2.jpeg"
+        />
     </record>
 
     <record id="demo_driver_3" model="res.partner">
@@ -23,6 +33,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1965-09-05</field>
         <field name="gender">female</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/female_driver_portrait_44_1.jpeg"
+        />
     </record>
 
     <record id="demo_driver_4" model="res.partner">
@@ -31,6 +46,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1977-09-05</field>
         <field name="gender">male</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/driver_portrait_44_3.jpeg"
+        />
     </record>
 
     <record id="demo_driver_5" model="res.partner">
@@ -39,6 +59,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1982-09-05</field>
         <field name="gender">female</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/female_driver_portrait_44_1.jpeg"
+        />
     </record>
 
     <record id="demo_driver_6" model="res.partner">
@@ -47,6 +72,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1999-09-05</field>
         <field name="gender">male</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/driver_portrait_44_1.jpeg"
+        />
     </record>
 
     <record id="demo_driver_7" model="res.partner">
@@ -55,6 +85,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1998-09-05</field>
         <field name="gender">female</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/female_driver_portrait_44_1.jpeg"
+        />
     </record>
 
     <record id="demo_driver_8" model="res.partner">
@@ -63,6 +98,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1981-09-05</field>
         <field name="gender">male</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/driver_portrait_44_2.jpeg"
+        />
     </record>
 
     <record id="demo_driver_9" model="res.partner">
@@ -71,6 +111,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1971-09-05</field>
         <field name="gender">female</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/female_driver_portrait_44_1.jpeg"
+        />
     </record>
 
     <record id="demo_driver_10" model="res.partner">
@@ -79,6 +124,11 @@
         <field name="tms_driver_type">terrestrial</field>
         <field name="birthdate_date">1987-09-05</field>
         <field name="gender">male</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="tms/static/img/driver_portrait_44_3.jpeg"
+        />
     </record>
 
     <!-- Locations -->
