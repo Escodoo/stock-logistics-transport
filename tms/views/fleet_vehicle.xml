@@ -39,4 +39,11 @@
         </field>
     </record>
 
+    <record id="action_tms_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_mode">tree,kanban,pivot,form</field>
+        <field name="domain">[('tms_operation', '!=', False)]</field>
+    </record>
+
 </odoo>

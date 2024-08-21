@@ -92,7 +92,7 @@ class TMSStage(models.Model):
     company_id = fields.Many2one(
         "res.company",
         string="Company",
-        default=lambda self: self.env.user.company_id.id,
+        default=lambda self: self.env.company,
     )
 
     team_ids = fields.Many2many(
