@@ -59,6 +59,9 @@ class TMSOrder(models.Model):
         "res.partner", compute="_compute_locations", store=True, string="Destination"
     )
 
+    delivery_receipt = fields.Binary("Delivery Receipt", attachment=True)
+    delivery_receipt_filename = fields.Char("Delivery Receipt Filename")
+
     @api.depends("route", "route_id", "origin_id", "destination_id")
     def _compute_locations(self):
         for record in self:

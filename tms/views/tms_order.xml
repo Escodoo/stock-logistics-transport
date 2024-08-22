@@ -214,8 +214,17 @@
                                 </div>
                             </group>
                         </page>
+                        <page string="Delivery Receipt" name="delivery_page">
+                            <group>
+                                <field
+                                    name="delivery_receipt"
+                                    filename="delivery_receipt_filename"
+                                    widget="image"
+                                />
+                                <field name="delivery_receipt_filename" invisible="1" />
+                            </group>
+                        </page>
                     </notebook>
-
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" />
