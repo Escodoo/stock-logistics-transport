@@ -46,6 +46,15 @@
                 </table>
 
              </div>
+             <div class="mt16" t-if="doc.delivery_receipt">
+                <h3>Delivery Receipt</h3>
+                <img
+                    t-if="doc.delivery_receipt"
+                    t-att-src="'data:image/png;base64,' + doc.delivery_receipt.decode('utf-8')"
+                    alt="Delivery Receipt"
+                    style="max-width:100%;"
+                />
+            </div>
         </t>
     </template>
 

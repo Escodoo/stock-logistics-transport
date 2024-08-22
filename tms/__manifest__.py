@@ -38,6 +38,7 @@
         "views/tms_team.xml",
         "views/tms_crew.xml",
         "views/tms_route.xml",
+        # Reports
         "views/tms_order_report.xml",
         # Menus
         "views/menu.xml",
