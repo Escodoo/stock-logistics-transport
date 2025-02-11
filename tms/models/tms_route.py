@@ -23,9 +23,11 @@ class TMSRoute(models.Model):
     destination_location_id = fields.Many2one(
         "res.partner",
         string="Destination Location",
-        required=True,
+        # required=True,
         context={"default_tms_type": "location"},
     )
+
+    destination_city_id = fields.Many2one("res.city", string="Destination City")
 
     stop_locations = fields.Boolean(string="Stops locations in route")
     stop_location_ids = fields.Many2many(

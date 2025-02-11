@@ -36,6 +36,9 @@ class TMSOrder(models.Model):
 
     route = fields.Boolean(string="Use predefined route")
     route_id = fields.Many2one("tms.route", string="Route")
+    route_destination_city_id = fields.Many2one(
+        related="route_id.destination_city_id", string="Destination City"
+    )
 
     partner_id = fields.Many2one("res.partner", string="Partner")
 
@@ -59,15 +62,17 @@ class TMSOrder(models.Model):
         "res.partner", compute="_compute_locations", store=True, string="Destination"
     )
 
-    @api.depends("route", "route_id", "origin_id", "destination_id")
+    @api.depends("origin_id", "destination_id")
     def _compute_locations(self):
         for record in self:
-            if record.route and record.route_id:
-                record.origin_location_id = record.route_id.origin_location_id
-                record.destination_location_id = record.route_id.destination_location_id
-            else:
-                record.origin_location_id = record.origin_id
-                record.destination_location_id = record.destination_id
+            record.origin_location_id = record.origin_id
+            record.destination_location_id = record.destination_id
+            # if record.route and record.route_id:
+            #     record.origin_location_id = record.route_id.origin_location_id
+            #     record.destination_location_id = record.route_id.destination_location_id
+            # else:
+            #     record.origin_location_id = record.origin_id
+            #     record.destination_location_id = record.destination_id
 
     driver_id = fields.Many2one(
         "res.partner",
@@ -250,6 +255,8 @@ class TMSOrder(models.Model):
     @api.onchange("route_id")
     def _onchange_route_id(self):
         if self.route:
+            self.origin_id = self.route_id.origin_location_id
+            self.destination_id = self.route_id.destination_location_id
             if self.route_id.estimated_time_uom.name == "Days":
                 self.scheduled_duration = self.route_id.estimated_time * 24
             else:

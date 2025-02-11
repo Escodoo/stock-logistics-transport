@@ -9,6 +9,7 @@
                 <field name="name" />
                 <field name="origin_location_id" />
                 <field name="destination_location_id" />
+                <field name="destination_city_id" />
             </tree>
         </field>
     </record>
@@ -78,6 +79,7 @@
                                     name="destination_location_id"
                                     domain="[('tms_type', '=', 'location')]"
                                 />
+                                <field name="destination_city_id" />
                             </group>
                         </page>
                         <page

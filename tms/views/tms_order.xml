@@ -170,13 +170,12 @@
                                 name="route_id"
                                 attrs="{'invisible': [('route', '=', False)], 'required': [('route', '=', True)] }"
                             />
+                            <field name="origin_id" />
+                            <field name="destination_id" />
+                            <!-- attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }" -->
                             <field
-                                name="origin_id"
+                                name="route_destination_city_id"
                                 attrs="{'invisible': [('route', '!=', False)]}"
-                            />
-                            <field
-                                name="destination_id"
-                                attrs="{'invisible': [('route', '!=', False)], 'required': [('route', '=', False)] }"
                             />
                         </group>
                     </group>
