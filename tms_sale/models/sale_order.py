@@ -35,17 +35,19 @@ class SaleOrder(models.Model):
     tms_scheduled_date_end = fields.Datetime(string="Scheduled End")
     tms_scheduled_duration = fields.Float(string="Scheduled Duration")
 
-    @api.onchange("tms_route_flag")
-    def _onchange_tms_route_flag(self):
-        if self.tms_route_flag:
-            self.tms_origin_id = None
-            self.tms_destination_id = None
-        else:
-            self.tms_route_id = None
+    # @api.onchange("tms_route_flag")
+    # def _onchange_tms_route_flag(self):
+    #     if self.tms_route_flag:
+    #         self.tms_origin_id = None
+    #         self.tms_destination_id = None
+    #     else:
+    #         self.tms_route_id = None
 
     @api.onchange("tms_route_id")
     def _onchange_tms_route_id(self):
         if self.tms_route_flag:
+            self.tms_origin_id = self.tms_route_id.origin_location_id
+            self.tms_destination_id = self.tms_route_id.destination_location_id
             if self.tms_route_id.estimated_time_uom.name == "Days":
                 self.tms_scheduled_duration = self.tms_route_id.estimated_time * 24
             else:

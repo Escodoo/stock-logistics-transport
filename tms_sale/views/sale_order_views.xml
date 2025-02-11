@@ -35,14 +35,11 @@
                                 attrs="{'invisible': [('tms_route_flag', '=', False)], 'required': [('tms_route_flag', '=', True)]}"
                                 groups="tms.group_tms_route"
                             />
-                            <field
-                                name="tms_origin_id"
-                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': ['&amp;', ('has_tms_product', '=', True), ('tms_route_flag', '=', False)]}"
-                            />
-                            <field
-                                name="tms_destination_id"
-                                attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': ['&amp;', ('has_tms_product', '=', True), ('tms_route_flag', '=', False)]}"
-                            />
+                            <field name="tms_origin_id" />
+                            <!-- attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': ['&amp;', ('has_tms_product', '=', True), ('tms_route_flag', '=', False)]}" -->
+                            <field name="tms_destination_id" />
+                            <!-- attrs="{'invisible': [('tms_route_flag', '=', True)], 'required': ['&amp;', ('has_tms_product', '=', True), ('tms_route_flag', '=', False)]}" -->
+
                         </group>
                         <!-- <group
                             name="tms_route"
