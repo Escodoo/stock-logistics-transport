@@ -1,0 +1,140 @@
+<odoo>
+
+    <!-- Trailer -->
+    <record id="trailer_1" model="fleet.vehicle">
+        <field name="license_plate">TRA-1B08</field>
+        <field name="vin_sn">5454541</field>
+        <field name="model_id" ref="model_trailer_1" />
+        <field name="color">Black</field>
+        <field name="location">Grand-Rosiere</field>
+        <field name="doors">5</field>
+        <field name="driver_id" ref="base.partner_demo" />
+        <field
+            name="acquisition_date"
+            eval="(DateTime.now() - timedelta(days=336)).strftime('%Y-%m-%d')"
+        />
+        <field name="state_id" ref="fleet.fleet_vehicle_state_registered" />
+        <field name="odometer_unit">kilometers</field>
+        <field name="car_value">20000</field>
+        <field
+            eval="[(6,0,[ref('fleet.vehicle_tag_break'),ref('fleet.vehicle_tag_senior')])]"
+            name="tag_ids"
+        />
+        <field name="tms_operation">cargo</field>
+    </record>
+
+    <record id="trailer_2" model="fleet.vehicle">
+        <field name="license_plate">TRB-6A05</field>
+        <field name="vin_sn">1337</field>
+        <field name="model_id" ref="model_trailer_2" />
+        <field name="color">Red</field>
+        <field name="location">Grand-Rosiere</field>
+        <field name="doors">5</field>
+        <field name="driver_id" ref="base.res_partner_address_25" />
+        <field
+            name="acquisition_date"
+            eval="(DateTime.now() - timedelta(days=233)).strftime('%Y-%m-%d')"
+        />
+        <field name="state_id" ref="fleet.fleet_vehicle_state_downgraded" />
+        <field name="odometer_unit">kilometers</field>
+        <field name="car_value">16000</field>
+        <field
+            eval="[(6,0,[ref('fleet.vehicle_tag_compact'),ref('fleet.vehicle_tag_junior')])]"
+            name="tag_ids"
+        />
+        <field name="tms_operation">cargo</field>
+    </record>
+
+    <record id="trailer_3" model="fleet.vehicle">
+        <field name="license_plate">TRC-4X06</field>
+        <field name="vin_sn">1337</field>
+        <field name="model_id" ref="model_trailer_2" />
+        <field name="color">Red</field>
+        <field name="location">Grand-Rosiere</field>
+        <field name="doors">5</field>
+        <field name="driver_id" ref="base.res_partner_address_25" />
+        <field
+            name="acquisition_date"
+            eval="(DateTime.now() - timedelta(days=233)).strftime('%Y-%m-%d')"
+        />
+        <field name="state_id" ref="fleet.fleet_vehicle_state_downgraded" />
+        <field name="odometer_unit">kilometers</field>
+        <field name="car_value">16000</field>
+        <field
+            eval="[(6,0,[ref('fleet.vehicle_tag_compact'),ref('fleet.vehicle_tag_junior')])]"
+            name="tag_ids"
+        />
+        <field name="tms_operation">cargo</field>
+    </record>
+
+    <!-- Tractor -->
+    <record id="tractor_1" model="fleet.vehicle">
+        <field name="license_plate">GEO-1X02</field>
+        <field name="vin_sn">5454541</field>
+        <field name="model_id" ref="model_tractor_1" />
+        <field name="color">Black</field>
+        <field name="location">Grand-Rosiere</field>
+        <field name="doors">5</field>
+        <field name="driver_id" ref="base.partner_demo" />
+        <field
+            name="acquisition_date"
+            eval="(DateTime.now() - timedelta(days=336)).strftime('%Y-%m-%d')"
+        />
+        <field name="state_id" ref="fleet.fleet_vehicle_state_registered" />
+        <field name="odometer_unit">kilometers</field>
+        <field name="car_value">20000</field>
+        <field
+            eval="[(6,0,[ref('fleet.vehicle_tag_break'),ref('fleet.vehicle_tag_senior')])]"
+            name="tag_ids"
+        />
+        <field name="tms_operation">cargo</field>
+        <field name="tms_trailer_id" ref="trailer_1" />
+    </record>
+
+    <record id="tractor_2" model="fleet.vehicle">
+        <field name="license_plate">DEO-7U05</field>
+        <field name="vin_sn">1337</field>
+        <field name="model_id" ref="model_tractor_2" />
+        <field name="color">Red</field>
+        <field name="location">Grand-Rosiere</field>
+        <field name="doors">5</field>
+        <field name="driver_id" ref="base.res_partner_address_25" />
+        <field
+            name="acquisition_date"
+            eval="(DateTime.now() - timedelta(days=233)).strftime('%Y-%m-%d')"
+        />
+        <field name="state_id" ref="fleet.fleet_vehicle_state_downgraded" />
+        <field name="odometer_unit">kilometers</field>
+        <field name="car_value">16000</field>
+        <field
+            eval="[(6,0,[ref('fleet.vehicle_tag_compact'),ref('fleet.vehicle_tag_junior')])]"
+            name="tag_ids"
+        />
+        <field name="tms_operation">cargo</field>
+        <field name="tms_trailer_id" ref="trailer_2" />
+    </record>
+
+    <record id="tractor_3" model="fleet.vehicle">
+        <field name="license_plate">RYN-2E35</field>
+        <field name="vin_sn">1337</field>
+        <field name="model_id" ref="model_tractor_2" />
+        <field name="color">Red</field>
+        <field name="location">Grand-Rosiere</field>
+        <field name="doors">5</field>
+        <field name="driver_id" ref="base.res_partner_address_25" />
+        <field
+            name="acquisition_date"
+            eval="(DateTime.now() - timedelta(days=233)).strftime('%Y-%m-%d')"
+        />
+        <field name="state_id" ref="fleet.fleet_vehicle_state_downgraded" />
+        <field name="odometer_unit">kilometers</field>
+        <field name="car_value">16000</field>
+        <field
+            eval="[(6,0,[ref('fleet.vehicle_tag_compact'),ref('fleet.vehicle_tag_junior')])]"
+            name="tag_ids"
+        />
+        <field name="tms_operation">cargo</field>
+        <field name="tms_trailer_id" ref="trailer_3" />
+    </record>
+
+</odoo>

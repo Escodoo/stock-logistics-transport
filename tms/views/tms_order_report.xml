@@ -1,0 +1,81 @@
+<odoo>
+    <template id="report_tms_order_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.env.lang)" />
+            <div class="page">
+                <div class="oe_structure" />
+
+                <h2 class="mt16">Order Report</h2>
+                <table class="table table-sm">
+                    <tr>
+                        <th>Name</th>
+                        <td><span t-field="doc.display_name" /></td>
+                    </tr>
+                    <tr t-if="doc.route">
+                        <th>Route</th>
+                        <td><span t-field="doc.route_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Origin</th>
+                        <td><span t-field="doc.origin_location_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                        <td><span t-field="doc.destination_location_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Driver</th>
+                        <td><span t-field="doc.driver_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Vehicle</th>
+                        <td><span t-field="doc.vehicle_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Trailer</th>
+                        <td><span t-field="doc.trailer_id" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled Start</th>
+                        <td><span t-field="doc.scheduled_date_start" /></td>
+                    </tr>
+                    <tr>
+                        <th>Scheduled End</th>
+                        <td><span t-field="doc.scheduled_date_end" /></td>
+                    </tr>
+                </table>
+
+             </div>
+             <div class="mt16" t-if="doc.delivery_receipt">
+                <h3>Delivery Receipt</h3>
+                <img
+                    t-if="doc.delivery_receipt"
+                    t-att-src="'data:image/png;base64,' + doc.delivery_receipt.decode('utf-8')"
+                    alt="Delivery Receipt"
+                    style="max-width:100%;"
+                />
+            </div>
+        </t>
+    </template>
+
+    <template id="report_tms_order">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="tms.report_tms_order_document" />
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_tms_order" model="ir.actions.report">
+        <field name="name">Order</field>
+        <field name="model">tms.order</field>
+        <field name="report_name">tms.report_tms_order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_file">tms.report_tms_order</field>
+        <field name="binding_model_id" ref="model_tms_order" />
+        <field name="binding_type">report</field>
+        <field
+            name="print_report_name"
+        >'Order-%s%s' % (object.name, "-" + object.stage_id.name)</field>
+    </record>
+</odoo>

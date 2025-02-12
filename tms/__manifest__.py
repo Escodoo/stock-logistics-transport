@@ -38,16 +38,21 @@
         "views/tms_team.xml",
         "views/tms_crew.xml",
         "views/tms_route.xml",
+        # Reports
+        "views/tms_order_report.xml",
         # Menus
         "views/menu.xml",
         "views/fleet_menu.xml",
     ],
     "demo": [
+        "demo/fleet_vehicle_model.xml",
+        "demo/fleet_vehicle.xml",
         "demo/res_partner.xml",
         "demo/tms_team.xml",
         "demo/tms_route.xml",
         "demo/tms_order.xml",
         "demo/tms_crew.xml",
+        "demo/fleet_vehicle_model.xml",
     ],
     "application": True,
     "development_status": "Alpha",

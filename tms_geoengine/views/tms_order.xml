@@ -52,7 +52,7 @@
                 <field name="destination_country_name" />
                 <field name="destination_shape" />
                 <field name="driver_id" />
-                <!-- <field name="custom_color" /> -->
+                <field name="custom_color" />
             </geoengine>
         </field>
         <field name="priority" eval="16" />
@@ -70,9 +70,7 @@
         <field name="geo_repr">colored</field>
         <field name="nb_class" eval="1" />
         <field name="attribute_field_id" ref="tms.field_tms_order__stage_name" />
-        <field name="begin_color">#D62839</field>
-        <field name="end_color">#CCE6F4</field>
-
+        <field name="begin_color">#D11C1C</field>
     </record>
     <record
         id="geoengine_vector_layer_tmsordertatecoloredcustom0"
@@ -82,7 +80,7 @@
             name="geo_field_id"
             ref="tms_geoengine.field_tms_order__destination_shape"
         />
-        <field name="name">TMS Order State colored custom</field>
+        <field name="name">TMS Order Stage Colored Custom</field>
         <field name="classification">custom</field>
         <field name="sequence" eval="6" />
         <field name="view_id" ref="tms_order_map_view" />
@@ -91,7 +89,7 @@
         <field name="attribute_field_id" ref="tms.field_tms_order__custom_color" />
         <field name="begin_color">#FFFFFF</field>
     </record>
-    <record id="geoengine_raster_layer_retailmachineosm" model="geoengine.raster.layer">
+    <record id="geoengine_raster_layer_tmsosm" model="geoengine.raster.layer">
         <field name="raster_type">osm</field>
         <field name="name">Open Street Map</field>
         <field name="view_id" ref="tms_order_map_view" />

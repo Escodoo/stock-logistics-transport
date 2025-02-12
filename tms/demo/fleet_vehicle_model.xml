@@ -1,0 +1,32 @@
+<odoo>
+
+    <record id="model_tractor_1" model="fleet.vehicle.model">
+        <field name="name">Tractor</field>
+        <field name="brand_id" ref="fleet.brand_mercedes" />
+        <field name="vehicle_type">tractor</field>
+        <field name="manager_id" ref="base.user_admin" />
+    </record>
+
+    <record id="model_tractor_2" model="fleet.vehicle.model">
+        <field name="name">Tractor</field>
+        <field name="brand_id" ref="fleet.brand_ford" />
+        <field name="vehicle_type">tractor</field>
+        <field name="manager_id" ref="base.user_admin" />
+    </record>
+
+    <record id="model_trailer_1" model="fleet.vehicle.model">
+        <field name="name">Trailer</field>
+        <field name="brand_id" ref="fleet.brand_mercedes" />
+        <field name="vehicle_type">trailer</field>
+        <field name="manager_id" ref="base.user_admin" />
+    </record>
+
+    <record id="model_trailer_2" model="fleet.vehicle.model">
+        <field name="name">Trailer</field>
+        <field name="brand_id" ref="fleet.brand_ford" />
+        <field name="vehicle_type">trailer</field>
+        <field name="manager_id" ref="base.user_admin" />
+    </record>
+
+
+</odoo>
