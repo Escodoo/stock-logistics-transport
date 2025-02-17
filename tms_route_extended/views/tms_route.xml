@@ -2,7 +2,6 @@
 <!-- Copyright 2025 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="tms_route_form_view">
         <field name="model">tms.route</field>
         <field name="inherit_id" ref="tms.view_tms_route_form" />
@@ -10,29 +9,33 @@
             <notebook position="inside">
                 <page string="Parâmetros">
                     <group>
-                        <group>
+                        <group name="general" string="General Information">
                             <field name="region_type" />
-                            <field name="type" />
-                            <field name="restricted" />
-                            <field name="pickup" />
-                            <field name="delivery" />
+                            <field name="freight_type" />
+                            <field name="has_delivery_restriction" />
+                            <field
+                                name="restriction_note"
+                                attrs="{'invisible': [('has_delivery_restriction', '=', False)]}"
+                            />
+                            <field name="enabled_pickup" />
                         </group>
-                        <group string="Deadlines and Quantities">
-                            <field name="deadline1" />
-                            <field name="deadline2" />
-                            <field name="quantity" />
+                        <group name="deadlines" string="Deadlines and Quantities">
+                            <field name="delivery_deadline" />
+                            <field name="toll_quantity" />
                         </group>
-                        <group string="Values">
-                            <field name="value_td" />
-                            <field name="value_su" />
-                            <field name="value_pickup" />
+                        <group name="values" string="Values">
+                            <field name="additional_cost" />
+                            <field name="delivery_value" />
                         </group>
-                        <field name="square" />
+                        <group name="commercial" string="Commercial Information">
+                            <field name="commercial_area" />
+                        </group>
                     </group>
                 </page>
             </notebook>
         </field>
     </record>
+
 <!--
     <record model="ir.ui.view" id="tms_route_search_view">
         <field name="model">tms.route</field>

@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_route_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-13 16:09+0000\n"
+"PO-Revision-Date: 2025-02-13 13:16-0300\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__commercial_area
+msgid "Commercial Area"
+msgstr "Praça Comercial"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Commercial Information"
+msgstr "Informações Comerciais"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Deadlines and Quantities"
+msgstr "Prazos e Quantidades"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery
+msgid "Delivery"
+msgstr "Entrega"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_deadline
+msgid "Delivery Deadline"
+msgstr "Prazo de Entrega"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__display_name
+msgid "Display Name"
+msgstr "Nome Exibido"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__ecommerce_deadline
+msgid "E-Commerce Deadline"
+msgstr "Prazo final do E-Commerce"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__freight_type
+msgid "Freight Type"
+msgstr "Tipo de Frete"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "General Information"
+msgstr "Informações Gerais"
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__hub
+msgid "Hub"
+msgstr "Pólo"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__inland
+msgid "Inland"
+msgstr "Interior"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Parâmetros"
+msgstr "Parâmetros"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__pickup
+msgid "Pickup"
+msgstr "Coleta"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_value
+msgid "Pickup/Delivery Value"
+msgstr "Valor da Coleta/Entrega"
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__region
+msgid "Region"
+msgstr "Região"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__region_type
+msgid "Region Type"
+msgstr "Tipo de Região"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__restricted
+msgid "Restricted"
+msgstr "Restrito"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__suframa_value
+msgid "Suframa Value"
+msgstr "Valor da Suframa"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__tda_value
+msgid "TDA Value"
+msgstr "Valor TDA"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__toll_quantity
+msgid "Toll Quantity"
+msgstr "Quantidade de Pedágio"
+
+#. module: tms_route_extended
+#: model:ir.model,name:tms_route_extended.model_tms_route
+msgid "Transport Management System Route"
+msgstr "Rota do Sistema de Gerenciamento de Transporte"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Values"
+msgstr "Valores"
