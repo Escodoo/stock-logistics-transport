@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 16:09+0000\n"
-"PO-Revision-Date: 2025-02-13 16:09+0000\n"
+"POT-Creation-Date: 2025-02-17 23:44+0000\n"
+"PO-Revision-Date: 2025-02-17 23:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__commercial_area
-msgid "Commercial Area"
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__additional_cost
+msgid "Additional Delivery Cost"
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__freight_type__both
+msgid "Both"
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__freight_type__cif
+msgid "CIF"
 msgstr ""
 
 #. module: tms_route_extended
@@ -31,13 +41,13 @@ msgid "Deadlines and Quantities"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery
-msgid "Delivery"
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_deadline
+msgid "Delivery Deadline (days)"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_deadline
-msgid "Delivery Deadline"
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__has_delivery_restriction
+msgid "Delivery Restriction"
 msgstr ""
 
 #. module: tms_route_extended
@@ -46,8 +56,18 @@ msgid "Display Name"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__ecommerce_deadline
-msgid "E-Commerce Deadline"
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__additional_cost
+msgid "Extra cost due to delivery difficulties, tolls, or services."
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__freight_type__fob
+msgid "FOB"
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__delivery_value
+msgid "Fee charged for pickup or delivery services on this route."
 msgstr ""
 
 #. module: tms_route_extended
@@ -71,6 +91,26 @@ msgid "ID"
 msgstr ""
 
 #. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__commercial_area
+msgid "Identifies the commercial area served by this route."
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__enabled_pickup
+msgid "Indicates if pickup service is available for this route."
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__freight_type
+msgid "Indicates the type of freight agreement for this route."
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__has_delivery_restriction
+msgid "Indicates whether there are delivery restrictions on this route."
+msgstr ""
+
+#. module: tms_route_extended
 #: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__inland
 msgid "Inland"
 msgstr ""
@@ -81,18 +121,33 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__delivery_deadline
+msgid "Number of days required to complete delivery on this route."
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__toll_quantity
+msgid "Number of tolls on this route."
+msgstr ""
+
+#. module: tms_route_extended
 #: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
 msgid "Parâmetros"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__pickup
-msgid "Pickup"
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__enabled_pickup
+msgid "Pickup Enabled"
 msgstr ""
 
 #. module: tms_route_extended
 #: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_value
-msgid "Pickup/Delivery Value"
+msgid "Pickup/Delivery Fee"
+msgstr ""
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__restriction_note
+msgid "Provides additional information about any delivery restrictions."
 msgstr ""
 
 #. module: tms_route_extended
@@ -106,23 +161,23 @@ msgid "Region Type"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__restricted
-msgid "Restricted"
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__restriction_note
+msgid "Restriction Notes"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__suframa_value
-msgid "Suframa Value"
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__commercial_area
+msgid "Sales Area"
 msgstr ""
 
 #. module: tms_route_extended
-#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__tda_value
-msgid "TDA Value"
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__region_type
+msgid "Specifies the type of region for this route."
 msgstr ""
 
 #. module: tms_route_extended
 #: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__toll_quantity
-msgid "Toll Quantity"
+msgid "Toll Count"
 msgstr ""
 
 #. module: tms_route_extended
