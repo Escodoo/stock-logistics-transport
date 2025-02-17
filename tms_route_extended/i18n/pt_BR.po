@@ -1,0 +1,193 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tms_route_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-17 23:44+0000\n"
+"PO-Revision-Date: 2025-02-17 20:48-0300\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__additional_cost
+msgid "Additional Delivery Cost"
+msgstr "Custo Adicional de Entrega"
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__freight_type__both
+msgid "Both"
+msgstr "Ambos"
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__freight_type__cif
+msgid "CIF"
+msgstr "CIF"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Commercial Information"
+msgstr "Informações Comerciais"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Deadlines and Quantities"
+msgstr "Prazos e Quantidades"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_deadline
+msgid "Delivery Deadline (days)"
+msgstr "Prazo de entrega (dias)"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__has_delivery_restriction
+msgid "Delivery Restriction"
+msgstr "Restrição de Entrega"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__display_name
+msgid "Display Name"
+msgstr "Nome Exibido"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__additional_cost
+msgid "Extra cost due to delivery difficulties, tolls, or services."
+msgstr "Custo extra devido a dificuldades de entrega, pedágios ou serviços."
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__freight_type__fob
+msgid "FOB"
+msgstr "FOB"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__delivery_value
+msgid "Fee charged for pickup or delivery services on this route."
+msgstr "Taxa cobrada por serviços de coleta ou entrega nessa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__freight_type
+msgid "Freight Type"
+msgstr "Tipo de Frete"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "General Information"
+msgstr "Informações Gerais"
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__hub
+msgid "Hub"
+msgstr "Pólo"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__commercial_area
+msgid "Identifies the commercial area served by this route."
+msgstr "Identifica a área comercial atendida por essa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__enabled_pickup
+msgid "Indicates if pickup service is available for this route."
+msgstr "Indica se o serviço de coleta está disponível para essa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__freight_type
+msgid "Indicates the type of freight agreement for this route."
+msgstr "Indica o tipo de acordo de frete para essa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__has_delivery_restriction
+msgid "Indicates whether there are delivery restrictions on this route."
+msgstr "Indica se há restrições de entrega nessa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__inland
+msgid "Inland"
+msgstr "Interior"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__delivery_deadline
+msgid "Number of days required to complete delivery on this route."
+msgstr "Número de dias necessários para concluir a entrega nessa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__toll_quantity
+msgid "Number of tolls on this route."
+msgstr "Número de pedágios nessa rota."
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Parâmetros"
+msgstr "Parâmetros"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__enabled_pickup
+msgid "Pickup Enabled"
+msgstr "Coleta Ativada"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__delivery_value
+msgid "Pickup/Delivery Fee"
+msgstr "Taxa de Coleta/Entrega"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__restriction_note
+msgid "Provides additional information about any delivery restrictions."
+msgstr "Fornece informações adicionais sobre quaisquer restrições de entrega."
+
+#. module: tms_route_extended
+#: model:ir.model.fields.selection,name:tms_route_extended.selection__tms_route__region_type__region
+msgid "Region"
+msgstr "Região"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__region_type
+msgid "Region Type"
+msgstr "Tipo de Região"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__restriction_note
+msgid "Restriction Notes"
+msgstr "Notas de Restrição"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__commercial_area
+msgid "Sales Area"
+msgstr "Área de Vendas"
+
+#. module: tms_route_extended
+#: model:ir.model.fields,help:tms_route_extended.field_tms_route__region_type
+msgid "Specifies the type of region for this route."
+msgstr "Especifica o tipo de região para essa rota."
+
+#. module: tms_route_extended
+#: model:ir.model.fields,field_description:tms_route_extended.field_tms_route__toll_quantity
+msgid "Toll Count"
+msgstr "Contagem de Pedágio"
+
+#. module: tms_route_extended
+#: model:ir.model,name:tms_route_extended.model_tms_route
+msgid "Transport Management System Route"
+msgstr "Rota do Sistema de Gerenciamento de Transporte"
+
+#. module: tms_route_extended
+#: model_terms:ir.ui.view,arch_db:tms_route_extended.tms_route_form_view
+msgid "Values"
+msgstr "Valores"
