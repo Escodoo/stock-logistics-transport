@@ -4,10 +4,12 @@
 from odoo import api, fields, models
 
 TMS_DRIVER_LICENSE_TYPES = [
+    ("ACC", "ACC - Mopeds"),
     ("A", "A - Motorcycles"),
     ("B", "B - Automobiles"),
     ("C", "C - Truck"),
     ("D", "D - Bus"),
+    ("E", "E - Articulated Vehicles"),
 ]
 TMS_LOCATION_TYPES = [("terrestrial", "Terrestrial")]
 
