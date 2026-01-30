@@ -199,6 +199,11 @@ msgid "A - Motorcycles"
 msgstr "A - Motocicletas"
 
 #. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__res_partner__tms_driver_license_type__acc
+msgid "ACC - Mopeds"
+msgstr "ACC - Ciclomotores"
+
+#. module: tms
 #: model:ir.model.fields,field_description:tms.field_tms_order__message_needaction
 msgid "Action Needed"
 msgstr "Ação Necessária"
@@ -723,6 +728,11 @@ msgstr "Vence Dentro de 7 Dias"
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_form
 msgid "Duration"
 msgstr "Duração"
+
+#. module: tms
+#: model:ir.model.fields.selection,name:tms.selection__res_partner__tms_driver_license_type__e
+msgid "E - Articulated Vehicles"
+msgstr "E - Veiculos Articulados"
 
 #. module: tms
 #: model_terms:ir.ui.view,arch_db:tms.tms_order_view_kanban
